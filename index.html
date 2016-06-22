@@ -8,8 +8,20 @@
 
     <style>
 
+        body {
+            padding-top: 5vw;
+        }
+
         .test-input {
             display: block;
+            width: 100%;
+            transition: 0.3s;
+            padding: 5px;
+        }
+
+        .test-input:focus {
+            outline: 1px solid blue;
+            background: #EBEBEB;
         }
 
         .clear-autocomplete {
@@ -53,6 +65,11 @@
             color: red !important;
         }
 
+        md-autocomplete.error input:hover {
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
     </style>
 
 </head>
@@ -71,7 +88,7 @@
             .run(function($rootScope) {
                 $rootScope.autocompleteItems = [ 'Broccoli', 'Cabbage', 'Carrot', 'Lettuce', 'Spinach' ];
                 $rootScope.items             = [];
-                $rootScope.searchText        = '';
+                $rootScope.searchText        = 'Some predefined value';
             })
             .directive('mdBlur', function($mdUtil, $timeout) {
                 return {
@@ -102,7 +119,7 @@
                             var element    = $element[0];
                             var nativeFocus = $mdAutocompleteCtrl.focus;
 
-                            $mdAutocompleteCtrl.focus = function() {
+                            $mdAutocompleteCtrl.focus = function(e) {
 
                                 // prevent selection
                                 var value = $element.find('input').val();
@@ -119,7 +136,62 @@
                     }
                 };
             })
-        .directive('clearAutocomplete', clearAutocomplete);
+
+            .directive('mdAutocomplete', function () {
+                var ddo = {
+                    link: link,
+                    require: 'mdAutocomplete'
+                };
+
+                return ddo;
+
+                function link( scope, element, attrs, ctrl ) {
+
+                    element.on('keydown', function onKeyDown(e) {
+
+                        var isTabPressed = e.keyCode === 9;
+                        var inputValue = scope.searchText;
+
+                        if ( inputValue ) return;
+
+                        if (isTabPressed) {
+                            e.preventDefault();
+                            // ctrl.index = 3;
+
+                            ctrl.listEnter();
+                        }
+
+                    });
+
+                }
+            })
+
+        .directive('clearAutocomplete', clearAutocomplete)
+        .directive('mdHideAutocompleteOnEnter', function () {
+            return function (scope, element, attrs) {
+                element.bind("keydown keypress keyup", function (event) {
+                    console.log(event.keyCode);
+
+                    if (event.keyCode === 40 || event.keyCode === 38) {
+                        scope.$apply(function (){
+                            scope.$$childHead.$mdAutocompleteCtrl.hidden = false;
+                        });
+
+                        event.preventDefault();
+
+                        return;
+                    }
+
+                    if (event.which === 13) {
+                        scope.$apply(function (){
+                            scope.$$childHead.$mdAutocompleteCtrl.hidden = true; // $scope  modified to scope
+                        });
+
+                        event.preventDefault();
+                    }
+                });
+            };
+        });
 
         function clearAutocomplete($parse, $rootScope) {
         return {
@@ -133,9 +205,9 @@
 
             scope.$watch(searchTextModel, function(searchText) {
                 if (searchText && searchText !== '' && searchText !== null) {
-                button.addClass('visible');
+                    button.addClass('visible');
                 } else {
-                button.removeClass('visible');
+                    button.removeClass('visible');
                 }
             });
 
@@ -146,17 +218,40 @@
                 });
 
             });
-            }
         }
-        }
+    }
+}
+
 
     </script>
 
+    <input type="text" placeholder="input for keyboard navigation test" class="test-input" id="temp" autofocus>
     <input type="text" placeholder="input for keyboard navigation test" class="test-input">
-    <input type="text" placeholder="input for keyboard navigation test" class="test-input">
-    <input type="text" placeholder="input for keyboard navigation test" class="test-input">
-    <input type="text" placeholder="input for keyboard navigation test" class="test-input">
-    <input type="text" placeholder="input for keyboard navigation test" class="test-input">
+
+    <md-autocomplete
+            required
+            clear-autocomplete
+            md-hide-autocomplete-on-enter
+            md-blur
+            md-focus
+            md-input-name="autocompleteField"
+            md-items="item in autocompleteItems"
+            md-item-text="item"
+            md-no-cache="true"
+            md-min-length="0"
+            placeholder="Single picker"
+            md-match-case-insensitive="true"
+            md-select-on-match="true"
+            md-floating-label="Single picker"
+        >
+            <md-item-template>
+                <span md-highlight-flags="^i" md-highlight-text="searchText">{{ item }}</span>
+        </md-item-template>
+
+        <md-not-found>
+            No matches found.
+        </md-not-found>
+        </md-autocomplete>
 
     <md-autocomplete
             required
@@ -188,7 +283,10 @@
             <!--     <div ng&#45;message="maxlength">Your entry is too long.</div> -->
             <!-- </div> -->
 
-        </md-autocomplete>
+    </md-autocomplete>
+
+<!--  http://codepen.io/topherfangio/pen/qOyrqE?editors=101 -->
+<!-- http://stackoverflow.com/questions/31858787/angular&#45;material&#45;md&#45;autocomplete&#45;how&#45;to&#45;hide&#45;md&#45;autocomplete&#45;suggestions&#45;on&#45;e -->
 
 </body>
 </html>

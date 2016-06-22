@@ -7,6 +7,11 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
 
     <style>
+
+        .test-input {
+            display: block;
+        }
+
         .clear-autocomplete {
             position: absolute;
             top: 20%;
@@ -98,10 +103,12 @@
                             var nativeFocus = $mdAutocompleteCtrl.focus;
 
                             $mdAutocompleteCtrl.focus = function() {
-                                nativeFocus.call($mdAutocompleteCtrl);
 
-                                console.log( $element );
-                                console.log( $scope );
+                                // prevent selection
+                                var value = $element.find('input').val();
+                                $element.find('input').val(value);
+
+                                nativeFocus.call($mdAutocompleteCtrl);
 
                                 $mdUtil.nextTick(function () {
                                     $scope.$eval($attributes.mdBlur, {"$mdAutocomplete": $mdAutocompleteCtrl });
@@ -145,6 +152,12 @@
 
     </script>
 
+    <input type="text" placeholder="input for keyboard navigation test" class="test-input">
+    <input type="text" placeholder="input for keyboard navigation test" class="test-input">
+    <input type="text" placeholder="input for keyboard navigation test" class="test-input">
+    <input type="text" placeholder="input for keyboard navigation test" class="test-input">
+    <input type="text" placeholder="input for keyboard navigation test" class="test-input">
+
     <md-autocomplete
             required
             clear-autocomplete
@@ -176,34 +189,6 @@
             <!-- </div> -->
 
         </md-autocomplete>
-
-        <md-autocomplete
-            clear-autocomplete
-            required
-            md-blur
-            md-focus
-            md-autoselect="true"
-            md-input-name="autocompleteField"
-            md-search-text="searchText"
-            md-items="item in autocompleteItems"
-            md-item-text="item"
-            md-no-cache="true"
-            md-min-length="0"
-            placeholder="Single picker"
-            md-match-case-insensitive="true"
-            md-select-on-match="true"
-            md-floating-label="Single picker"
-        >
-            <md-item-template>
-                <span md-highlight-flags="^i" md-highlight-text="searchText">{{ item }}</span>
-            </md-item-template>
-
-            <md-not-found>
-                No matches found.
-            </md-not-found>
-
-        </md-autocomplete>
-
 
 </body>
 </html>

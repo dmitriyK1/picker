@@ -6,10 +6,6 @@
 - по клику - открыть; 
   по double click - редактирование
 
-- добавить фильтрацию
-
-- добавить not found
-
 - добавить error messages
 
 - показывать clear button (svg)

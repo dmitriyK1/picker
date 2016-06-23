@@ -3,8 +3,8 @@
 <head>
     <meta name="viewport" content="initial-scale=1" />
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.0-rc3/angular-material.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.0-rc4/angular-material.css" media="all">
 
     <style>
 
@@ -17,6 +17,7 @@
             width: 100%;
             transition: 0.3s;
             padding: 5px;
+            margin-bottom: 0.5rem;
         }
 
         .test-input:focus {
@@ -65,9 +66,15 @@
             color: red !important;
         }
 
-        md-autocomplete.error input:hover {
+        md-autocomplete input:hover:not(:focus) {
+            color: orange;
             text-decoration: underline;
             cursor: pointer;
+        }
+
+        md-autocomplete.error input:hover {
+            text-decoration: none;
+            cursor: default;
         }
 
     </style>
@@ -80,7 +87,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-route.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-aria.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-messages.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.0-rc3/angular-material.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/angular&#45;material/1.1.0&#45;rc4/angular&#45;material.js"></script> -->
+    <script src="angular-material.js"></script>
 
     <script>
         angular
@@ -88,9 +96,12 @@
             .run(function($rootScope) {
                 $rootScope.autocompleteItems = [ 'Broccoli', 'Cabbage', 'Carrot', 'Lettuce', 'Spinach' ];
                 $rootScope.items             = [];
-                $rootScope.searchText        = 'Some predefined value';
+                // $rootScope.searchText     = 'Some predefined value';
+                $rootScope.searchText        = '';
+                $rootScope.isDisabled        = false
+                $rootScope.noCache           = false;
             })
-            .directive('mdBlur', function($mdUtil, $timeout) {
+            .directive('mdBlur', function($mdUtil, $timeout, $rootScope) {
                 return {
                     require: "^mdAutocomplete",
                     link: function($scope, $element, $attributes, $mdAutocompleteCtrl) {
@@ -100,10 +111,19 @@
                             var nativeBlur = $mdAutocompleteCtrl.blur;
 
                             $mdAutocompleteCtrl.blur = function() {
+
+                                var searchText = $mdAutocompleteCtrl.scope.searchText ;
+                                var isItemFound = ~$rootScope.autocompleteItems.indexOf(searchText);
+
                                 nativeBlur.call($mdAutocompleteCtrl);
                                 $mdUtil.nextTick(function () {
                                     $scope.$eval($attributes.mdBlur, {"$mdAutocomplete": $mdAutocompleteCtrl });
-                                    $element.addClass('error');
+
+                                    if (!isItemFound) {
+                                        $scope.searchTextInvalid = true;
+                                        $element.addClass('error');
+                                    }
+
                                 });
                             };
                         });
@@ -115,8 +135,8 @@
                     require: "^mdAutocomplete",
                     link: function($scope, $element, $attributes, $mdAutocompleteCtrl) {
                         $timeout(function() {
-                            var input      = $element.find("input");
-                            var element    = $element[0];
+                            var input       = $element.find("input");
+                            var element     = $element[0];
                             var nativeFocus = $mdAutocompleteCtrl.focus;
 
                             $mdAutocompleteCtrl.focus = function(e) {
@@ -137,7 +157,7 @@
                 };
             })
 
-            .directive('mdAutocomplete', function () {
+            .directive('mdAutocomplete', function ($mdConstant) {
                 var ddo = {
                     link: link,
                     require: 'mdAutocomplete'
@@ -149,16 +169,19 @@
 
                     element.on('keydown', function onKeyDown(e) {
 
-                        var isTabPressed = e.keyCode === 9;
                         var inputValue = scope.searchText;
 
-                        if ( inputValue ) return;
+                        if (inputValue) {
+                            scope.$$childHead.$mdAutocompleteCtrl.hidden = true;
+                            scope.$digest();
+                            return;
+                        }
 
-                        if (isTabPressed) {
-                            e.preventDefault();
-                            // ctrl.index = 3;
+                        var isTabPressed     = e.keyCode === $mdConstant.KEY_CODE.TAB;
+                        var isDropdownHidden = scope.$$childHead.$mdAutocompleteCtrl.hidden;
 
-                            ctrl.listEnter();
+                        if (!isDropdownHidden && isTabPressed) {
+                            // e.preventDefault();
                         }
 
                     });
@@ -167,58 +190,67 @@
             })
 
         .directive('clearAutocomplete', clearAutocomplete)
-        .directive('mdHideAutocompleteOnEnter', function () {
-            return function (scope, element, attrs) {
+        .directive('mdHideAutocompleteOnEnter', function ($timeout, $mdConstant) {
+            var ddo = {
+                link: link,
+                require: 'mdAutocomplete'
+            };
+
+            return ddo;
+
+            function link (scope, element, attrs, ctrl) {
                 element.bind("keydown keypress keyup", function (event) {
-                    console.log(event.keyCode);
+                    var isDropdownHidden = scope.$$childHead.$mdAutocompleteCtrl.hidden;
 
-                    if (event.keyCode === 40 || event.keyCode === 38) {
+                    // enter
+                    if (!isDropdownHidden && event.which === $mdConstant.KEY_CODE.ENTER) {
                         scope.$apply(function (){
-                            scope.$$childHead.$mdAutocompleteCtrl.hidden = false;
+                            scope.$$childHead.$mdAutocompleteCtrl.hidden = true; // $scope  modified to scope
+                            // element.find('input').blur();
                         });
-
-                        event.preventDefault();
 
                         return;
                     }
 
-                    if (event.which === 13) {
-                        scope.$apply(function (){
-                            scope.$$childHead.$mdAutocompleteCtrl.hidden = true; // $scope  modified to scope
-                        });
-
+                    // up & down
+                    if (isDropdownHidden && (event.keyCode === $mdConstant.KEY_CODE.UP_ARROW || event.keyCode === $mdConstant.KEY_CODE.DOWN_ARROW) ) {
                         event.preventDefault();
+
+                        scope.$apply(function (){
+                            ctrl.index = 0;
+                            scope.$$childHead.$mdAutocompleteCtrl.hidden = false;
+                        });
                     }
+
                 });
             };
         });
 
         function clearAutocomplete($parse, $rootScope) {
-        return {
-            restrict: 'A',
-            link: function(scope, element, attrs) {
-            var button = angular.element('<md-button>').addClass('clear-autocomplete');
-            button.append('<i class="material-icons">X</i>');
-            element.append(button);
+            return {
+                restrict: 'A',
+                link: function(scope, element, attrs) {
+                var button = angular.element('<md-button>').addClass('clear-autocomplete');
+                button.append('<i class="material-icons">X</i>');
+                element.append(button);
 
-            var searchTextModel = $parse(attrs.mdSearchText);
+                var searchTextModel = $parse(attrs.mdSearchText);
 
-            scope.$watch(searchTextModel, function(searchText) {
-                if (searchText && searchText !== '' && searchText !== null) {
-                    button.addClass('visible');
-                } else {
-                    button.removeClass('visible');
-                }
-            });
-
-            button.on('click', function() {
-
-                $rootScope.$apply(function() {
-                    searchTextModel.assign(scope, undefined);
+                scope.$watch(searchTextModel, function(searchText) {
+                    if (searchText && searchText !== '' && searchText !== null) {
+                        button.addClass('visible');
+                    } else {
+                        button.removeClass('visible');
+                    }
                 });
 
-            });
-        }
+                button.on('click', function() {
+                    $rootScope.$apply(function() {
+                        searchTextModel.assign(scope, undefined);
+                    });
+
+                });
+            }
     }
 }
 
@@ -237,53 +269,24 @@
             md-input-name="autocompleteField"
             md-items="item in autocompleteItems"
             md-item-text="item"
-            md-no-cache="true"
             md-min-length="0"
             placeholder="Single picker"
             md-match-case-insensitive="true"
             md-select-on-match="true"
             md-floating-label="Single picker"
+            md-no-cache="noCache"
+            ng-disabled="isDisabled"
         >
+
             <md-item-template>
                 <span md-highlight-flags="^i" md-highlight-text="searchText">{{ item }}</span>
-        </md-item-template>
-
-        <md-not-found>
-            No matches found.
-        </md-not-found>
-        </md-autocomplete>
-
-    <md-autocomplete
-            required
-            clear-autocomplete
-            md-blur
-            md-focus
-            md-input-name="autocompleteField"
-            md-search-text="searchText"
-            md-items="item in autocompleteItems"
-            md-item-text="item"
-            md-no-cache="true"
-            md-min-length="0"
-            placeholder="Single picker"
-            md-match-case-insensitive="true"
-            md-select-on-match="true"
-            md-floating-label="Single picker"
-        >
-            <md-item-template>
-                <span md-highlight-flags="^i" md-highlight-text="searchText">{{ item }}</span>
-        </md-item-template>
-
-        <md-not-found>
-            No matches found.
-        </md-not-found>
-
-            <!-- <div ng&#45;messages="searchForm.autocompleteField.$error" ng&#45;if="searchForm.autocompleteField.$touched"> -->
-            <!--     <div ng&#45;message="required">You <b>must</b> have a favorite state.</div> -->
-            <!--     <div ng&#45;message="minlength">Your entry is not long enough.</div> -->
-            <!--     <div ng&#45;message="maxlength">Your entry is too long.</div> -->
-            <!-- </div> -->
-
+            </md-item-template>
     </md-autocomplete>
+
+    <div layout="column" layout-padding>
+        <md-checkbox ng-model="noCache">Disable caching of queries?</md-checkbox>
+        <md-checkbox ng-model="isDisabled">Disable the input?</md-checkbox>
+    </div>
 
 <!--  http://codepen.io/topherfangio/pen/qOyrqE?editors=101 -->
 <!-- http://stackoverflow.com/questions/31858787/angular&#45;material&#45;md&#45;autocomplete&#45;how&#45;to&#45;hide&#45;md&#45;autocomplete&#45;suggestions&#45;on&#45;e -->

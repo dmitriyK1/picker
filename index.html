@@ -184,6 +184,10 @@
                                 $mdUtil.nextTick(function () {
                                     $scope.$eval($attributes.mdBlur, {"$mdAutocomplete": $mdAutocompleteCtrl });
                                     $element.removeClass('error');
+
+                                    $timeout(function() {
+                                        $scope.searchTextValid = false;
+                                    }, 300);
                                 });
                             };
                         });
@@ -203,6 +207,7 @@
 
                     scope.onValueClick = function(e, isValid) {
                         if (!isValid) return;
+                        if (e.target.tagName !== 'INPUT' || !scope.searchText) return;
 
                         element.find('input').blur();
 

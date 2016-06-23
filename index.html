@@ -110,6 +110,7 @@
                 $rootScope.autocompleteItems = [ 'Broccoli', 'Cabbage', 'Carrot', 'Lettuce', 'Spinach' ];
                 $rootScope.items             = [];
                 $rootScope.searchText        = '';
+                $rootScope.searchText2       = 'Some value';
                 $rootScope.isDisabled        = false
                 $rootScope.noCache           = true;
                 $rootScope.querySearch       = querySearch;
@@ -151,8 +152,10 @@
                                     $scope.$eval($attributes.mdBlur, {"$mdAutocomplete": $mdAutocompleteCtrl });
 
                                     if (!isItemFound) {
-                                        $scope.searchTextInvalid = true;
+                                        $scope.searchTextValid = false;
                                         $element.addClass('error');
+                                    } else {
+                                        $scope.searchTextValid = true;
                                     }
 
                                 });
@@ -197,6 +200,14 @@
                 return ddo;
 
                 function link( scope, element, attrs, ctrl ) {
+
+                    scope.onValueClick = function(e, isValid) {
+                        if (!isValid) return;
+
+                        element.find('input').blur();
+
+                        alert('Redirecting...');
+                    };
 
                     element.on('keydown', function onKeyDown(e) {
 
@@ -304,6 +315,7 @@
                 md-select-on-match="true"
                 md-no-cache="noCache"
                 md-floating-label="Single picker"
+                ng-click="onValueClick($event, searchTextValid)"
                 ng-disabled="isDisabled">
 
                 <md-item-template>
@@ -319,6 +331,28 @@
                     <a ng-click="ctrl.newState(searchText)">Create a new one!</a>
                 </md-not-found>
         </md-autocomplete>
+
+        <md-autocomplete
+                required
+                clear-autocomplete
+                md-hide-autocomplete-on-enter
+                md-blur
+                md-focus
+                md-search-text="searchText2"
+                md-input-name="autocomplete"
+                md-items="item in querySearch(searchText2)"
+                md-item-text="item"
+                md-min-length="0"
+                placeholder="Single picker"
+                md-match-case-insensitive="true"
+                md-select-on-match="true"
+                md-no-cache="noCache"
+                md-floating-label="Single picker"
+                ng-click="onValueClick($event, searchTextValid)"
+                ng-disabled="isDisabled">
+        </md-autocomplete>
+
+
     </form>
 
     <div layout="column" layout-padding>

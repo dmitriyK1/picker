@@ -272,7 +272,7 @@
                     <span md-highlight-flags="^i" md-highlight-text="searchText">{{ item }}</span>
                 </md-item-template>
 
-                <div ng-messages="autocompleteForm.autocomplete.$error">
+                <div ng-messages="autocompleteForm.autocomplete.$error" ng-if="autocompleteForm.autocomplete.$touched">
                     <div ng-message="required">This field is required</div>
                 </div>
 

@@ -319,28 +319,6 @@
                     <a ng-click="ctrl.newState(searchText)">Create a new one!</a>
                 </md-not-found>
         </md-autocomplete>
-
-        <md-autocomplete
-                required
-                md-hide-autocomplete-on-enter
-                md-blur
-                md-focus
-                md-search-text="searchText"
-                md-input-name="autocomplete"
-                md-items="item in querySearch(searchText)"
-                md-item-text="item"
-                md-min-length="0"
-                placeholder="Single picker"
-                md-match-case-insensitive="true"
-                md-select-on-match="true"
-                md-no-cache="noCache"
-                ng-disabled="isDisabled">
-
-                <md-item-template>
-                    <span md-highlight-flags="^i" md-highlight-text="searchText">{{ item }}</span>
-                </md-item-template>
-        </md-autocomplete>
-
     </form>
 
     <div layout="column" layout-padding>

@@ -142,7 +142,7 @@ function clearAutocomplete($parse, $compile) {
     return {
         restrict: 'A',
         link: function(scope, element, attrs) {
-            var template = '<md-button class="md-icon-button clear-autocomplete"><md-icon md-svg-icon="md-close"></md-icon></md-button>';
+            var template = '<md-button tabindex="-1" class="md-icon-button clear-autocomplete"><md-icon md-svg-icon="md-close"></md-icon></md-button>';
 
             var linkFn = $compile(template);
             var button = linkFn(scope);

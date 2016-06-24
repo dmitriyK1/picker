@@ -1,83 +1,85 @@
-        body {
-            padding-top: 5vw;
-        }
+body {
+        padding-top: 5vw;
+}
 
-        .md-autocomplete-suggestions a {
-            text-decoration: underline;
-        }
+.md-virtual-repeat-container.md-autocomplete-suggestions-container {
+        left: 4px !important;
+}
 
-        .test-input {
-            display: block;
-            width: 100%;
-            transition: background 0.3s ease-out;
-            padding: 5px;
-            margin-bottom: 0.5rem;
-            border: 1px gray solid;
-        }
+.md-autocomplete-suggestions a {
+        text-decoration: underline;
+}
 
-        .test-input:focus {
-            outline: 0;
-            border: 1px solid blue;
-            background: #EBEBEB;
-        }
+.test-input {
+        display: block;
+        width: 100%;
+        transition: background 0.3s ease-out;
+        padding: 5px;
+        margin-bottom: 0.5rem;
+        border: 1px gray solid;
+}
 
-        .clear-autocomplete {
-            position: absolute;
-            top: 10% !important;
-            right: 8px;
-            visibility: hidden;
-            opacity: 0;
-            transition: visibility 0s, opacity 0.25s linear;
-        }
+.test-input:focus {
+        outline: 0;
+        border: 1px solid blue;
+        background: #EBEBEB;
+}
 
-        md-autocomplete.md-default-theme button.clear-autocomplete:after,
-        md-autocomplete button.clear-autocomplete:after {
-            background: none;
-        }
+.clear-autocomplete {
+        position: absolute;
+        top: 10% !important;
+        right: 8px;
+        visibility: hidden;
+        opacity: 0;
+        transition: visibility 0s, opacity 0.25s linear;
+}
 
-        .clear-autocomplete.visible {
-            visibility: visible;
-            opacity: 1;
-            cursor: pointer;
-        }
+md-autocomplete.md-default-theme button.clear-autocomplete:after,
+md-autocomplete button.clear-autocomplete:after {
+        background: none;
+}
 
-        .clear-autocomplete i {
-            font-size: 20px;
-        }
+.clear-autocomplete.visible {
+        visibility: visible;
+        opacity: 1;
+        cursor: pointer;
+}
 
-        .clear-autocomplete {
-            cursor: pointer;
-            -webkit-user-select: none;
-        }
+.clear-autocomplete i {
+        font-size: 20px;
+}
 
-        .hidden {
-            display: none !important;
-        }
+.clear-autocomplete {
+        cursor: pointer;
+        -webkit-user-select: none;
+}
 
-        [md-highlight-text] .highlight {
-            color: red !important;
-            font-weight: bold;
-        }
+.hidden {
+        display: none !important;
+}
 
-        md-autocomplete input {
-            transition: color 0.3s;
-        }
+[md-highlight-text] .highlight {
+        color: red !important;
+        font-weight: bold;
+}
 
-        md-autocomplete.error input {
-            color: red !important;
-        }
+md-autocomplete input {
+        transition: color 0.3s;
+}
 
-        md-autocomplete input:hover:not(:focus) {
-            color: orange;
-            text-decoration: underline;
-            text-decoration-style: dashed;
-            -webkit-text-decoration-style: dashed;
-            cursor: pointer;
-        }
+md-autocomplete.error input {
+        color: red !important;
+}
 
-        md-autocomplete.error input:hover {
-            text-decoration: none;
-            cursor: default;
-        }
+md-autocomplete input:hover:not(:focus) {
+        color: orange;
+        text-decoration: underline;
+        text-decoration-style: dashed;
+        -webkit-text-decoration-style: dashed;
+        cursor: pointer;
+}
 
-
+md-autocomplete.error input:hover {
+        text-decoration: none;
+        cursor: default;
+}

@@ -104,11 +104,6 @@ function mdAutocomplete($mdConstant) {
     };
 
     function link(scope, element, attrs, ctrl) {
-
-        scope.onSearchTextChange = function() {
-            console.log(scope.filteredItems);
-        };
-
         scope.onValueClick = function(e, isValid) {
             if (!isValid) return;
 
@@ -124,8 +119,6 @@ function mdAutocomplete($mdConstant) {
             if (!scope.filteredItems)                         return;
             if (scope.filteredItems.length !== 1)             return;
             if (scope.searchText === scope.filteredItems[0])  return;
-
-            console.log('fired');
 
             ctrl.select(0);
         });
@@ -146,7 +139,7 @@ function clearAutocomplete($parse, $compile) {
     return {
         restrict: 'A',
         link: function(scope, element, attrs) {
-            var template = '<md-button tabindex="-1" class="md-icon-button clear-autocomplete"><md-icon md-svg-icon="md-close"></md-icon></md-button>';
+            var template = '<md-button ng-hide="isDisabled" tabindex="-1" class="md-icon-button clear-autocomplete"><md-icon md-svg-icon="md-close"></md-icon></md-button>';
 
             var linkFn = $compile(template);
             var button = linkFn(scope);

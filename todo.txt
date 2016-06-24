@@ -1,8 +1,6 @@
 
 ? object link
 
-* убирать delete button когда disabled
-
 - добавить hints
 - по клику - открыть сделать с помощью div
 

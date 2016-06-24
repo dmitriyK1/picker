@@ -1,10 +1,9 @@
 
 ? object link
 
+* убирать delete button когда disabled
 
-- по tab autocomplete
 - добавить hints
-- убирать delete button когда disabled
 - по клику - открыть сделать с помощью div
 
 <!--- ! dropdown при открытии стрелками иногда показывает список только из текущего значения --->

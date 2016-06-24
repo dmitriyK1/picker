@@ -11,15 +11,15 @@ angular
 
 function runBlock($rootScope) {
     $rootScope.autocompleteItems = ['Broccoli', 'Cabbage', 'Carrot', 'Lettuce', 'Spinach'];
-    $rootScope.items             = [];
-    $rootScope.searchText        = '';
-    $rootScope.searchText2       = 'Some value';
-    $rootScope.isDisabled        = false;
-    $rootScope.noCache           = true;
-    $rootScope.querySearch       = querySearch;
+    $rootScope.searchText = '';
+    $rootScope.searchText2 = 'Some value';
+    $rootScope.isDisabled = false;
+    $rootScope.noCache = true;
+    $rootScope.querySearch = querySearch;
+    $rootScope.filteredItems;
 
     function querySearch(query) {
-        return query ? $rootScope.autocompleteItems.filter(createFilterFor(query)) : $rootScope.autocompleteItems;
+        return query ? $rootScope.filteredItems = $rootScope.autocompleteItems.filter(createFilterFor(query)) : $rootScope.autocompleteItems;
     }
 
     function createFilterFor(query) {
@@ -36,11 +36,11 @@ function mdBlur($mdUtil, $timeout, $rootScope) {
         require: "^mdAutocomplete",
         link: function($scope, $element, $attributes, $mdAutocompleteCtrl) {
             $timeout(function() {
-                var input      = $element.find("input");
+                var input = $element.find("input");
                 var nativeBlur = $mdAutocompleteCtrl.blur;
 
                 $mdAutocompleteCtrl.blur = function() {
-                    var searchText  = $mdAutocompleteCtrl.scope.searchText;
+                    var searchText = $mdAutocompleteCtrl.scope.searchText;
                     var isItemFound = ~$rootScope.autocompleteItems.indexOf(searchText);
 
                     nativeBlur.call($mdAutocompleteCtrl);
@@ -68,10 +68,10 @@ function mdFocus($mdUtil, $timeout) {
         require: "^mdAutocomplete",
         link: function($scope, $element, $attributes, $mdAutocompleteCtrl) {
             $timeout(function() {
-                var input       = $element.find("input");
+                var input = $element.find("input");
                 var nativeFocus = $mdAutocompleteCtrl.focus;
 
-                $mdAutocompleteCtrl.focus = function () {
+                $mdAutocompleteCtrl.focus = function() {
 
                     // prevent selection
                     // var value = $element.find('input').val();
@@ -97,21 +97,38 @@ function mdFocus($mdUtil, $timeout) {
     };
 }
 
-function mdAutocomplete() {
+function mdAutocomplete($mdConstant) {
     return {
         link: link,
         require: 'mdAutocomplete'
     };
 
-    function link(scope, element) {
+    function link(scope, element, attrs, ctrl) {
+
+        scope.onSearchTextChange = function() {
+            console.log(scope.filteredItems);
+        };
+
         scope.onValueClick = function(e, isValid) {
             if (!isValid) return;
+
             if (e.target.tagName !== 'INPUT' || !scope.searchText) return;
 
             element.find('input').blur();
 
             alert('Redirecting...');
         };
+
+        element.bind('keydown', function(event) {
+            if (event.keyCode !== $mdConstant.KEY_CODE.TAB)   return;
+            if (!scope.filteredItems)                         return;
+            if (scope.filteredItems.length !== 1)             return;
+            if (scope.searchText === scope.filteredItems[0])  return;
+
+            console.log('fired');
+
+            ctrl.select(0);
+        });
 
     }
 }
@@ -122,20 +139,7 @@ function mdHideAutocompleteOnEnter($mdConstant) {
         require: 'mdAutocomplete'
     };
 
-    function link(scope, element, attrs, ctrl) {
-        element.bind("keydown keypress keyup", function(event) {
-            // var isDropdownHidden = scope.$$childHead.$mdAutocompleteCtrl.hidden;
-
-            // if (isDropdownHidden && (event.keyCode === $mdConstant.KEY_CODE.UP_ARROW || event.keyCode === $mdConstant.KEY_CODE.DOWN_ARROW)) {
-            //     scope.$applyAsync(function() {
-            //         ctrl.scope.selectedItem = '';
-            //         ctrl.index = 0;
-            //         scope.$$childHead.$mdAutocompleteCtrl.hidden = false;
-            //     });
-            // }
-
-        });
-    }
+    function link(scope, element, attrs, ctrl) {}
 }
 
 function clearAutocomplete($parse, $compile) {

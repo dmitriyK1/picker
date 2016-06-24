@@ -40,23 +40,30 @@ function mdBlur($mdUtil, $timeout, $rootScope) {
                 var nativeBlur = $mdAutocompleteCtrl.blur;
 
                 $mdAutocompleteCtrl.blur = function() {
-                    var searchText = $mdAutocompleteCtrl.scope.searchText;
-                    var isItemFound = ~$rootScope.autocompleteItems.indexOf(searchText);
 
-                    nativeBlur.call($mdAutocompleteCtrl);
-                    $mdUtil.nextTick(function() {
-                        $scope.$eval($attributes.mdBlur, {
-                            "$mdAutocomplete": $mdAutocompleteCtrl
+                    $timeout(function() {
+
+                        var searchText = $mdAutocompleteCtrl.scope.searchText;
+                        var isItemFound = ~$rootScope.autocompleteItems.indexOf(searchText);
+
+                        nativeBlur.call($mdAutocompleteCtrl);
+                        $mdUtil.nextTick(function() {
+                            $scope.$eval($attributes.mdBlur, {
+                                "$mdAutocomplete": $mdAutocompleteCtrl
+                            });
+
+                            if (!isItemFound) {
+                                $scope.searchTextValid = false;
+                                $element.addClass('error');
+                            } else {
+                                $scope.searchTextValid = true;
+                            }
+
                         });
 
-                        if (!isItemFound) {
-                            $scope.searchTextValid = false;
-                            $element.addClass('error');
-                        } else {
-                            $scope.searchTextValid = true;
-                        }
+                    }, 100);
 
-                    });
+
                 };
             });
         }

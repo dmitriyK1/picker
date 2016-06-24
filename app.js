@@ -11,25 +11,22 @@ angular
 
 function runBlock($rootScope) {
     $rootScope.autocompleteItems = ['Broccoli', 'Cabbage', 'Carrot', 'Lettuce', 'Spinach'];
-    $rootScope.items = [];
-    $rootScope.searchText = '';
-    $rootScope.searchText2 = 'Some value';
-    $rootScope.isDisabled = false;
-    $rootScope.noCache = true;
-    $rootScope.querySearch = querySearch;
+    $rootScope.items             = [];
+    $rootScope.searchText        = '';
+    $rootScope.searchText2       = 'Some value';
+    $rootScope.isDisabled        = false;
+    $rootScope.noCache           = true;
+    $rootScope.querySearch       = querySearch;
 
     function querySearch(query) {
-        var results = query ? $rootScope.autocompleteItems.filter(createFilterFor(query)) : $rootScope.autocompleteItems;
-
-        return results;
+        return query ? $rootScope.autocompleteItems.filter(createFilterFor(query)) : $rootScope.autocompleteItems;
     }
 
     function createFilterFor(query) {
         var lowercaseQuery = angular.lowercase(query);
 
         return function filterFn(state) {
-            var searchResult = (state.toLowerCase().indexOf(lowercaseQuery) === 0);
-            return searchResult;
+            return (state.toLowerCase().indexOf(lowercaseQuery) === 0);
         };
     }
 }
@@ -39,13 +36,12 @@ function mdBlur($mdUtil, $timeout, $rootScope) {
         require: "^mdAutocomplete",
         link: function($scope, $element, $attributes, $mdAutocompleteCtrl) {
             $timeout(function() {
-                var input = $element.find("input");
-                var element = $element[0];
+                var input      = $element.find("input");
+                var element    = $element[0];
                 var nativeBlur = $mdAutocompleteCtrl.blur;
 
                 $mdAutocompleteCtrl.blur = function() {
-
-                    var searchText = $mdAutocompleteCtrl.scope.searchText;
+                    var searchText  = $mdAutocompleteCtrl.scope.searchText;
                     var isItemFound = ~$rootScope.autocompleteItems.indexOf(searchText);
 
                     nativeBlur.call($mdAutocompleteCtrl);
@@ -73,8 +69,8 @@ function mdFocus($mdUtil, $timeout) {
         require: "^mdAutocomplete",
         link: function($scope, $element, $attributes, $mdAutocompleteCtrl) {
             $timeout(function() {
-                var input = $element.find("input");
-                var element = $element[0];
+                var input       = $element.find("input");
+                var element     = $element[0];
                 var nativeFocus = $mdAutocompleteCtrl.focus;
 
                 $mdAutocompleteCtrl.focus = function(e) {

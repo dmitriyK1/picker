@@ -1,28 +1,37 @@
 
-- keyboard navigation
-    - выбирать значение по <Enter>
-    - tab в dropdown двигает на следующую позицию
-    - shift-tab двигает вверх
-    - ??? не показывать dropdown когда табаешь на single picker
+- сделать чтобы dropdown показывался не на всю ширину страницы
 
-- object link
+- изменить валидацию есть ли совпадения значения из списка с помощью md-selected-item-change, менять значение в scope (а не вешать классы как сейчас)
 
-- если совпадение найдено - выделить цветом + подчеркивание
+- по клику - открыть сделать с помощью div
 
-- по клику - открыть; по double click - редактирование
+! в dropdown'е залипает выбранное значение
 
-- добавить фильтрацию
+! <md-not-found> глючит не закрывается иногда
 
-- добавить not found
 
-- добавить error messages
++ добавить hints ( кол-во введенных символов )
+    # доделать механизм
 
-- показывать clear button
 
-- подкрашивать красным если недопустимое свойство
 
-- если нажали в инпуте вверх\вниз просто открыть инпут и выбрать нулевой индекс
+? object link
 
-- разрешить tab если в инпуте есть значение
 
-# брать key codes из констант $mdUtil
+https://material.angularjs.org/latest/demo/input
+
+https://mgechev.github.io/angularjs-style-guide/
+
+http://www.bennadel.com/blog/2926-overriding-directive-definitions-in-angularjs.htm
+
+https://github.com/angular/angular.js/wiki/Understanding-Directives
+
+https://github.com/angular/angular.js/wiki/Understanding-Dependency-Injection
+
+https://github.com/angular/angular.js/wiki/FAQ
+
+https://github.com/angular/angular.js/wiki/Routing-Design-Discussion
+
+http://www.webdeveasy.com/angularjs-data-model/
+
+https://github.com/angular/angular.js/wiki/Understanding-Scopes

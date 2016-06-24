@@ -1,0 +1,121 @@
+body {
+        padding-top: 5vw;
+}
+
+.md-virtual-repeat-container.md-autocomplete-suggestions-container {
+        left: 4px !important;
+}
+
+.md-autocomplete-suggestions a {
+        text-decoration: underline;
+}
+
+.test-input {
+        display: block;
+        width: 100%;
+        transition: background 0.3s ease-out;
+        padding: 5px;
+        margin-bottom: 0.5rem;
+        border: 1px gray solid;
+}
+
+.test-input:focus {
+        outline: 0;
+        border: 1px solid blue;
+        background: #EBEBEB;
+}
+
+.clear-autocomplete {
+        position: absolute;
+        top: 10% !important;
+        right: 8px;
+        visibility: hidden;
+        opacity: 0;
+        transition: visibility 0s, opacity 0.25s linear;
+}
+
+md-autocomplete.md-default-theme button.clear-autocomplete:after,
+md-autocomplete button.clear-autocomplete:after {
+        background: none;
+}
+
+.clear-autocomplete.visible {
+        visibility: visible;
+        opacity: 1;
+        cursor: pointer;
+}
+
+.clear-autocomplete i {
+        font-size: 20px;
+}
+
+.clear-autocomplete {
+        cursor: pointer;
+        -webkit-user-select: none;
+}
+
+.hidden {
+        display: none !important;
+}
+
+[md-highlight-text] .highlight {
+        color: red !important;
+        font-weight: bold;
+}
+
+md-autocomplete input {
+        transition: color 0.3s;
+}
+
+md-autocomplete.error input {
+        color: red !important;
+}
+
+md-autocomplete input:hover:not(:focus) {
+        color: orange;
+        text-decoration: underline;
+        text-decoration-style: dashed;
+        -webkit-text-decoration-style: dashed;
+        cursor: pointer;
+}
+
+md-autocomplete.error input:hover {
+        text-decoration: none;
+        cursor: default;
+}
+
+
+.hint {
+    /* Position the hint */
+    /* position: absolute; */
+    left: 2px;
+    right: auto;
+    bottom: 7px;
+    /* Copy styles from ng-messages */
+    font-size: 12px;
+    line-height: 14px;
+    transition: all 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);
+    /* Set our own color */
+    color: grey;
+}
+
+.hint-info {
+    color: gray !important;
+}
+
+.ng-dirty.ng-invalid .hint {
+    color: red;
+}
+
+.hint.ng-hide,
+.hint.ng-enter,
+.hint.ng-leave.ng-leave-active {
+    bottom: 26px;
+    opacity: 0;
+}
+
+.hint.ng-leave,
+.hint.ng-enter.ng-enter-active {
+    bottom: 7px;
+    opacity: 1;
+}

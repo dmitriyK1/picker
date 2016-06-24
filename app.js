@@ -107,26 +107,26 @@ angular
                     alert('Redirecting...');
                 };
 
-                element.on('keydown', function onKeyDown(e) {
-
-                    var inputValue = scope.searchText;
-
-                    if (inputValue) {
-                        scope.$applyAsync(function () {
-                            scope.$$childHead.$mdAutocompleteCtrl.hidden = true;
-                        });
-
-                        return;
-                    }
-
-                    // var isTabPressed     = e.keyCode === $mdConstant.KEY_CODE.TAB;
-                    // var isDropdownHidden = scope.$$childHead.$mdAutocompleteCtrl.hidden;
+                // element.on('keydown', function onKeyDown(e) {
                     //
-                    // if (!isDropdownHidden && isTabPressed) {
-                    // e.preventDefault();
+                    // var inputValue = scope.searchText;
+                    //
+                    // if (inputValue) {
+                    //     scope.$applyAsync(function () {
+                    //         scope.$$childHead.$mdAutocompleteCtrl.hidden = true;
+                    //     });
+                    //
+                    //     return;
                     // }
-
-                });
+                    //
+                    // // var isTabPressed     = e.keyCode === $mdConstant.KEY_CODE.TAB;
+                    // // var isDropdownHidden = scope.$$childHead.$mdAutocompleteCtrl.hidden;
+                    // //
+                    // // if (!isDropdownHidden && isTabPressed) {
+                    // // e.preventDefault();
+                    // // }
+                    //
+                // });
 
             }
         })

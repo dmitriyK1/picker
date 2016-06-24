@@ -153,9 +153,11 @@ angular
 
                     // up & down
                     if (isDropdownHidden && (event.keyCode === $mdConstant.KEY_CODE.UP_ARROW || event.keyCode === $mdConstant.KEY_CODE.DOWN_ARROW)) {
-                        ctrl.scope.selectedItem                      = '';
-                        ctrl.index                                   = 0;
-                        scope.$$childHead.$mdAutocompleteCtrl.hidden = false;
+                        scope.$applyAsync(function() {
+                            ctrl.scope.selectedItem                      = '';
+                            ctrl.index                                   = 0;
+                            scope.$$childHead.$mdAutocompleteCtrl.hidden = false;
+                        });
                     }
 
                 });

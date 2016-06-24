@@ -48,9 +48,8 @@
                     <span md-highlight-flags="^i" md-highlight-text="searchText">{{ item }}</span>
                 </md-item-template>
 
-                <div class="hint" ng-if="showHints">Tell us what you like!</div>
-
-                <div class="hint" ng-if="showHints">Symbols entered: {{ symbolsCount }}</div>
+                <div class="hint hint-info" ng-if="showHints">Tell us what you like!</div>
+                <div class="hint hint-info" ng-if="showHints">Symbols entered: {{ symbolsCount }}</div>
 
                 <div style="position: relative;" ng-messages="autocompleteForm.autocomplete.$error" ng-if="autocompleteForm.autocomplete.$touched && !showHints">
                     <div class="hint" ng-message="required">This field is required</div>

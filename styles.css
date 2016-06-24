@@ -99,6 +99,10 @@ md-autocomplete.error input:hover {
     color: grey;
 }
 
+.hint-info {
+    color: gray !important;
+}
+
 .ng-dirty.ng-invalid .hint {
     color: red;
 }

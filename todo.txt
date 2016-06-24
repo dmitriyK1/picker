@@ -1,4 +1,6 @@
 
+- сделать чтобы dropdown показывался не на всю ширину страницы
+
 - изменить валидацию есть ли совпадения значения из списка с помощью md-selected-item-change, менять значение в scope (а не вешать классы как сейчас)
 
 - по клику - открыть сделать с помощью div
@@ -14,3 +16,22 @@
 
 
 ? object link
+
+
+https://material.angularjs.org/latest/demo/input
+
+https://mgechev.github.io/angularjs-style-guide/
+
+http://www.bennadel.com/blog/2926-overriding-directive-definitions-in-angularjs.htm
+
+https://github.com/angular/angular.js/wiki/Understanding-Directives
+
+https://github.com/angular/angular.js/wiki/Understanding-Dependency-Injection
+
+https://github.com/angular/angular.js/wiki/FAQ
+
+https://github.com/angular/angular.js/wiki/Routing-Design-Discussion
+
+http://www.webdeveasy.com/angularjs-data-model/
+
+https://github.com/angular/angular.js/wiki/Understanding-Scopes

@@ -87,7 +87,7 @@ md-autocomplete.error input:hover {
 
 .hint {
     /* Position the hint */
-    position: absolute;
+    /* position: absolute; */
     left: 2px;
     right: auto;
     bottom: 7px;
@@ -97,6 +97,10 @@ md-autocomplete.error input:hover {
     transition: all 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);
     /* Set our own color */
     color: grey;
+}
+
+.ng-invalid .hint {
+    color: red;
 }
 
 .hint.ng-hide,

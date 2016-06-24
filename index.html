@@ -47,10 +47,10 @@
                     <span md-highlight-flags="^i" md-highlight-text="searchText">{{ item }}</span>
                 </md-item-template>
 
-                <div class="hint" ng-if="showHints && autocompleteForm.autocomplete.$valid || autocompleteForm.autocomplete.$pristine">Tell us what you like!</div>
+                <div class="hint" ng-if="showHints && (autocompleteForm.autocomplete.$valid || autocompleteForm.autocomplete.$pristine)">Tell us what you like!</div>
 
-                <div ng-messages="autocompleteForm.autocomplete.$error" ng-if="autocompleteForm.autocomplete.$touched">
-                    <div ng-message="required">This field is required</div>
+                <div style="position: relative;" ng-messages="autocompleteForm.autocomplete.$error" ng-if="autocompleteForm.autocomplete.$touched && !showHints">
+                    <div class="hint" ng-message="required">This field is required</div>
                     <div ng-message="md-input-maxlength">The name has to be less than 30 characters long.</div>
                 </div>
 

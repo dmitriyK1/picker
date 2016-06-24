@@ -5,7 +5,7 @@ angular
     .directive('mdFocus', mdFocus)
     .directive('mdAutocomplete', mdAutocomplete)
     .directive('mdHideAutocompleteOnEnter', mdHideAutocompleteOnEnter)
-    .directive('clearAutocomplete', clearAutocomplete)
+    .directive('clearAutocomplete', clearAutocomplete);
 
 // ================================================================================
 
@@ -37,7 +37,6 @@ function mdBlur($mdUtil, $timeout, $rootScope) {
         link: function($scope, $element, $attributes, $mdAutocompleteCtrl) {
             $timeout(function() {
                 var input      = $element.find("input");
-                var element    = $element[0];
                 var nativeBlur = $mdAutocompleteCtrl.blur;
 
                 $mdAutocompleteCtrl.blur = function() {
@@ -70,14 +69,13 @@ function mdFocus($mdUtil, $timeout) {
         link: function($scope, $element, $attributes, $mdAutocompleteCtrl) {
             $timeout(function() {
                 var input       = $element.find("input");
-                var element     = $element[0];
                 var nativeFocus = $mdAutocompleteCtrl.focus;
 
-                $mdAutocompleteCtrl.focus = function(e) {
+                $mdAutocompleteCtrl.focus = function () {
 
                     // prevent selection
-                    var value = $element.find('input').val();
-                    $element.find('input').val(value);
+                    // var value = $element.find('input').val();
+                    // $element.find('input').val(value);
 
                     nativeFocus.call($mdAutocompleteCtrl);
 
@@ -85,11 +83,13 @@ function mdFocus($mdUtil, $timeout) {
                         $scope.$eval($attributes.mdBlur, {
                             "$mdAutocomplete": $mdAutocompleteCtrl
                         });
+
                         $element.removeClass('error');
 
                         $timeout(function() {
                             $scope.searchTextValid = false;
                         }, 300);
+
                     });
                 };
             });
@@ -97,16 +97,13 @@ function mdFocus($mdUtil, $timeout) {
     };
 }
 
-function mdAutocomplete($mdConstant) {
-    var ddo = {
+function mdAutocomplete() {
+    return {
         link: link,
         require: 'mdAutocomplete'
     };
 
-    return ddo;
-
-    function link(scope, element, attrs, ctrl) {
-
+    function link(scope, element) {
         scope.onValueClick = function(e, isValid) {
             if (!isValid) return;
             if (e.target.tagName !== 'INPUT' || !scope.searchText) return;
@@ -119,29 +116,26 @@ function mdAutocomplete($mdConstant) {
     }
 }
 
-function mdHideAutocompleteOnEnter($timeout, $mdConstant) {
-    var ddo = {
+function mdHideAutocompleteOnEnter($mdConstant) {
+    return {
         link: link,
         require: 'mdAutocomplete'
     };
 
-    return ddo;
-
     function link(scope, element, attrs, ctrl) {
         element.bind("keydown keypress keyup", function(event) {
-            var isDropdownHidden = scope.$$childHead.$mdAutocompleteCtrl.hidden;
+            // var isDropdownHidden = scope.$$childHead.$mdAutocompleteCtrl.hidden;
 
-            // up & down
-            if (isDropdownHidden && (event.keyCode === $mdConstant.KEY_CODE.UP_ARROW || event.keyCode === $mdConstant.KEY_CODE.DOWN_ARROW)) {
-                scope.$applyAsync(function() {
-                    ctrl.scope.selectedItem = '';
-                    ctrl.index = 0;
-                    scope.$$childHead.$mdAutocompleteCtrl.hidden = false;
-                });
-            }
+            // if (isDropdownHidden && (event.keyCode === $mdConstant.KEY_CODE.UP_ARROW || event.keyCode === $mdConstant.KEY_CODE.DOWN_ARROW)) {
+            //     scope.$applyAsync(function() {
+            //         ctrl.scope.selectedItem = '';
+            //         ctrl.index = 0;
+            //         scope.$$childHead.$mdAutocompleteCtrl.hidden = false;
+            //     });
+            // }
 
         });
-    };
+    }
 }
 
 function clearAutocomplete($parse, $compile) {

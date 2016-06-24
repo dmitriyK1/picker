@@ -99,7 +99,7 @@ md-autocomplete.error input:hover {
     color: grey;
 }
 
-.ng-invalid .hint {
+.ng-dirty.ng-invalid .hint {
     color: red;
 }
 

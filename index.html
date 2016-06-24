@@ -47,7 +47,7 @@
                     <span md-highlight-flags="^i" md-highlight-text="searchText">{{ item }}</span>
                 </md-item-template>
 
-                <div class="hint" ng-if="showHints && (autocompleteForm.autocomplete.$valid || autocompleteForm.autocomplete.$pristine)">Tell us what you like!</div>
+                <div class="hint" ng-if="showHints">Tell us what you like!</div>
 
                 <div style="position: relative;" ng-messages="autocompleteForm.autocomplete.$error" ng-if="autocompleteForm.autocomplete.$touched && !showHints">
                     <div class="hint" ng-message="required">This field is required</div>

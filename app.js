@@ -41,6 +41,7 @@ function mdBlur($mdUtil, $timeout, $rootScope) {
 
                 $mdAutocompleteCtrl.blur = function() {
 
+                    // TODO: refactor
                     $timeout(function() {
 
                         var searchText = $mdAutocompleteCtrl.scope.searchText;

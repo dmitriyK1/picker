@@ -112,6 +112,16 @@ function mdAutocomplete($mdConstant) {
     };
 
     function link(scope, element, attrs, ctrl) {
+
+        scope.onSearchTextChange = function() {
+            if (!scope.searchText) {
+                scope.symbolsCount = 0;
+                return;
+            }
+
+            scope.symbolsCount = scope.searchText.length;
+        };
+
         scope.onValueClick = function(e, isValid) {
             if (!isValid) return;
 

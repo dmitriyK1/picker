@@ -30,6 +30,7 @@
                 md-blur
                 md-focus
                 md-search-text="searchText"
+                md-search-text-change="onSearchTextChange()"
                 md-input-name="autocomplete"
                 md-items="item in querySearch(searchText)"
                 md-item-text="item"
@@ -48,6 +49,8 @@
                 </md-item-template>
 
                 <div class="hint" ng-if="showHints">Tell us what you like!</div>
+
+                <div class="hint" ng-if="showHints">Symbols entered: {{ symbolsCount }}</div>
 
                 <div style="position: relative;" ng-messages="autocompleteForm.autocomplete.$error" ng-if="autocompleteForm.autocomplete.$touched && !showHints">
                     <div class="hint" ng-message="required">This field is required</div>

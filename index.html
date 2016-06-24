@@ -34,6 +34,7 @@
                 md-items="item in querySearch(searchText)"
                 md-item-text="item"
                 md-min-length="0"
+                md-input-maxlength="30"
                 placeholder="Single picker"
                 md-match-case-insensitive="true"
                 md-select-on-match="true"
@@ -48,7 +49,10 @@
 
                 <div ng-messages="autocompleteForm.autocomplete.$error" ng-if="autocompleteForm.autocomplete.$touched">
                     <div ng-message="required">This field is required</div>
+                    <div ng-message="md-maxlength">The name has to be less than 30 characters long.</div>
                 </div>
+
+                <!-- <div ng&#45;messages="userForm.name.$error" ng&#45;if="!showHints"> </div> -->
 
                 <md-not-found>
                     No states matching "{{searchText}}" were found.
@@ -63,10 +67,10 @@
                 md-blur
                 md-focus
                 md-search-text="searchText2"
-                md-input-name="autocomplete"
                 md-items="item in querySearch(searchText2)"
                 md-item-text="item"
                 md-min-length="0"
+                md-input-maxlength="30"
                 placeholder="Single picker"
                 md-match-case-insensitive="true"
                 md-select-on-match="true"

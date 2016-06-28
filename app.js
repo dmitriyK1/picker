@@ -47,7 +47,12 @@ function mdBlur($mdUtil, $timeout, $rootScope) {
                         var isItemFound = ~$rootScope.autocompleteItems.indexOf(searchText);
 
                         nativeBlur.call($mdAutocompleteCtrl);
+
                         $mdUtil.nextTick(function() {
+
+                            console.log( $scope );
+                            console.log( $mdAutocompleteCtrl );
+
                             $scope.$eval($attributes.mdBlur, {
                                 "$mdAutocomplete": $mdAutocompleteCtrl
                             });
@@ -166,6 +171,8 @@ function clearAutocomplete($parse, $compile) {
             button.on('click', function() {
                 searchTextModel.assign(scope, undefined);
                 scope.$digest();
+                // TEMP
+                scope.filteredItems = null;
             });
         }
     }

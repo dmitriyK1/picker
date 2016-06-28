@@ -5,17 +5,13 @@
 
 ! в dropdown'е залипает выбранное значение
 
-! <md-not-found> глючит не закрывается иногда
-
 ! инпут не чистится если удалить а потом tab
 
 + добавить hints ( кол-во введенных символов )
     # доделать механизм
 
 
-
 --------------------------------------------------------------------------------
 
 http://www.bennadel.com/blog/2926-overriding-directive-definitions-in-angularjs.htm
-
 http://www.webdeveasy.com/angularjs-data-model/

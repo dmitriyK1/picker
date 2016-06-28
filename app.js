@@ -4,18 +4,17 @@ angular
     .directive('mdBlur', mdBlur)
     .directive('mdFocus', mdFocus)
     .directive('mdAutocomplete', mdAutocomplete)
-    .directive('mdHideAutocompleteOnEnter', mdHideAutocompleteOnEnter)
     .directive('clearAutocomplete', clearAutocomplete);
 
 // ================================================================================
 
 function runBlock($rootScope) {
-    $rootScope.autocompleteItems = ['Broccoli', 'Cabbage', 'Carrot', 'Lettuce', 'Spinach'];
-    $rootScope.searchText = '';
-    $rootScope.searchText2 = 'Some value';
-    $rootScope.isDisabled = false;
-    $rootScope.noCache = true;
-    $rootScope.querySearch = querySearch;
+    $rootScope.autocompleteItems = [ 'Broccoli', 'Cabbage', 'Carrot', 'Lettuce', 'Spinach' ];
+    $rootScope.searchText        = '';
+    $rootScope.searchText2       = 'Some value';
+    $rootScope.isDisabled        = false;
+    $rootScope.noCache           = true;
+    $rootScope.querySearch       = querySearch;
     $rootScope.filteredItems;
 
     function querySearch(query) {
@@ -36,7 +35,7 @@ function mdBlur($mdUtil, $timeout, $rootScope) {
         require: "^mdAutocomplete",
         link: function($scope, $element, $attributes, $mdAutocompleteCtrl) {
             $timeout(function() {
-                var input = $element.find("input");
+                var input      = $element.find("input");
                 var nativeBlur = $mdAutocompleteCtrl.blur;
 
                 $mdAutocompleteCtrl.blur = function() {
@@ -44,7 +43,7 @@ function mdBlur($mdUtil, $timeout, $rootScope) {
                     // TODO: refactor
                     $timeout(function() {
 
-                        var searchText = $mdAutocompleteCtrl.scope.searchText;
+                        var searchText  = $mdAutocompleteCtrl.scope.searchText;
                         var isItemFound = ~$rootScope.autocompleteItems.indexOf(searchText);
 
                         nativeBlur.call($mdAutocompleteCtrl);
@@ -142,15 +141,6 @@ function mdAutocomplete($mdConstant) {
         });
 
     }
-}
-
-function mdHideAutocompleteOnEnter($mdConstant) {
-    return {
-        link: link,
-        require: 'mdAutocomplete'
-    };
-
-    function link(scope, element, attrs, ctrl) {}
 }
 
 function clearAutocomplete($parse, $compile) {

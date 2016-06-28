@@ -2,9 +2,18 @@ body {
         padding-top: 5vw;
 }
 
-.md-virtual-repeat-container.md-autocomplete-suggestions-container {
-        left: 4px !important;
+form {
+    margin: auto;
 }
+
+form,
+md-autocomplete {
+    width: 900px;
+}
+
+/* .md-virtual-repeat-container.md-autocomplete-suggestions-container { */
+        /* left: 4px !important; */
+/* } */
 
 .md-autocomplete-suggestions a {
         text-decoration: underline;

@@ -14,15 +14,15 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.0-rc4/angular-material.js"></script>
     <script src="app.js"></script>
 
-    <md-input-container layout="row">
-        <input type="text" autofocus flex>
-    </md-input-container>
-
-    <md-input-container layout="row">
-        <input type="text" flex>
-    </md-input-container>
 
     <form name="autocompleteForm">
+        <md-input-container layout="row">
+            <input type="text" autofocus flex>
+        </md-input-container>
+
+        <md-input-container layout="row">
+            <input type="text" flex>
+        </md-input-container>
         <md-autocomplete
                 required
                 clear-autocomplete
@@ -83,16 +83,17 @@
                 ng-click="onValueClick($event, searchTextValid)"
                 ng-disabled="isDisabled">
         </md-autocomplete>
+
+        <div layout="row" layout-padding>
+            <md-checkbox ng-model="noCache">Disable caching of queries?</md-checkbox>
+            <md-checkbox ng-model="isDisabled">Disable the input?</md-checkbox>
+        </div>
+
+        <md-input-container>
+            <md-switch ng-model="showHints" ng-init="showHints = true">Showing {{showHints ? "Hints" : "Errors"}}</md-switch>
+        </md-input-container>
     </form>
 
-    <div layout="row" layout-padding>
-        <md-checkbox ng-model="noCache">Disable caching of queries?</md-checkbox>
-        <md-checkbox ng-model="isDisabled">Disable the input?</md-checkbox>
-    </div>
-
-    <md-input-container>
-        <md-switch ng-model="showHints" ng-init="showHints = true">Showing {{showHints ? "Hints" : "Errors"}}</md-switch>
-    </md-input-container>
 
 </body>
 </html>

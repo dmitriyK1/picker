@@ -3,8 +3,7 @@ angular
     .controller('DemoCtrl', DemoCtrl)
 
 function DemoCtrl() {
-    var vm = this;
-
+    var vm               = this;
     vm.isDisabled        = false;
     vm.isRequired        = false;
     vm.cache             = false;

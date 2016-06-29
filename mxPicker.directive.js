@@ -8,14 +8,14 @@ function mxPicker() {
     var ddo = {
         templateUrl: 'picker.directive.html',
         scope: {
-            disabled: '=',
-            required: '=',
-            label: '@',
-            cache: '=',
-            items: '=',
-            showHints: '=hints',
-            onSearchClick: '&',
-            onCreateClick: '&'
+            disabled      : '=',
+            required      : '=',
+            label         : '@',
+            cache         : '=',
+            items         : '=',
+            showHints     : '=hints',
+            onSearchClick : '&',
+            onCreateClick : '&'
         }
     };
 
@@ -134,8 +134,8 @@ function mdAutocomplete($mdConstant) {
 
 function clearAutocomplete($parse, $compile) {
     var ddo = {
-        restrict: 'A',
-        link: link
+        restrict : 'A',
+        link     : link
     };
 
     return ddo;

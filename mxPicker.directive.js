@@ -23,11 +23,12 @@ function mxPicker() {
 }
 
 function mdAutocomplete($mdConstant) {
-    return {
+    var ddo = {
         link: link,
         require: 'mdAutocomplete'
     };
 
+    return ddo;
 
     function link(scope, element, attrs, ctrl) {
         scope.searchText = '';

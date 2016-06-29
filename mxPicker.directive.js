@@ -32,13 +32,15 @@ function mdAutocomplete($mdConstant) {
 
     function link(scope, element, attrs, ctrl) {
         scope.searchText = '';
-
         scope.querySearch = querySearch;
-
+        scope.onSearchTextChange = onSearchTextChange;
+        scope.onValueClick = onValueClick;
         element.on('focusin', onFocusIn);
         element.on('focusout', onFocusOut);
+        element.on('keydown', onKeyDown);
 
         scope.$on('$destroy', function() {
+            element.off('keydown');
             element.off('focusin');
             element.off('focusout');
         });
@@ -96,22 +98,22 @@ function mdAutocomplete($mdConstant) {
             }, 10);
         }
 
-        scope.onSearchTextChange = function() {
+        function onSearchTextChange() {
             if (!scope.searchText) {
                 scope.symbolsCount = 0;
                 return;
             }
 
             scope.symbolsCount = scope.searchText.length;
-        };
+        }
 
-        scope.onValueClick = function(e) {
+        function onValueClick(e) {
             if (e.target.className !== 'autocomplete-popover') return;
 
             alert('Redirecting...');
-        };
+        }
 
-        element.bind('keydown', function(event) {
+        function onKeyDown(event) {
             if (!scope.filteredItems) return;
             if (!scope.searchText)    return;
 
@@ -125,37 +127,44 @@ function mdAutocomplete($mdConstant) {
             if (scope.searchText === scope.filteredItems[0])  return;
 
             ctrl.select(0);
-        });
+        }
 
     }
 }
 
 function clearAutocomplete($parse, $compile) {
-    return {
+    var ddo = {
         restrict: 'A',
-        link: function(scope, element, attrs) {
-            var template = '<md-button ng-hide="disabled" tabindex="-1" class="md-icon-button clear-autocomplete"><md-icon md-svg-icon="md-close"></md-icon></md-button>';
+        link: link
+    };
 
-            var linkFn = $compile(template);
-            var button = linkFn(scope);
-            element.append(button);
+    return ddo;
 
-            var searchTextModel = $parse(attrs.mdSearchText);
+    function link(scope, element, attrs) {
+        var template = '<md-button ng-hide="disabled" tabindex="-1" class="md-icon-button clear-autocomplete"><md-icon md-svg-icon="md-close"></md-icon></md-button>';
 
-            scope.$watch(searchTextModel, function(searchText) {
-                if (searchText && searchText !== '' && searchText !== null) {
-                    button.addClass('visible');
-                } else {
-                    button.removeClass('visible');
-                }
-            });
+        var linkFn = $compile(template);
+        var button = linkFn(scope);
+        element.append(button);
 
-            button.on('click', function() {
-                searchTextModel.assign(scope, undefined);
-                scope.$digest();
-                angular.element(document.querySelectorAll('.autocomplete-popover')).remove();
-            });
+        var searchTextModel = $parse(attrs.mdSearchText);
+
+        scope.$watch(searchTextModel, function(searchText) {
+            if (searchText && searchText !== '' && searchText !== null) {
+                button.addClass('visible');
+            } else {
+                button.removeClass('visible');
+            }
+        });
+
+        button.on('click', onClick);
+
+        function onClick() {
+            searchTextModel.assign(scope, undefined);
+            scope.$digest();
+            angular.element(document.querySelectorAll('.autocomplete-popover')).remove();
         }
     }
+
 }
 

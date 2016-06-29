@@ -61,6 +61,18 @@
         </form>
 
         <h1>mx-picker directive API:</h1>
+        <pre>
+            &lt;mx-picker
+                hints="demoCtrl.showHints"
+                items="demoCtrl.autocompleteItems"
+                cache="demoCtrl.cache"
+                label="Single picker"
+                disabled="demoCtrl.isDisabled"
+                required="demoCtrl.isRequired"
+                on-search-click="demoCtrl.onSearchClick()"
+                on-create-click="demoCtrl.onCreateClick(searchText)"&gt;
+            &lt;/mx-picker&gt;
+        </pre>
         <ul>
             <li>hints="@"</li>
         </ul>

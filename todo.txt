@@ -1,4 +1,5 @@
 
+- добавить lazy-loading ( подгрузку списка через promise )
 
 - валидация при focus / blur
 

@@ -35,6 +35,11 @@ function mdAutocomplete($mdConstant) {
         element.on('focusin', onFocusIn);
         element.on('focusout', onFocusOut);
 
+        scope.$on('$destroy', function() {
+            element.off('focusin');
+            element.off('focusout');
+        });
+
         function onFocusIn(e) {
             if (e.target.tagName !== 'INPUT') return;
 
@@ -118,8 +123,6 @@ function clearAutocomplete($parse, $compile) {
                 searchTextModel.assign(scope, undefined);
                 scope.$digest();
                 angular.element(document.querySelectorAll('.autocomplete-popover')).remove();
-                // TEMP
-                scope.filteredItems = null;
             });
         }
     }

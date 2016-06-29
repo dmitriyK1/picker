@@ -30,18 +30,14 @@ function runBlock($rootScope) {
     }
 }
 
-function mdBlur($mdUtil, $timeout, $rootScope) {
+function mdBlur($mdUtil, $rootScope) {
     return {
         require: "^mdAutocomplete",
         link: function($scope, $element, $attributes, $mdAutocompleteCtrl) {
-            $timeout(function() {
                 var input      = $element.find("input");
                 var nativeBlur = $mdAutocompleteCtrl.blur;
 
                 $mdAutocompleteCtrl.blur = function() {
-
-                    // TODO: refactor
-                    $timeout(function() {
 
                         var searchText  = $mdAutocompleteCtrl.scope.searchText;
                         var isItemFound = ~$rootScope.autocompleteItems.indexOf(searchText);
@@ -62,15 +58,13 @@ function mdBlur($mdUtil, $timeout, $rootScope) {
                                 $element.addClass('error');
                             } else {
                                 $scope.searchTextValid = true;
+                                var el = angular.element('<div></div>').addClass('autocomplete-popover');
+                                el.html( $scope.searchText );
+                                $element.append(el);
                             }
 
                         });
-
-                    }, 100);
-
-
                 };
-            });
         }
     };
 }
@@ -79,7 +73,6 @@ function mdFocus($mdUtil, $timeout) {
     return {
         require: "^mdAutocomplete",
         link: function($scope, $element, $attributes, $mdAutocompleteCtrl) {
-            $timeout(function() {
                 var input = $element.find("input");
                 var nativeFocus = $mdAutocompleteCtrl.focus;
 
@@ -96,6 +89,8 @@ function mdFocus($mdUtil, $timeout) {
                             "$mdAutocomplete": $mdAutocompleteCtrl
                         });
 
+                        angular.element(document.querySelectorAll('.autocomplete-popover')).remove();
+
                         $element.removeClass('error');
 
                         $timeout(function() {
@@ -104,7 +99,6 @@ function mdFocus($mdUtil, $timeout) {
 
                     });
                 };
-            });
         }
     };
 }
@@ -129,7 +123,7 @@ function mdAutocomplete($mdConstant) {
         scope.onValueClick = function(e, isValid) {
             if (!isValid) return;
 
-            if (e.target.tagName !== 'INPUT' || !scope.searchText) return;
+            if (e.target.className !== 'autocomplete-popover') return;
 
             element.find('input').blur();
 
@@ -171,6 +165,7 @@ function clearAutocomplete($parse, $compile) {
             button.on('click', function() {
                 searchTextModel.assign(scope, undefined);
                 scope.$digest();
+                angular.element(document.querySelectorAll('.autocomplete-popover')).remove();
                 // TEMP
                 scope.filteredItems = null;
             });

@@ -1,11 +1,16 @@
 
-- добавить lazy-loading ( подгрузку списка через promise )
+- сохранить старый API ( атрибуты директивы )
+
+- функционал baseControllers вынести в baseService
+- все кроме DOM-манипуляций вынести в link \ service, который потом инжектить
+
+- добавить lazy-loading (подгрузку списка через promise)
+
+- добавить разные типы данных на вход для autocomplete (array, array of objects)
 
 - валидация при focus / blur
 
-- анимация кнопки clear
-
-- наследование продумать
+- анимация кнопки clear (? css испортился ?)
 
 - валидация инпута без формы (? ng-form )
 
@@ -13,7 +18,16 @@
 
 - уменьшить кол-во dom-манипуляций
 
-- сохранить старый API
+- типы hints ?
+
+
+--------------------------------------------------------------------------------
+
+# singlePicker
+    -singlePickerController + commonPickerProperties
+
+# autocompletePicker
+    -autocompleteController + singlePickerController + BasePickerProperties
 
 --------------------------------------------------------------------------------
 

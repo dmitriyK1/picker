@@ -1,25 +1,32 @@
-(function() {
+(function(w) {
     'use strict';
 
     angular
         .module('app')
-        .directive('mxPicker', mxPicker)
         .directive('mdAutocomplete', mdAutocomplete)
         .directive('clearAutocomplete', clearAutocomplete)
+        .directive('mxPicker', mxPicker)
 
-    function mxPicker() {
+    function mxPicker(commonPickerProperties) {
+
+        var bindToController = {
+            disabled      : '=',
+            required      : '=',
+            label         : '@',
+            cache         : '=',
+            items         : '=',
+            showHints     : '=hints',
+            onSearchClick : '&',
+            onCreateClick : '&'
+        };
+
+        angular.extend(bindToController, commonPickerProperties);
+
         var ddo = {
-            templateUrl: 'picker.directive.html',
-            scope: {
-                disabled: '=',
-                required: '=',
-                label: '@',
-                cache: '=',
-                items: '=',
-                showHints: '=hints',
-                onSearchClick: '&',
-                onCreateClick: '&'
-            }
+            templateUrl : 'directives/mxPicker.directive.html',
+            controller  : 'MxPickerCtrl as vm',
+            scope: {},
+            bindToController: bindToController
         };
 
         return ddo;
@@ -27,17 +34,18 @@
 
     function mdAutocomplete($mdConstant) {
         var ddo = {
-            link: link,
-            require: 'mdAutocomplete'
+            link    : link,
+            require : 'mdAutocomplete'
         };
 
         return ddo;
 
         function link(scope, element, attrs, ctrl) {
-            scope.searchText = '';
-            scope.querySearch = querySearch;
+            scope.searchText         = '';
+            scope.querySearch        = querySearch;
             scope.onSearchTextChange = onSearchTextChange;
-            scope.onValueClick = onValueClick;
+            scope.onValueClick       = onValueClick;
+
             element.on('focusin', onFocusIn);
             element.on('focusout', onFocusOut);
             element.on('keydown', onKeyDown);
@@ -175,4 +183,4 @@
 
     }
 
-})();
+})(window);

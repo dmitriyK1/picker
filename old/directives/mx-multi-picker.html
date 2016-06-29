@@ -1,0 +1,45 @@
+<div class="mx-multipicker--container">
+
+	<md-input-container ng-class="{'md-input-focused': vm._disabled || vm._readOnly}">
+		<label><span ng-bind-html="vm.controlLabel"></span></label>
+		<md-chips
+			ng-model="vm.selectedItems"
+			md-autocomplete-snap=""
+			md-require-match="true"
+			md-on-add="vm.onSelectionChange()"
+			md-on-remove="vm.onSelectionChange()"
+			readonly="(vm._disabled || vm._readOnly) && vm.selectedItems.length > 0">
+			<md-autocomplete
+				ng-hide="vm.single && vm.selectedItems.length > 0"
+				md-is-error="vm.controlNgModel.mxInvalid"
+				md-items="item in vm.autoCompleteSearch()"
+				placeholder="{{vm.autoPlaceholder}}"
+				md-search-text="vm.autoCompleteSearchText"
+				md-selected-item="vm.selectedItem"
+				md-selected-item-change="vm.autoCompleteSelectedItemChange(item)"
+				md-search-text-change="vm.autoCompleteSearchTextChange()"
+				md-item-text="vm.getTitle(item)"
+				md-delay="vm.loadDelay"
+				md-no-cache="true"
+				ng-disabled="vm._disabled || vm._readOnly"
+				md-min-length="1"
+				input-name="{{::vm.internalName}}"
+				md-menu-class="mx-picker-item-template {{::vm.dropdownHtmlClass}}">
+				<md-item-template>
+					<span class="item-title">
+						<span md-highlight-text="vm.autoCompleteSearchText">{{$parent.vm.getTitle(item)}}</span>
+					</span>
+					<span class="item-details" ng-if="vm.itemDetailsField">{{item[vm.itemDetailsField]}}</span>
+				</md-item-template>
+				<md-not-found>
+					<span>{{vm.notFoundMessage}}<a ng-if="vm.availableNotFoundButton" href ng-click="vm.notFoundClick()">{{vm.notFound.buttonText}}</a></span>
+				</md-not-found>
+			</md-autocomplete>
+			<md-chip-template>
+				<a ng-dblclick="vm.onNavigateItem($chip)"><span ng-if="vm.itemDetailsField" class="item-details" ng-bind="$chip[vm.itemDetailsField]"></span><span class="item-title">{{$parent.vm.getTitle($chip)}}</span></a>
+			</md-chip-template>
+		</md-chips>
+		<md-icon ng-if="vm.browseLookup && !(vm._disabled || vm._readOnly)" ng-click="vm.onBrowseLookup()" class="mx-multipicker--icon">search</md-icon>
+		<mx-control-errors></mx-control-errors>
+	</md-input-container>
+</div>

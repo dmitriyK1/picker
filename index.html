@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.0-rc4/angular-material.css" media="all">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type='text/css'>
-    <link rel="stylesheet" href="styles.css" media="all">
+    <link rel="stylesheet" href="directives/mxPicker.directive.css" media="all">
 </head>
 
 <body>
@@ -15,10 +15,20 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-aria.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-messages.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.0-rc4/angular-material.js"></script>
-    <script src="app.js"></script>
-    <script src="mxPicker.directive.js"></script>
-    <script src="demoCtrl.controller.js"></script>
 
+   <!-- ================================================================================  -->
+
+    <script src="app.js"></script>
+    <script src="constants.js"></script>
+
+    <script src="services/mxBasePicker.service.js"></script>
+
+    <script src="directives/mxPicker.directive.js"></script>
+
+    <script src="controllers/demo.ctrl.js"></script>
+    <script src="controllers/mxPicker.ctrl.js"></script>
+
+   <!-- ================================================================================  -->
 
     <div ng-controller="DemoCtrl as demoCtrl">
         <form name="autocompleteForm">

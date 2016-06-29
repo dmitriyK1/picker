@@ -1,0 +1,129 @@
+<ng-form data-name="myForm" ng-if="!vm.refresh">
+	<div class="mx-form-content" layout="column">
+
+		<md-select ng-model="vm.selectedLanguage" class=mx-text-box-languages">
+			<md-option class=mx-text-box-languages-option" ng-repeat="language in vm.languages" value="{{language}}">{{
+				language}}
+			</md-option>
+		</md-select>
+
+		<style>
+			.block {
+				width: 40%;
+				padding: 20px;
+				float: left;
+			}
+
+			.block2 {
+				width: 100%;;
+				padding: 20px;
+				float: left
+			}
+		</style>
+
+		<div>
+			<div class="block">
+				<mx-picker
+					data-items="vm.pickerData"
+					ng-model="vm.pickerValue"
+					data-item-title-field="title"
+					data-item-id-field="title"
+					class="mx-picker-default"
+					data-label="mx-picker-default"
+					navigate-item="vm.navigateSelectedItem"
+					dropdown-html-class="mx-picker-default-values">
+				</mx-picker>
+			</div>
+
+			<div class="block">
+				<mx-picker
+					data-items="vm.pickerData"
+					ng-model="vm.pickerValue"
+					data-item-title-field="title"
+					data-item-id-field="title"
+					class="mx-picker-readonly"
+					data-label="mx-picker-readonly"
+					data-read-only="true"
+					navigate-item="vm.navigateSelectedItem"
+					dropdown-html-class="mx-picker-readonly-values">
+				</mx-picker>
+				<mx-picker
+					data-items="vm.pickerData"
+					ng-model="vm.pickerValue"
+					data-item-title-field="title"
+					data-item-id-field="title"
+					class="mx-picker-disabled"
+					data-label="mx-picker-disabled"
+					data-disabled="true"
+					navigate-item="vm.navigateSelectedItem"
+					dropdown-html-class="mx-picker-disabled-values">
+				</mx-picker>
+			</div>
+		</div>
+		<div>
+			<test-form-control>
+				<mx-picker
+					data-name="Items1"
+					data-label="Items1-label"
+					data-disabled="false"
+					data-read-only="false"
+					data-items="vm.pickerArray"
+					ng-model="vm.pickerArrayValue"
+					ng-required="true"
+					navigate-item="vm.navigateSelectedItem"
+					data-item-title-field="DisplayString"
+					class="mx-picker-required-true"
+					data-selected-items="vm.pickerSelectedItems"
+					dropdown-html-class="mx-picker-required-true-values">
+				</mx-picker>
+			</test-form-control>
+
+			<test-form-control class="test-form-control-new-value-as-id-false">
+				<mx-picker
+					data-name="mx-picker-value-as-id-false"
+					data-label="mx-picker-value-as-id-false"
+					data-disabled="false"
+					data-read-only="false"
+					data-items="vm.pickerArray2"
+					ng-model="vm.pickerArrayValue2"
+					ng-required="true"
+					data-item-title-field="Value"
+					class="mx-picker-value-as-id-false"
+					dropdown-html-class="mx-picker-value-as-id-false-values">
+				</mx-picker>
+			</test-form-control>
+
+
+			<test-form-control class="test-form-autocomplete">
+				<mx-picker
+					data-name="Characters"
+					data-label="Characters, value as Id"
+					data-disabled="false"
+					data-read-only="false"
+					data-items="vm.pickerItems"
+					ng-model="vm.pickerSelectedItem"
+					ng-required="true"
+					data-item-id-field="DisplayString"
+					data-item-title-field="DisplayString"
+					class="mx-picker-autocomplete"
+					dropdown-html-class="mx-picker-autocomplete-values">
+				</mx-picker>
+			</test-form-control>
+
+
+		</div>
+		<div class="block">
+
+		</div>
+
+
+	</div>
+	<br/>
+	<br/>
+	<br/>
+
+	<div class="block2">
+		<button ng-disabled="myForm.$invalid">Submit</button>
+	</div>
+
+</ng-form>

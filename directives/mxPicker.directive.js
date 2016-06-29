@@ -9,7 +9,9 @@
 
     function mxPicker(commonPickerProperties) {
 
-        var bindToController = {
+        // var bindToController = {
+       // temporary using scope instead of bindToController
+        var scope = {
             disabled      : '=',
             required      : '=',
             label         : '@',
@@ -20,13 +22,13 @@
             onCreateClick : '&'
         };
 
-        angular.extend(bindToController, commonPickerProperties);
+        angular.extend(scope, commonPickerProperties);
 
         var ddo = {
             templateUrl : 'directives/mxPicker.directive.html',
             controller  : 'MxPickerCtrl as vm',
-            scope: {},
-            bindToController: bindToController
+            scope: scope,
+            bindToController: true
         };
 
         return ddo;

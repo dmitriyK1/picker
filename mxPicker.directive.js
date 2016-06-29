@@ -58,6 +58,8 @@ function mdAutocomplete($mdConstant) {
         function onFocusIn(e) {
             if (e.target.tagName !== 'INPUT') return;
 
+            e.target.value = e.target.value.trim();
+
             setTimeout(function() {
                 angular
                     .element(document.querySelectorAll('.autocomplete-popover'))

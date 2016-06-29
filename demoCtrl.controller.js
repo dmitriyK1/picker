@@ -5,7 +5,7 @@ angular
 function DemoCtrl() {
     var vm = this;
 
-    vm.autocompleteItems = ['Broccoli', 'Cabbage', 'Carrot', 'Lettuce', 'Spinach'];
+    vm.autocompleteItems = ['Broccoli', 'Cabbage', 'Carrot', 'Lettuce', 'Spinach', 'Cherry', 'Apple'];
     vm.searchText        = '';
     vm.isDisabled        = false;
     vm.isRequired        = false;

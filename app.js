@@ -5,15 +5,15 @@ angular
     .directive('clearAutocomplete', clearAutocomplete)
     .run(runBlock)
 
-// ================================================================================
-
 function runBlock($rootScope) {
-    $rootScope.autocompleteItems = [ 'Broccoli', 'Cabbage', 'Carrot', 'Lettuce', 'Spinach' ];
+    $rootScope.autocompleteItems = ['Broccoli', 'Cabbage', 'Carrot', 'Lettuce', 'Spinach'];
     $rootScope.searchText        = '';
     $rootScope.querySearch       = querySearch;
 
     function querySearch(query) {
-        return query ? $rootScope.filteredItems = $rootScope.autocompleteItems.filter(createFilterFor(query)) : $rootScope.autocompleteItems;
+        return query ?
+                        $rootScope.filteredItems = $rootScope.autocompleteItems.filter(createFilterFor(query))
+                        : $rootScope.autocompleteItems;
     }
 
     function createFilterFor(query) {

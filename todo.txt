@@ -1,3 +1,18 @@
 
+
+- валидация при focus / blur
+
+- анимация кнопки clear
+
+- наследование продумать
+
+- валидация инпута без формы (? ng-form )
+
+- по tab сброс значения
+
+- уменьшить кол-во dom-манипуляций
+
+--------------------------------------------------------------------------------
+
 http://www.bennadel.com/blog/2926-overriding-directive-definitions-in-angularjs.htm
 http://www.webdeveasy.com/angularjs-data-model/

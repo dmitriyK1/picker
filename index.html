@@ -3,6 +3,7 @@
     <meta name="viewport" content="initial-scale=1" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.0-rc4/angular-material.css" media="all">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type='text/css'>
     <link rel="stylesheet" href="styles.css" media="all">
 </head>
 <body>
@@ -61,6 +62,9 @@
                     No states matching "{{searchText}}" were found.
                     <a ng-click="ctrl.newState(searchText)">Create a new one!</a>
                 </md-not-found>
+
+                <md-icon class="autocomplete-search">search</md-icon>
+
         </md-autocomplete>
 
         <div layout="row" layout-padding>

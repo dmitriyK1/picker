@@ -19,6 +19,13 @@ md-autocomplete.invalid-value input {
     color: red !important;
 }
 
+.autocomplete-search {
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
 .md-autocomplete-suggestions a {
     text-decoration: underline;
 }
@@ -41,7 +48,7 @@ md-autocomplete.invalid-value input {
 .clear-autocomplete {
     position: absolute;
     top: 10% !important;
-    right: 8px;
+    right: 20px !important;
     visibility: hidden;
     opacity: 0;
     transition: visibility 0s, opacity 0.25s linear;

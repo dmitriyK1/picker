@@ -54,7 +54,20 @@ function mdAutocomplete($mdConstant) {
             if (e.target.tagName !== 'INPUT') return;
 
             setTimeout(function() {
-                if (scope.filteredItems && !scope.filteredItems.length) return;
+                // if (scope.filteredItems && !scope.filteredItems.length) return;
+                if (!scope.searchText)           return;
+                if (!scope.filteredItems) return;
+
+                var isFound = scope.autocompleteItems.some(function(value) {
+                    return value.toLowerCase() === scope.searchText.toLowerCase();
+                });
+
+                if (scope.searchText !== scope.filteredItems[0]) {
+                    ctrl.scope.isValidSearch = false;
+                    return;
+                }
+
+                ctrl.scope.isValidSearch = true;
 
                 var popover = angular
                                     .element('<div>')
@@ -62,7 +75,7 @@ function mdAutocomplete($mdConstant) {
                                     .html(scope.searchText);
 
                 element.append(popover);
-            }, 100);
+            }, 10);
         }
 
         scope.onSearchTextChange = function() {
@@ -81,8 +94,8 @@ function mdAutocomplete($mdConstant) {
         };
 
         element.bind('keydown', function(event) {
-            if (!scope.filteredItems) return ;
-            if (!scope.searchText)    return ;
+            if (!scope.filteredItems) return;
+            if (!scope.searchText)    return;
 
             if (scope.filteredItems.length && ~scope.filteredItems[0].indexOf(scope.searchText)) {
                 scope.selectedItem = null;

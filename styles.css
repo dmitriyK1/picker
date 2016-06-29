@@ -15,6 +15,10 @@ md-autocomplete button md-icon {
     z-index: 100;
 }
 
+md-autocomplete.invalid-value input {
+    color: red !important;
+}
+
 .md-autocomplete-suggestions a {
     text-decoration: underline;
 }
@@ -110,6 +114,7 @@ md-autocomplete.error input {
 }
 
 .hint-info {
+    position: absolute;
     color: gray !important;
 }
 

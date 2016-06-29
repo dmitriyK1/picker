@@ -11,6 +11,10 @@ md-autocomplete {
     width: 900px;
 }
 
+md-autocomplete button md-icon {
+    z-index: 100;
+}
+
 .md-autocomplete-suggestions a {
     text-decoration: underline;
 }
@@ -69,7 +73,7 @@ md-autocomplete button.clear-autocomplete:after {
 }
 
 md-autocomplete input:focus {
-    color: gray !important;
+    color: #000 !important;
 }
 
 md-autocomplete md-input-container .md-input {

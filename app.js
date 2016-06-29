@@ -1,11 +1,9 @@
 
 angular
     .module('app', ['ngMaterial', 'ngMessages'])
-    .run(runBlock)
-    .directive('mdBlur', mdBlur)
-    .directive('mdFocus', mdFocus)
     .directive('mdAutocomplete', mdAutocomplete)
-    .directive('clearAutocomplete', clearAutocomplete);
+    .directive('clearAutocomplete', clearAutocomplete)
+    .run(runBlock)
 
 // ================================================================================
 
@@ -30,72 +28,6 @@ function runBlock($rootScope) {
     }
 }
 
-function mdBlur($mdUtil, $rootScope) {
-    return {
-        require: "^mdAutocomplete",
-        link: function($scope, $element, $attributes, $mdAutocompleteCtrl) {
-                var input      = $element.find("input");
-                var nativeBlur = $mdAutocompleteCtrl.blur;
-
-                $mdAutocompleteCtrl.blur = function() {
-
-                        var searchText  = $mdAutocompleteCtrl.scope.searchText;
-                        var isItemFound = ~$rootScope.autocompleteItems.indexOf(searchText);
-
-                        nativeBlur.call($mdAutocompleteCtrl);
-
-                        $mdUtil.nextTick(function() {
-
-                            $scope.$eval($attributes.mdBlur, {
-                                "$mdAutocomplete": $mdAutocompleteCtrl
-                            });
-
-                            if (!isItemFound) {
-                                $scope.searchTextValid = false;
-                                $element.addClass('error');
-                            } else {
-                                $scope.searchTextValid = true;
-                                var el = angular.element('<div></div>').addClass('autocomplete-popover');
-                                el.html( $scope.searchText );
-                                $element.append(el);
-                            }
-
-                        });
-                };
-        }
-    };
-}
-
-function mdFocus($mdUtil, $timeout) {
-    return {
-        require: "^mdAutocomplete",
-        link: function($scope, $element, $attributes, $mdAutocompleteCtrl) {
-                var input = $element.find("input");
-                var nativeFocus = $mdAutocompleteCtrl.focus;
-
-                $mdAutocompleteCtrl.focus = function() {
-
-                    nativeFocus.call($mdAutocompleteCtrl);
-
-                    $mdUtil.nextTick(function() {
-                        $scope.$eval($attributes.mdBlur, {
-                            "$mdAutocomplete": $mdAutocompleteCtrl
-                        });
-
-                        angular.element(document.querySelectorAll('.autocomplete-popover')).remove();
-
-                        $element.removeClass('error');
-
-                        $timeout(function() {
-                            $scope.searchTextValid = false;
-                        }, 300);
-
-                    });
-                };
-        }
-    };
-}
-
 function mdAutocomplete($mdConstant) {
     return {
         link: link,
@@ -103,6 +35,33 @@ function mdAutocomplete($mdConstant) {
     };
 
     function link(scope, element, attrs, ctrl) {
+        element.on('focusin', onFocusIn);
+        element.on('focusout', onFocusOut);
+
+        function onFocusIn(e) {
+            if (e.target.tagName !== 'INPUT') return;
+
+            setTimeout(function() {
+                angular
+                    .element(document.querySelectorAll('.autocomplete-popover'))
+                    .remove();
+            }, 100);
+        }
+
+        function onFocusOut(e) {
+            if (e.target.tagName !== 'INPUT') return;
+
+            setTimeout(function() {
+                if (scope.filteredItems && !scope.filteredItems.length) return;
+
+                var popover = angular
+                                    .element('<div>')
+                                    .addClass('autocomplete-popover')
+                                    .html(scope.searchText);
+
+                element.append(popover);
+            }, 100);
+        }
 
         scope.onSearchTextChange = function() {
             if (!scope.searchText) {
@@ -113,19 +72,22 @@ function mdAutocomplete($mdConstant) {
             scope.symbolsCount = scope.searchText.length;
         };
 
-        scope.onValueClick = function(e, isValid) {
-            if (!isValid) return;
-
+        scope.onValueClick = function(e) {
             if (e.target.className !== 'autocomplete-popover') return;
-
-            element.find('input').blur();
 
             alert('Redirecting...');
         };
 
         element.bind('keydown', function(event) {
+            if (!scope.filteredItems) return ;
+            if (!scope.searchText)    return ;
+
+            if (scope.filteredItems.length && ~scope.filteredItems[0].indexOf(scope.searchText)) {
+                scope.selectedItem = null;
+                return;
+            }
+
             if (event.keyCode !== $mdConstant.KEY_CODE.TAB)   return;
-            if (!scope.filteredItems)                         return;
             if (scope.filteredItems.length !== 1)             return;
             if (scope.searchText === scope.filteredItems[0])  return;
 

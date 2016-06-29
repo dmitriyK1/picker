@@ -10,10 +10,7 @@ angular
 function runBlock($rootScope) {
     $rootScope.autocompleteItems = [ 'Broccoli', 'Cabbage', 'Carrot', 'Lettuce', 'Spinach' ];
     $rootScope.searchText        = '';
-    $rootScope.isDisabled        = false;
-    $rootScope.noCache           = true;
     $rootScope.querySearch       = querySearch;
-    $rootScope.filteredItems;
 
     function querySearch(query) {
         return query ? $rootScope.filteredItems = $rootScope.autocompleteItems.filter(createFilterFor(query)) : $rootScope.autocompleteItems;

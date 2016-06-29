@@ -1,6 +1,10 @@
+(function() {
+    'use strict';
 
-angular
-    .module('app', [
-        'ngMaterial',
-        'ngMessages'
-    ])
+    angular
+        .module('app', [
+            'ngMaterial',
+            'ngMessages'
+        ])
+
+})();

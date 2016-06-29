@@ -1,11 +1,13 @@
 <html lang="en" ng-app="app">
+
 <head>
     <meta name="viewport" content="initial-scale=1" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.0-rc4/angular-material.css" media="all">
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type='text/css'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type='text/css'>
     <link rel="stylesheet" href="styles.css" media="all">
 </head>
+
 <body>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-animate.min.js"></script>
@@ -36,8 +38,7 @@
                 disabled="demoCtrl.isDisabled"
                 required="demoCtrl.isRequired"
                 on-search-click="demoCtrl.onSearchClick()"
-                on-create-click="demoCtrl.onCreateClick(searchText)"
-            >
+                on-create-click="demoCtrl.onCreateClick(searchText)">
             </mx-picker>
 
             <div layout="row" layout-padding>
@@ -46,15 +47,22 @@
             </div>
 
             <md-input-container>
-                <md-switch ng-model="demoCtrl.showHints" ng-init="demoCtrl.showHints = true">Showing {{ demoCtrl.showHints ? "Hints" : "Errors" }}</md-switch>
+                <md-switch
+                    ng-model="demoCtrl.showHints"
+                    ng-init="demoCtrl.showHints=true"
+                >
+                    Showing {{ demoCtrl.showHints ? "Hints" : "Errors" }}
+                </md-switch>
             </md-input-container>
 
             <!-- <div> Symbols entered: {{ symbolsCount || 0 }} </div> -->
             <!-- <div ng&#45;messages="userForm.name.$error" ng&#45;if="!showHints"> </div> -->
 
         </form>
-    </div>        <!-- DemoCtrl end  -->
+    </div>
+    <!-- DemoCtrl end  -->
 
 
 </body>
+
 </html>

@@ -75,12 +75,12 @@ md-autocomplete button.clear-autocomplete:after {
 }
 
 .hidden {
-        display: none !important;
+    display: none !important;
 }
 
 [md-highlight-text] .highlight {
-        color: red !important;
-        font-weight: bold;
+    color: red !important;
+    font-weight: bold;
 }
 
 md-autocomplete input:focus {
@@ -105,12 +105,12 @@ md-autocomplete.error input {
 }
 
 .autocomplete-popover:hover {
-        color: orange;
-        text-decoration: underline;
-        text-decoration-style: dashed;
-        -webkit-text-decoration-style: dashed;
-        cursor: pointer;
-        transition: color 0.3s;
+    color: orange;
+    text-decoration: underline;
+    text-decoration-style: dashed;
+    -webkit-text-decoration-style: dashed;
+    cursor: pointer;
+    transition: color 0.3s;
 }
 
 .hint {

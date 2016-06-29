@@ -1,24 +1,27 @@
-angular
-    .module('app')
-    .controller('DemoCtrl', DemoCtrl)
+(function() {
+    'use strict';
 
-function DemoCtrl() {
-    var vm               = this;
-    vm.isDisabled        = false;
-    vm.isRequired        = false;
-    vm.cache             = false;
-    vm.autocompleteItems = ['Broccoli', 'Cabbage', 'Carrot', 'Lettuce', 'Spinach', 'Cherry', 'Apple'];
-    vm.onSearchClick     = onSearchClick;
-    vm.onCreateClick     = onCreateClick;
+    angular
+        .module('app')
+        .controller('DemoCtrl', DemoCtrl)
 
-    function onCreateClick(searchText) {
-        alert('creating...: ' + searchText);
+    function DemoCtrl() {
+        var vm               = this;
+        vm.isDisabled        = false;
+        vm.isRequired        = false;
+        vm.cache             = false;
+        vm.autocompleteItems = ['Broccoli', 'Cabbage', 'Carrot', 'Lettuce', 'Spinach', 'Cherry', 'Apple'];
+        vm.onSearchClick     = onSearchClick;
+        vm.onCreateClick     = onCreateClick;
+
+        function onCreateClick(searchText) {
+            alert('creating...: ' + searchText);
+        }
+
+        function onSearchClick() {
+            alert('search...');
+        }
+
     }
 
-    function onSearchClick() {
-        alert('search...');
-    }
-
-}
-
-
+})();

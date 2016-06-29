@@ -1,3 +1,4 @@
+
 angular
     .module('app', ['ngMaterial', 'ngMessages'])
     .run(runBlock)
@@ -11,7 +12,6 @@ angular
 function runBlock($rootScope) {
     $rootScope.autocompleteItems = [ 'Broccoli', 'Cabbage', 'Carrot', 'Lettuce', 'Spinach' ];
     $rootScope.searchText        = '';
-    $rootScope.searchText2       = 'Some value';
     $rootScope.isDisabled        = false;
     $rootScope.noCache           = true;
     $rootScope.querySearch       = querySearch;
@@ -46,9 +46,6 @@ function mdBlur($mdUtil, $rootScope) {
 
                         $mdUtil.nextTick(function() {
 
-                            console.log( $scope );
-                            console.log( $mdAutocompleteCtrl );
-
                             $scope.$eval($attributes.mdBlur, {
                                 "$mdAutocomplete": $mdAutocompleteCtrl
                             });
@@ -77,10 +74,6 @@ function mdFocus($mdUtil, $timeout) {
                 var nativeFocus = $mdAutocompleteCtrl.focus;
 
                 $mdAutocompleteCtrl.focus = function() {
-
-                    // prevent selection
-                    // var value = $element.find('input').val();
-                    // $element.find('input').val(value);
 
                     nativeFocus.call($mdAutocompleteCtrl);
 

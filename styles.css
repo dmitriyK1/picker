@@ -1,5 +1,5 @@
 body {
-        padding-top: 5vw;
+    padding-top: 5vw;
 }
 
 form {
@@ -11,56 +11,52 @@ md-autocomplete {
     width: 900px;
 }
 
-/* .md-virtual-repeat-container.md-autocomplete-suggestions-container { */
-        /* left: 4px !important; */
-/* } */
-
 .md-autocomplete-suggestions a {
-        text-decoration: underline;
+    text-decoration: underline;
 }
 
 .test-input {
-        display: block;
-        width: 100%;
-        transition: background 0.3s ease-out;
-        padding: 5px;
-        margin-bottom: 0.5rem;
-        border: 1px gray solid;
+    display: block;
+    width: 100%;
+    transition: background 0.3s ease-out;
+    padding: 5px;
+    margin-bottom: 0.5rem;
+    border: 1px gray solid;
 }
 
 .test-input:focus {
-        outline: 0;
-        border: 1px solid blue;
-        background: #EBEBEB;
+    outline: 0;
+    border: 1px solid blue;
+    background: #EBEBEB;
 }
 
 .clear-autocomplete {
-        position: absolute;
-        top: 10% !important;
-        right: 8px;
-        visibility: hidden;
-        opacity: 0;
-        transition: visibility 0s, opacity 0.25s linear;
+    position: absolute;
+    top: 10% !important;
+    right: 8px;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.25s linear;
 }
 
 md-autocomplete.md-default-theme button.clear-autocomplete:after,
 md-autocomplete button.clear-autocomplete:after {
-        background: none;
+    background: none;
 }
 
 .clear-autocomplete.visible {
-        visibility: visible;
-        opacity: 1;
-        cursor: pointer;
+    visibility: visible;
+    opacity: 1;
+    cursor: pointer;
 }
 
 .clear-autocomplete i {
-        font-size: 20px;
+    font-size: 20px;
 }
 
 .clear-autocomplete {
-        cursor: pointer;
-        -webkit-user-select: none;
+    cursor: pointer;
+    -webkit-user-select: none;
 }
 
 .hidden {
@@ -81,7 +77,7 @@ md-autocomplete md-input-container .md-input {
 }
 
 md-autocomplete.error input {
-        color: red !important;
+    color: red !important;
 }
 
 .autocomplete-popover {

@@ -78,6 +78,10 @@ function mdAutocomplete($mdConstant) {
             }, 10);
         }
 
+        scope.onSearchClick = function() {
+            alert('search...');
+        };
+
         scope.onSearchTextChange = function() {
             if (!scope.searchText) {
                 scope.symbolsCount = 0;

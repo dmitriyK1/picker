@@ -154,7 +154,7 @@
 
         function link(scope, element, attrs) {
             var template = [
-                '<md-button ng-hide="disabled" tabindex="-1" class="md-icon-button clear-autocomplete">',
+                '<md-button ng-hide="vm.disabled" tabindex="-1" class="md-icon-button clear-autocomplete">',
                 '<md-icon md-svg-icon="md-close">',
                 '</md-icon>',
                 '</md-button>'

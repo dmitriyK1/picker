@@ -3,6 +3,7 @@
     <meta name="viewport" content="initial-scale=1" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.0-rc4/angular-material.css" media="all">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type='text/css'>
     <link rel="stylesheet" href="styles.css" media="all">
 </head>
 <body>
@@ -13,84 +14,46 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-messages.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.0-rc4/angular-material.js"></script>
     <script src="app.js"></script>
+    <script src="mxPicker.directive.js"></script>
+    <script src="demoCtrl.controller.js"></script>
 
 
-    <form name="autocompleteForm">
-        <md-input-container layout="row">
-            <input type="text" autofocus flex>
-        </md-input-container>
+    <div ng-controller="DemoCtrl as demoCtrl">
+        <form name="autocompleteForm">
+            <md-input-container layout="row">
+                <input type="text" autofocus flex aria-label="Input">
+            </md-input-container>
 
-        <md-input-container layout="row">
-            <input type="text" flex>
-        </md-input-container>
-        <md-autocomplete
-                required
-                clear-autocomplete
-                md-blur
-                md-focus
-                md-search-text="searchText"
-                md-search-text-change="onSearchTextChange()"
-                md-input-name="autocomplete"
-                md-items="item in querySearch(searchText)"
-                md-item-text="item"
-                md-min-length="0"
-                md-input-maxlength="30"
-                placeholder="Single picker"
-                md-match-case-insensitive="true"
-                md-select-on-match="true"
-                md-no-cache="noCache"
-                md-floating-label="Single picker"
-                ng-click="onValueClick($event, searchTextValid)"
-                ng-disabled="isDisabled">
+            <md-input-container layout="row">
+                <input type="text" flex aria-label="Input">
+            </md-input-container>
 
-                <md-item-template>
-                    <span md-highlight-flags="^i" md-highlight-text="searchText">{{ item }}</span>
-                </md-item-template>
+            <mx-picker
+                hints="demoCtrl.showHints"
+                items="demoCtrl.autocompleteItems"
+                cache="demoCtrl.cache"
+                label="Single picker"
+                disabled="demoCtrl.isDisabled"
+                required="demoCtrl.isRequired"
+                on-search-click="demoCtrl.onSearchClick()"
+                on-create-click="demoCtrl.onCreateClick(searchText)"
+            >
+            </mx-picker>
 
-                <div class="hint hint-info" ng-if="showHints">Tell us what you like!</div>
-                <div class="hint hint-info" ng-if="showHints">Symbols entered: {{ symbolsCount }}</div>
+            <div layout="row" layout-padding>
+                <md-checkbox ng-model="demoCtrl.cache">Disable caching of queries?</md-checkbox>
+                <md-checkbox ng-model="demoCtrl.isDisabled">Disable the input?</md-checkbox>
+            </div>
 
-                <div style="position: relative;" ng-messages="autocompleteForm.autocomplete.$error" ng-if="autocompleteForm.autocomplete.$touched && !showHints">
-                    <div class="hint" ng-message="required">This field is required</div>
-                    <div ng-message="md-input-maxlength">The name has to be less than 30 characters long.</div>
-                </div>
+            <md-input-container>
+                <md-switch ng-model="demoCtrl.showHints" ng-init="demoCtrl.showHints = true">Showing {{ demoCtrl.showHints ? "Hints" : "Errors" }}</md-switch>
+            </md-input-container>
 
-                <!-- <div ng&#45;messages="userForm.name.$error" ng&#45;if="!showHints"> </div> -->
+            <!-- <div> Symbols entered: {{ symbolsCount || 0 }} </div> -->
+            <!-- <div ng&#45;messages="userForm.name.$error" ng&#45;if="!showHints"> </div> -->
 
-                <md-not-found>
-                    No states matching "{{searchText}}" were found.
-                    <a ng-click="ctrl.newState(searchText)">Create a new one!</a>
-                </md-not-found>
-        </md-autocomplete>
-
-        <!-- <md&#45;autocomplete -->
-        <!--         required -->
-        <!--         clear&#45;autocomplete -->
-        <!--         md&#45;blur -->
-        <!--         md&#45;focus -->
-        <!--         md&#45;search&#45;text="searchText2" -->
-        <!--         md&#45;items="item in querySearch(searchText2)" -->
-        <!--         md&#45;item&#45;text="item" -->
-        <!--         md&#45;min&#45;length="0" -->
-        <!--         md&#45;input&#45;maxlength="30" -->
-        <!--         placeholder="Single picker" -->
-        <!--         md&#45;match&#45;case&#45;insensitive="true" -->
-        <!--         md&#45;select&#45;on&#45;match="true" -->
-        <!--         md&#45;no&#45;cache="noCache" -->
-        <!--         md&#45;floating&#45;label="Single picker" -->
-        <!--         ng&#45;click="onValueClick($event, searchTextValid)" -->
-        <!--         ng&#45;disabled="isDisabled"> -->
-        <!-- </md&#45;autocomplete> -->
-
-        <div layout="row" layout-padding>
-            <md-checkbox ng-model="noCache">Disable caching of queries?</md-checkbox>
-            <md-checkbox ng-model="isDisabled">Disable the input?</md-checkbox>
-        </div>
-
-        <md-input-container>
-            <md-switch ng-model="showHints" ng-init="showHints = true">Showing {{showHints ? "Hints" : "Errors"}}</md-switch>
-        </md-input-container>
-    </form>
+        </form>
+    </div>        <!-- DemoCtrl end  -->
 
 
 </body>

@@ -1,0 +1,40 @@
+
+<md-autocomplete
+        required="required"
+        ng-disabled="disabled"
+        md-no-cache="cache"
+        clear-autocomplete
+        md-select-on-match="true"
+        md-match-case-insensitive="true"
+        placeholder="Single picker"
+        md-floating-label="{{ :: label }}"
+        md-input-name="autocomplete"
+        md-search-text="searchText"
+        md-search-text-change="onSearchTextChange()"
+        md-items="item in querySearch(searchText, items)"
+        md-item-text="item"
+        md-min-length="0"
+        md-input-maxlength="30"
+        md-selected-item-change="onItemChange()"
+        ng-click="onValueClick($event, searchTextValid)"
+        ng-class="isValidSearch ? ''  : 'invalid-value' ">
+
+        <md-item-template>
+                <span md-highlight-flags="^i" md-highlight-text="searchText">{{ item }}</span>
+        </md-item-template>
+
+        <div class="hint hint-info" ng-if="showHints">Tell us what you like!</div>
+
+        <div style="position: relative;" ng-messages="autocompleteForm.autocomplete.$error" ng-if="autocompleteForm.autocomplete.$touched && !showHints">
+                <div class="hint" ng-message="required">This field is required</div>
+                <div ng-message="md-input-maxlength">The name has to be less than 30 characters long.</div>
+        </div>
+
+        <md-not-found>
+                No states matching "{{searchText}}" were found.
+                <a ng-click="onCreateClick({ searchText: searchText })">Create a new one!</a>
+        </md-not-found>
+
+        <md-icon tabindex="-1" class="autocomplete-search" ng-hide="disabled" ng-click="onSearchClick()">search</md-icon>
+</md-autocomplete>
+

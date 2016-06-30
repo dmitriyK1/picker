@@ -9,10 +9,10 @@
 </head>
 
 <body>
-    <script src="libs/angular.js"></script>
-    <script src="libs/angular-animate.js"></script>
-    <script src="libs/angular-aria.js"></script>
-    <script src="libs/angular-messages.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular-animate.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular-aria.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular-messages.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.0-rc4/angular-material.js"></script>
 
    <!-- ================================================================================  -->
@@ -51,8 +51,8 @@
                 hints="demoCtrl.showHints"
                 cache="demoCtrl.cache"
                 required="demoCtrl.isRequired"
-                disabled="demoCtrl.isDisabled"
                 readOnly="demoCtrl.isReadOnly"
+                ng-disabled="demoCtrl.isDisabled"
 
                 selectedItem=""
                 items="demoCtrl.autocompleteItems"
@@ -70,7 +70,7 @@
                <md-checkbox ng-model="demoCtrl.isRequired">Required</md-checkbox>
                <md-checkbox ng-model="demoCtrl.isReadOnly">Readonly</md-checkbox>
                <md-checkbox ng-model="demoCtrl.isDisabled">Disabled</md-checkbox>
-               <md-checkbox ng-model="demoCtrl.cache">Disable caching of queries?</md-checkbox>
+               <md-checkbox ng-model="demoCtrl.cache">Disable caching of queries</md-checkbox>
             </div>
 
             <md-input-container>

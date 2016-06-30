@@ -10,10 +10,11 @@
 
 - refactor two-way data-binding into method binding
 
-
 - придумать где хранить данные уникальные для каждой директивы ( вынести то что хранится сейчас в service обратно в контроллер )
 
 - скрывать текст в инпуте если показан autocomplete-popover
+
+- по doubleclick на autocomplete-popover удалять его и фокусировать инпут
 
 - ? clear-autocomplete объединить с mxPicker ?
 

@@ -54,6 +54,7 @@ md-autocomplete.invalid-value input {
     transition: visibility 0s, opacity 0.25s linear;
 }
 
+
 md-autocomplete.md-default-theme button.clear-autocomplete:after,
 md-autocomplete button.clear-autocomplete:after {
     background: none;
@@ -84,7 +85,7 @@ md-autocomplete button.clear-autocomplete:after {
 }
 
 md-autocomplete input:focus {
-    color: #000 !important;
+    color: rgba(0,0,0,0.87) !important;
 }
 
 md-autocomplete md-input-container .md-input {
@@ -93,6 +94,10 @@ md-autocomplete md-input-container .md-input {
 
 md-autocomplete.error input {
     color: red !important;
+}
+
+md-autocomplete.valid-value input {
+    color: transparent !important;
 }
 
 .autocomplete-popover {

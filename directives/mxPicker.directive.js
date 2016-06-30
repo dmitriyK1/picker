@@ -88,6 +88,8 @@
                     angular
                         .element(document.querySelectorAll('.autocomplete-popover'))
                         .remove();
+
+                    element.removeClass('valid-value');
                 }, 100);
             }
 
@@ -115,6 +117,7 @@
                         .html(scope.searchText);
 
                     element.append(popover);
+                    element.addClass('valid-value');
                 }, 10);
             }
 
@@ -192,6 +195,7 @@
                 searchTextModel.assign(scope, undefined);
                 scope.$digest();
                 angular.element(document.querySelectorAll('.autocomplete-popover')).remove();
+                element.removeClass('valid-value');
             }
         }
 

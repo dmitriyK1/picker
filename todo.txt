@@ -1,20 +1,19 @@
+* refactor two-way data-binding into method binding
+* выделить что можно из md-autocomplete в link mx-picker
+* по doubleclick на autocomplete-popover удалять его и фокусировать инпут
+* ? clear-autocomplete объединить с mxPicker ?
 
-- выделить что можно из md-autocomplete в link mx-picker
+
+- рефакторить код с учетом использования контроллеров, сервисов
 
 - максимально использовать имеющийся код из baseController ( найти аналоги того что используется в md-autocomplete - link() )
 - уменьшить кол-во dom-манипуляций
 
 - все кроме DOM-манипуляций вынести в link \ service + наследование сервисов а не контроллеров
 
-- валидация при focus / blur
-
-- refactor two-way data-binding into method binding
-
 - придумать где хранить данные уникальные для каждой директивы ( вынести то что хранится сейчас в service обратно в контроллер )
 
-- по doubleclick на autocomplete-popover удалять его и фокусировать инпут
-
-- ? clear-autocomplete объединить с mxPicker ?
+- валидация при focus / blur
 
 
 --------------------------------------------------------------------------------

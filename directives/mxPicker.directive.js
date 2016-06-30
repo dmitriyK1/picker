@@ -86,7 +86,6 @@
                 if (e.target.tagName !== 'INPUT') return;
 
                 setTimeout(function() {
-                    // if (scope.filteredItems && !scope.filteredItems.length) return;
                     if (!scope.searchText) return;
                     if (!scope.filteredItems) return;
 
@@ -175,6 +174,10 @@
             });
 
             button.on('click', onClick);
+
+            scope.$on('$destroy', function() {
+                button.off('click');
+            });
 
             function onClick() {
                 searchTextModel.assign(scope, undefined);

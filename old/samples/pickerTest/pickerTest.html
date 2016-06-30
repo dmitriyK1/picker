@@ -24,12 +24,12 @@
 		<div>
 			<div class="block">
 				<mx-picker
-					data-items="vm.pickerData"
+					items="vm.pickerData"
 					ng-model="vm.pickerValue"
-					data-item-title-field="title"
-					data-item-id-field="title"
+					item-title-field="title"
+					item-id-field="title"
 					class="mx-picker-default"
-					data-label="mx-picker-default"
+					label="mx-picker-default"
 					navigate-item="vm.navigateSelectedItem"
 					dropdown-html-class="mx-picker-default-values">
 				</mx-picker>
@@ -37,24 +37,24 @@
 
 			<div class="block">
 				<mx-picker
-					data-items="vm.pickerData"
+					items="vm.pickerData"
 					ng-model="vm.pickerValue"
-					data-item-title-field="title"
-					data-item-id-field="title"
+					item-title-field="title"
+					item-id-field="title"
 					class="mx-picker-readonly"
-					data-label="mx-picker-readonly"
-					data-read-only="true"
+					label="mx-picker-readonly"
+					read-only="true"
 					navigate-item="vm.navigateSelectedItem"
 					dropdown-html-class="mx-picker-readonly-values">
 				</mx-picker>
 				<mx-picker
-					data-items="vm.pickerData"
+					items="vm.pickerData"
 					ng-model="vm.pickerValue"
-					data-item-title-field="title"
-					data-item-id-field="title"
+					item-title-field="title"
+					item-id-field="title"
 					class="mx-picker-disabled"
-					data-label="mx-picker-disabled"
-					data-disabled="true"
+					label="mx-picker-disabled"
+					disabled="true"
 					navigate-item="vm.navigateSelectedItem"
 					dropdown-html-class="mx-picker-disabled-values">
 				</mx-picker>
@@ -63,31 +63,31 @@
 		<div>
 			<test-form-control>
 				<mx-picker
-					data-name="Items1"
-					data-label="Items1-label"
-					data-disabled="false"
-					data-read-only="false"
-					data-items="vm.pickerArray"
+					name="Items1"
+					label="Items1-label"
+					disabled="false"
+					read-only="false"
+					items="vm.pickerArray"
 					ng-model="vm.pickerArrayValue"
 					ng-required="true"
 					navigate-item="vm.navigateSelectedItem"
-					data-item-title-field="DisplayString"
+					item-title-field="DisplayString"
 					class="mx-picker-required-true"
-					data-selected-items="vm.pickerSelectedItems"
+					selected-items="vm.pickerSelectedItems"
 					dropdown-html-class="mx-picker-required-true-values">
 				</mx-picker>
 			</test-form-control>
 
 			<test-form-control class="test-form-control-new-value-as-id-false">
 				<mx-picker
-					data-name="mx-picker-value-as-id-false"
-					data-label="mx-picker-value-as-id-false"
-					data-disabled="false"
-					data-read-only="false"
-					data-items="vm.pickerArray2"
+					name="mx-picker-value-as-id-false"
+					label="mx-picker-value-as-id-false"
+					disabled="false"
+					read-only="false"
+					items="vm.pickerArray2"
 					ng-model="vm.pickerArrayValue2"
 					ng-required="true"
-					data-item-title-field="Value"
+					item-title-field="Value"
 					class="mx-picker-value-as-id-false"
 					dropdown-html-class="mx-picker-value-as-id-false-values">
 				</mx-picker>
@@ -96,15 +96,15 @@
 
 			<test-form-control class="test-form-autocomplete">
 				<mx-picker
-					data-name="Characters"
-					data-label="Characters, value as Id"
-					data-disabled="false"
-					data-read-only="false"
-					data-items="vm.pickerItems"
+					name="Characters"
+					label="Characters, value as Id"
+					disabled="false"
+					read-only="false"
+					items="vm.pickerItems"
 					ng-model="vm.pickerSelectedItem"
 					ng-required="true"
-					data-item-id-field="DisplayString"
-					data-item-title-field="DisplayString"
+					item-id-field="DisplayString"
+					item-title-field="DisplayString"
 					class="mx-picker-autocomplete"
 					dropdown-html-class="mx-picker-autocomplete-values">
 				</mx-picker>

@@ -40,29 +40,30 @@
             </md-input-container>
 
             <mx-picker
-                on-search-click="demoCtrl.onSearchClick()"
+                on-search-click   = "demoCtrl.onSearchClick()"
 
-                name=""
-                label="Single picker"
-                itemTitleField=""
-                itemIdField=""
-                dropdownHtmlClass=""
+                name              = ""
+                label             = "Single picker"
+                itemTitleField    = ""
+                itemIdField       = ""
+                dropdownHtmlClass = ""
 
-                hints="demoCtrl.showHints"
-                cache="demoCtrl.cache"
-                required="demoCtrl.isRequired"
-                readOnly="demoCtrl.isReadOnly"
-                ng-disabled="demoCtrl.isDisabled"
+                hints             = "demoCtrl.showHints"
+                cache             = "demoCtrl.cache"
+                required          = "demoCtrl.isRequired"
+                readOnly          = "demoCtrl.isReadOnly"
+                ng-disabled       = "demoCtrl.isDisabled"
 
-                selectedItem=""
-                items="demoCtrl.autocompleteItems"
+                selectedItem      = ""
+                items             = "demoCtrl.autocompleteItems"
 
-                loadItems=""
-                loadOnTyping=""
-                loadDelay=""
-                navigateItem=""
-                createItem="demoCtrl.onCreateClick(searchText)"
-                browseLookup="">
+                loadItems         = ""
+                loadOnTyping      = ""
+                loadDelay         = ""
+                navigateItem      = ""
+                createItem        = "demoCtrl.onCreateClick(searchText)"
+                browseLookup      = ""
+            >
                 <!-- ng&#45;model="" -->
             </mx-picker>
 
@@ -75,8 +76,8 @@
 
             <md-input-container>
                 <md-switch
-                    ng-model="demoCtrl.showHints"
-                    ng-init="demoCtrl.showHints=true"
+                    ng-model = "demoCtrl.showHints"
+                    ng-init  = "demoCtrl.showHints=true"
                 >
                     Showing {{ demoCtrl.showHints ? "Hints" : "Errors" }}
                 </md-switch>
@@ -126,14 +127,15 @@
         <h1>mx-picker directive API:</h1>
         <pre>
             &lt;mx-picker
-                hints="demoCtrl.showHints"
-                items="demoCtrl.autocompleteItems"
-                cache="demoCtrl.cache"
-                label="Single picker"
-                disabled="demoCtrl.isDisabled"
-                required="demoCtrl.isRequired"
-                on-search-click="demoCtrl.onSearchClick()"
-                on-create-click="demoCtrl.onCreateClick(searchText)"&gt;
+                hints           = "demoCtrl.showHints"
+                items           = "demoCtrl.autocompleteItems"
+                cache           = "demoCtrl.cache"
+                label           = "Single picker"
+                disabled        = "demoCtrl.isDisabled"
+                required        = "demoCtrl.isRequired"
+                on-search-click = "demoCtrl.onSearchClick()"
+                on-create-click = "demoCtrl.onCreateClick(searchText)"
+            &gt;
             &lt;/mx-picker&gt;
         </pre>
         <ul>

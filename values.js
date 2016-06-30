@@ -24,6 +24,6 @@
 
 	angular
 		.module('app')
-		.constant('basePickerProperties', basePickerProperties)
-		.constant('commonPickerProperties', commonPickerProperties)
+		.value('basePickerProperties', basePickerProperties)
+		.value('commonPickerProperties', commonPickerProperties)
 })();

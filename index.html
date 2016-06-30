@@ -3,7 +3,7 @@
 <head>
     <meta name="viewport" content="initial-scale=1" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
-    <link rel="stylesheet" href="libs/angular-material.min.css" media="all">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.0-rc4/angular-material.css" type="text/css" media="all">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type='text/css'>
     <link rel="stylesheet" href="directives/mxPicker.directive.css" media="all">
 </head>
@@ -13,12 +13,12 @@
     <script src="libs/angular-animate.js"></script>
     <script src="libs/angular-aria.js"></script>
     <script src="libs/angular-messages.js"></script>
-    <script src="libs/angular-material.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.0-rc4/angular-material.js"></script>
 
    <!-- ================================================================================  -->
 
     <script src="app.js"></script>
-    <script src="constants.js"></script>
+    <script src="values.js"></script>
 
     <script src="services/mxBasePicker.service.js"></script>
 
@@ -40,19 +40,37 @@
             </md-input-container>
 
             <mx-picker
-                hints="demoCtrl.showHints"
-                items="demoCtrl.autocompleteItems"
-                cache="demoCtrl.cache"
-                label="Single picker"
-                disabled="demoCtrl.isDisabled"
-                required="demoCtrl.isRequired"
                 on-search-click="demoCtrl.onSearchClick()"
-                on-create-click="demoCtrl.onCreateClick(searchText)">
+
+                name=""
+                label="Single picker"
+                itemTitleField=""
+                itemIdField=""
+                dropdownHtmlClass=""
+
+                hints="demoCtrl.showHints"
+                cache="demoCtrl.cache"
+                required="demoCtrl.isRequired"
+                disabled="demoCtrl.isDisabled"
+                readOnly="demoCtrl.isReadOnly"
+
+                selectedItem=""
+                items="demoCtrl.autocompleteItems"
+
+                loadItems=""
+                loadOnTyping=""
+                loadDelay=""
+                navigateItem=""
+                createItem="demoCtrl.onCreateClick(searchText)"
+                browseLookup="">
+                <!-- ng&#45;model="" -->
             </mx-picker>
 
-            <div layout="row" layout-padding>
-                <md-checkbox ng-model="demoCtrl.cache">Disable caching of queries?</md-checkbox>
-                <md-checkbox ng-model="demoCtrl.isDisabled">Disable the input?</md-checkbox>
+            <div layout="column" layout-padding>
+               <md-checkbox ng-model="demoCtrl.isRequired">Required</md-checkbox>
+               <md-checkbox ng-model="demoCtrl.isReadOnly">Readonly</md-checkbox>
+               <md-checkbox ng-model="demoCtrl.isDisabled">Disabled</md-checkbox>
+               <md-checkbox ng-model="demoCtrl.cache">Disable caching of queries?</md-checkbox>
             </div>
 
             <md-input-container>
@@ -68,6 +86,7 @@
             <!-- <div ng&#45;messages="userForm.name.$error" ng&#45;if="!showHints"> </div> -->
 
         </form>
+
 
         <h1>mx-picker directive API:</h1>
         <pre>
@@ -87,7 +106,6 @@
         </ul>
     </div>
     <!-- DemoCtrl end  -->
-
 
 </body>
 

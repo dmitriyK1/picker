@@ -37,12 +37,12 @@
 */
 
  <mx-picker
-		data-items            = "vm.pickerData"
-		ng-model              = "vm.pickerValue"
-		ng-required           = "true"
-		data-label            = "Classic, predfined items"
-		value-as-id           = "true"
-		data-item-title-field = "'title'">
+		items            = "vm.pickerData"
+		ng-model         = "vm.pickerValue"
+		ng-required      = "true"
+		label            = "Classic, predfined items"
+		value-as-id      = "true"
+		item-title-field = "'title'">
 </mx-picker>
 
 --------------------------------------------------------------------------------

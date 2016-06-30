@@ -13,7 +13,9 @@
 
 - придумать где хранить данные уникальные для каждой директивы ( вынести то что хранится сейчас в service обратно в контроллер )
 
-- скрывать тект в инпуте если показан autocomplete-popover
+- скрывать текст в инпуте если показан autocomplete-popover
+
+- выровнять autocomplete-popover когда нет floating label
 
 - ? clear-autocomplete объединить с mxPicker ?
 

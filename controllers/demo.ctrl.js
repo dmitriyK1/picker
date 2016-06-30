@@ -86,10 +86,9 @@
         }];
 
         vm.pickerLoadOnTypingValue = 5;
-
-        vm.loadItems            = loadItems;
-        vm.navigateSelectedItem = navigateSelectedItem;
-        vm.browseLookup         = browseLookup;
+        vm.loadItems               = loadItems;
+        vm.navigateSelectedItem    = navigateSelectedItem;
+        vm.browseLookup            = browseLookup;
 
 
         function loadItems(searchText, ctrl, itms) {
@@ -102,7 +101,6 @@
                     });
                 });
             } else {
-                console.log(searchText);
                 var res = [];
 
                 items.forEach(function(item) {

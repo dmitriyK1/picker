@@ -9,6 +9,7 @@
 		var vm         = this;
 		vm.readOnly    = true;
 		vm.isDisabled  = true;
+		
 		vm.pickerValue = 2;
 
 		vm.pickerData = [{id: 1, title: 'item 1'}, {id: 2, title: 'item 2'}, {id: 3, title: 'item 3'}, {

@@ -1,7 +1,7 @@
 <md-autocomplete
         clear-autocomplete
         ng-required               = "vm.required"
-        ng-disabled               = "vm.disabled || vm.readOnly"
+        ng-disabled               = "vm.disabled || (vm.readOnly && vm.selectedItem)"
         md-no-cache               = "true"
         md-select-on-match        = "true"
         md-match-case-insensitive = "true"
@@ -10,6 +10,7 @@
         md-input-name             = "autocomplete"
         md-search-text            = "searchText"
         md-search-text-change     = "onSearchTextChange()"
+        md-selected-item          = "vm.selectedItem"
         md-items                  = "item in querySearch(searchText, vm.items)"
         md-item-text              = "item"
         md-min-length             = "0"
@@ -35,6 +36,6 @@
                 <a ng-click="vm.onCreateClick({ searchText: searchText })">Create a new one!</a>
         </md-not-found>
 
-        <md-icon tabindex="-1" class="autocomplete-search" ng-hide="vm.disabled || vm.readOnly" ng-click="vm.onSearchClick()">search</md-icon>
+        <md-icon tabindex="-1" class="autocomplete-search" ng-hide="vm.disabled || (vm.readOnly && vm.selectedItem)" ng-click="vm.onSearchClick()">search</md-icon>
 </md-autocomplete>
 

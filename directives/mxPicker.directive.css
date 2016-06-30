@@ -102,11 +102,18 @@ md-autocomplete.valid-value input {
 
 .autocomplete-popover {
     position: absolute;
-    left: 4px;
-    top: 26px;
     -webkit-user-select: none;
     -moz-user-select: none;
     user-select: none;
+    left: 15px;
+    top: 12px;
+    font-size: 14px;
+}
+
+[md-floating-label] .autocomplete-popover {
+    left: 4px;
+    top: 26px;
+    font-size: 16px;
 }
 
 .autocomplete-popover:hover {

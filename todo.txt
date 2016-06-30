@@ -15,11 +15,6 @@
 
 - скрывать текст в инпуте если показан autocomplete-popover
 
-- выровнять autocomplete-popover когда нет floating label
-    left: 15px;
-    top: 12px;
-    font-size: 14px;
-
 - ? clear-autocomplete объединить с mxPicker ?
 
 

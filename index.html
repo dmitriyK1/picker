@@ -88,23 +88,23 @@
 
             <hr>
 
+            <!-- ARRAY VALUES EXAMPLE -->
+            <mx-picker
+               label    = "Array values example:  ['Item1', 'Item2', 'Item3', 'Item4', 'Item5', 'Item6'] "
+               items    = "vm.pickerArray"
+               ng-model = "vm.pickerArrayValue"
+               >
+            </mx-picker>
+
             <!-- SIMPLE VALUE EXAMPLE: -->
 			<mx-picker
-                label            = "Array of objects example"
+               label            = "Array of objects example:  [ { id: 1, title: 'item 1' },  ... ] "
 				items            = "vm.pickerData"
 				ng-model         = "vm.pickerValue"
 				ng-required      = "true"
 				navigate-item    = "vm.navigateSelectedItem"
 				browse-lookup    = "vm.browseLookup"
                 item-title-field = "title"
-            >
-			</mx-picker>
-
-            <!-- ARRAY VALUES EXAMPLE -->
-			<mx-picker
-                label    = "Array values example"
-				items    = "vm.pickerArray"
-                ng-model = "vm.pickerArrayValue"
             >
 			</mx-picker>
 

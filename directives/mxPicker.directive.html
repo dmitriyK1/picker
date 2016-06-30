@@ -19,6 +19,7 @@
         md-selected-item-change   = "onItemChange()"
         ng-click                  = "onValueClick($event, searchTextValid)"
         ng-class                  = "isValidSearch ? ''  : 'invalid-value' "
+        md-menu-class             = "{{ :: vm.dropdownHtmlClass }}"
 >
 
         <md-item-template>

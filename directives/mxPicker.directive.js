@@ -26,10 +26,17 @@
             templateUrl      : 'directives/mxPicker.directive.html',
             controller       : 'MxPickerCtrl as vm',
             scope            : {},
-            bindToController : bindToController
+            bindToController : bindToController,
+            link             : link
         };
 
         return ddo;
+
+        function link(scope, element, attrs, ctrl) {
+            // for debugging, delete later
+            console.count('Directives count');
+            console.dir(ctrl);
+        }
     }
 
     function mdAutocomplete($mdConstant) {

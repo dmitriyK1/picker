@@ -45,27 +45,27 @@
             </md-input-container>
 
             <mx-picker
-                required          = "demoCtrl.isRequired"
-                read-only         = "demoCtrl.isReadOnly"
-                ng-disabled       = "demoCtrl.isDisabled"
-                hints             = "demoCtrl.showHints"
+                required            = "demoCtrl.isRequired"
+                read-only           = "demoCtrl.isReadOnly"
+                ng-disabled         = "demoCtrl.isDisabled"
+                hints               = "demoCtrl.showHints"
 
-                name              = ""
-                label             = "Single picker"
-                itemTitleField    = ""
-                itemIdField       = ""
-                dropdownHtmlClass = ""
+                name                = ""
+                label               = "Single picker"
+                item-title-field    = ""
+                item-id-field       = ""
+                dropdown-html-class = "mx-picker-default"
 
-                selectedItem      = ""
-                items             = "demoCtrl.autocompleteItems"
+                selected-item       = ""
+                items               = "demoCtrl.autocompleteItems"
 
-                loadItems         = ""
-                loadOnTyping      = ""
-                loadDelay         = ""
-                navigateItem      = ""
-                createItem        = "demoCtrl.onCreateClick(searchText)"
-                browseLookup      = ""
-                on-search-click   = "demoCtrl.onSearchClick()"
+                load-items          = ""
+                load-on-typing      = ""
+                load-delay          = ""
+                navigate-item       = ""
+                create-item         = "demoCtrl.onCreateClick(searchText)"
+                browse-lookup       = ""
+                on-search-click     = "demoCtrl.onSearchClick()"
             >
                 <!-- ng&#45;model="" -->
             </mx-picker>
@@ -99,16 +99,16 @@
             </mx-picker>
 
             <!-- SIMPLE VALUE EXAMPLE: -->
-			<mx-picker
-                label            = "Array of objects example:  [ { id: 1, title: 'item 1' },  ... ] "
-				items            = "demoCtrl.pickerData"
-				ng-model         = "demoCtrl.pickerValue"
-				ng-required      = "true"
-				navigate-item    = "demoCtrl.navigateSelectedItem"
-				browse-lookup    = "demoCtrl.browseLookup"
-                item-title-field = "title"
+            <mx-picker
+                     label            = "Array of objects example:  [ { id: 1, title: 'item 1' },  ... ] "
+                     items            = "demoCtrl.pickerData"
+                     ng-model         = "demoCtrl.pickerValue"
+                     ng-required      = "true"
+                     navigate-item    = "demoCtrl.navigateSelectedItem"
+                     browse-lookup    = "demoCtrl.browseLookup"
+                     item-title-field = "title"
             >
-			</mx-picker>
+            </mx-picker>
 
             <!-- LAZY LOADING EXAMPLE -->
             <mx-picker
@@ -129,29 +129,29 @@
         <h1>mx-picker directive API:</h1>
         <pre>
             &lt;mx-picker
-                required          = "demoCtrl.isRequired"
-                read-only         = "demoCtrl.isReadOnly"
-                ng-disabled       = "demoCtrl.isDisabled"
-                hints             = "demoCtrl.showHints"
+                required            = "demoCtrl.isRequired"
+                read-only           = "demoCtrl.isReadOnly"
+                ng-disabled         = "demoCtrl.isDisabled"
+                hints               = "demoCtrl.showHints"
 
-                name              = ""
-                label             = "Single picker"
-                itemTitleField    = ""
-                itemIdField       = ""
-                dropdownHtmlClass = ""
+                name                = ""
+                label               = "Single picker"
+                item-title-field    = ""
+                item-id-field       = ""
+                dropdown-html-class = ""
 
-                selectedItem      = ""
-                items             = "demoCtrl.autocompleteItems"
+                selected-item       = ""
+                items               = "demoCtrl.autocompleteItems"
 
-                loadItems         = ""
-                loadOnTyping      = ""
-                loadDelay         = ""
-                navigateItem      = ""
-                createItem        = "demoCtrl.onCreateClick(searchText)"
-                browseLookup      = ""
-                on-search-click   = "demoCtrl.onSearchClick()"
+                load-items          = ""
+                load-on-typing      = ""
+                load-delay          = ""
+                navigate-item       = ""
+                create-item         = "demoCtrl.onCreateClick(searchText)"
+                browse-lookup       = ""
+                on-search-click     = "demoCtrl.onSearchClick()"
 
-                ng-model          = ""
+                ng-model            = ""
             &gt;
 
 

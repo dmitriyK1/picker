@@ -17,7 +17,7 @@
             items         : '=',
             showHints     : '=hints',
             onSearchClick : '&',
-            onCreateClick : '&'
+            onCreateClick : '&createItem'
         };
 
         angular.extend(bindToController, commonPickerProperties);

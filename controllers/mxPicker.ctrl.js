@@ -28,7 +28,6 @@
                                     : null;
         }
 
-
         console.dir( mxBasePickerService );
     }
 

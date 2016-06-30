@@ -1,22 +1,23 @@
 <md-autocomplete
-        ng-required="vm.required"
-        ng-disabled="vm.disabled"
-        md-no-cache="true"
         clear-autocomplete
-        md-select-on-match="true"
-        md-match-case-insensitive="true"
-        placeholder="Single picker"
-        md-floating-label="{{ :: vm.label }}"
-        md-input-name="autocomplete"
-        md-search-text="searchText"
-        md-search-text-change="onSearchTextChange()"
-        md-items="item in querySearch(searchText, vm.items)"
-        md-item-text="item"
-        md-min-length="0"
-        md-input-maxlength="30"
-        md-selected-item-change="onItemChange()"
-        ng-click="onValueClick($event, searchTextValid)"
-        ng-class="isValidSearch ? ''  : 'invalid-value' ">
+        ng-required               = "vm.required"
+        ng-disabled               = "vm.disabled || vm.readOnly"
+        md-no-cache               = "true"
+        md-select-on-match        = "true"
+        md-match-case-insensitive = "true"
+        placeholder               = "Single picker"
+        md-floating-label         = "{{ :: vm.label }}"
+        md-input-name             = "autocomplete"
+        md-search-text            = "searchText"
+        md-search-text-change     = "onSearchTextChange()"
+        md-items                  = "item in querySearch(searchText, vm.items)"
+        md-item-text              = "item"
+        md-min-length             = "0"
+        md-input-maxlength        = "30"
+        md-selected-item-change   = "onItemChange()"
+        ng-click                  = "onValueClick($event, searchTextValid)"
+        ng-class                  = "isValidSearch ? ''  : 'invalid-value' "
+>
 
         <md-item-template>
                 <span md-highlight-flags="^i" md-highlight-text="searchText">{{ item }}</span>
@@ -34,6 +35,6 @@
                 <a ng-click="vm.onCreateClick({ searchText: searchText })">Create a new one!</a>
         </md-not-found>
 
-        <md-icon tabindex="-1" class="autocomplete-search" ng-hide="vm.disabled" ng-click="vm.onSearchClick()">search</md-icon>
+        <md-icon tabindex="-1" class="autocomplete-search" ng-hide="vm.disabled || vm.readOnly" ng-click="vm.onSearchClick()">search</md-icon>
 </md-autocomplete>
 

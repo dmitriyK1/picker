@@ -11,12 +11,13 @@
 
         var bindToController = {
             disabled      : '=ngDisabled',
+            readOnly      : '=',
             required      : '=',
             label         : '@',
             items         : '=',
             showHints     : '=hints',
             onSearchClick : '&',
-            onCreateClick : '&'
+            onCreateClick : '&',
         };
 
         angular.extend(bindToController, commonPickerProperties);
@@ -54,8 +55,6 @@
                 element.off('focusin');
                 element.off('focusout');
             });
-
-            console.log(ctrl);
 
             function querySearch(query, items) {
                 return query ? scope.filteredItems = items.filter(createFilterFor(query)) : items;
@@ -152,7 +151,7 @@
 
         function link(scope, element, attrs) {
             var template = [
-                '<md-button ng-hide="vm.disabled" tabindex="-1" class="md-icon-button clear-autocomplete">',
+                '<md-button ng-hide="vm.disabled || vm.readOnly" tabindex="-1" class="md-icon-button clear-autocomplete">',
                 '<md-icon md-svg-icon="md-close">',
                 '</md-icon>',
                 '</md-button>'

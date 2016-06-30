@@ -94,7 +94,7 @@
                     if (!scope.searchText) return;
                     if (!scope.filteredItems) return;
 
-                    var isFound = scope.items.some(function(value) {
+                    var isFound = scope.vm.items.some(function(value) {
                         return value.toLowerCase() === scope.searchText.toLowerCase();
                     });
 

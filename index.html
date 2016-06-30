@@ -85,6 +85,33 @@
             <!-- <div> Symbols entered: {{ symbolsCount || 0 }} </div> -->
             <!-- <div ng&#45;messages="userForm.name.$error" ng&#45;if="!showHints"> </div> -->
 
+			<mx-picker
+				data-items="vm.pickerData"
+				ng-model="vm.pickerValue"
+				ng-required="true"
+				data-label="Classic, predfined items"
+				navigate-item="vm.navigateSelectedItem"
+				browse-lookup="vm.browseLookup"
+				data-item-title-field="title">
+			</mx-picker>
+
+			<mx-picker
+				data-items="vm.pickerArray"
+				ng-model="vm.pickerArrayValue"
+				data-label="Simple Plain Array">
+			</mx-picker>
+
+            <mx-picker
+               ng-model="vm.pickerLoadOnTypingValue"
+               data-item-title-field="DisplayString"
+               data-item-details-field="Description"
+               data-item-id-field="Value"
+               data-load-items="vm.loadItems"
+               data-not-found="vm.notFoundDescriptor"
+               data-load-on-typing="true"
+               data-label="Load on typing, with details">
+            </mx-picker>
+
         </form>
 
 

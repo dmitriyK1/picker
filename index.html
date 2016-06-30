@@ -35,95 +35,92 @@
    <!-- ================================================================================  -->
 
     <div ng-controller="DemoCtrl as demoCtrl">
-        <form name="autocompleteForm">
-            <md-input-container layout="row">
-                <input type="text" autofocus flex aria-label="Input" placeholder="Input to test keyboard navigation">
-            </md-input-container>
+         <md-input-container layout="row">
+               <input type="text" autofocus flex aria-label="Input" placeholder="Input to test keyboard navigation">
+         </md-input-container>
 
-            <md-input-container layout="row">
-                <input type="text" flex aria-label="Input" placeholder="Input to test keyboard navigation">
-            </md-input-container>
+         <md-input-container layout="row">
+               <input type="text" flex aria-label="Input" placeholder="Input to test keyboard navigation">
+         </md-input-container>
 
-            <mx-picker
-                required          = "demoCtrl.isRequired"
-                read-only         = "demoCtrl.isReadOnly"
-                ng-disabled       = "demoCtrl.isDisabled"
-                hints             = "demoCtrl.showHints"
+         <mx-picker
+               required          = "demoCtrl.isRequired"
+               read-only         = "demoCtrl.isReadOnly"
+               ng-disabled       = "demoCtrl.isDisabled"
+               hints             = "demoCtrl.showHints"
 
-                name              = ""
-                label             = "Single picker"
-                itemTitleField    = ""
-                itemIdField       = ""
-                dropdownHtmlClass = ""
+               name              = ""
+               label             = "Single picker"
+               itemTitleField    = ""
+               itemIdField       = ""
+               dropdownHtmlClass = ""
 
-                selectedItem      = ""
-                items             = "demoCtrl.autocompleteItems"
+               selectedItem      = ""
+               items             = "demoCtrl.autocompleteItems"
 
-                loadItems         = ""
-                loadOnTyping      = ""
-                loadDelay         = ""
-                navigateItem      = ""
-                createItem        = "demoCtrl.onCreateClick(searchText)"
-                browseLookup      = ""
-                on-search-click   = "demoCtrl.onSearchClick()"
-            >
-                <!-- ng&#45;model="" -->
-            </mx-picker>
+               loadItems         = ""
+               loadOnTyping      = ""
+               loadDelay         = ""
+               navigateItem      = ""
+               createItem        = "demoCtrl.onCreateClick(searchText)"
+               browseLookup      = ""
+               on-search-click   = "demoCtrl.onSearchClick()"
+         >
+               <!-- ng&#45;model="" -->
+         </mx-picker>
 
-            <div layout="column" layout-padding>
-               <md-checkbox ng-model="demoCtrl.isRequired">Required</md-checkbox>
-               <md-checkbox ng-model="demoCtrl.isReadOnly">Readonly</md-checkbox>
-               <md-checkbox ng-model="demoCtrl.isDisabled">Disabled</md-checkbox>
-            </div>
+         <div layout="column" layout-padding>
+            <md-checkbox ng-model="demoCtrl.isRequired">Required</md-checkbox>
+            <md-checkbox ng-model="demoCtrl.isReadOnly">Readonly</md-checkbox>
+            <md-checkbox ng-model="demoCtrl.isDisabled">Disabled</md-checkbox>
+         </div>
 
-            <md-input-container>
-                <md-switch
-                    ng-model = "demoCtrl.showHints"
-                    ng-init  = "demoCtrl.showHints=true"
-                >
-                    Showing {{ demoCtrl.showHints ? "Hints" : "Errors" }}
-                </md-switch>
-            </md-input-container>
-
-            <!-- <div> Symbols entered: {{ symbolsCount || 0 }} </div> -->
-            <!-- <div ng&#45;messages="userForm.name.$error" ng&#45;if="!showHints"> </div> -->
-
-            <hr>
-
-            <!-- ARRAY VALUES EXAMPLE -->
-            <mx-picker
-               label    = "Array values example:  ['Item1', 'Item2', 'Item3', 'Item4', 'Item5', 'Item6'] "
-               items    = "demoCtrl.pickerArray"
-               ng-model = "demoCtrl.pickerArrayValue"
+         <md-input-container>
+               <md-switch
+                  ng-model = "demoCtrl.showHints"
+                  ng-init  = "demoCtrl.showHints=true"
                >
-            </mx-picker>
+                  Showing {{ demoCtrl.showHints ? "Hints" : "Errors" }}
+               </md-switch>
+         </md-input-container>
 
-            <!-- SIMPLE VALUE EXAMPLE: -->
-			<mx-picker
-                label            = "Array of objects example:  [ { id: 1, title: 'item 1' },  ... ] "
-				items            = "demoCtrl.pickerData"
-				ng-model         = "demoCtrl.pickerValue"
-				ng-required      = "true"
-				navigate-item    = "demoCtrl.navigateSelectedItem"
-				browse-lookup    = "demoCtrl.browseLookup"
-                item-title-field = "title"
+         <!-- <div> Symbols entered: {{ symbolsCount || 0 }} </div> -->
+         <!-- <div ng&#45;messages="userForm.name.$error" ng&#45;if="!showHints"> </div> -->
+
+         <hr>
+
+         <!-- ARRAY VALUES EXAMPLE -->
+         <mx-picker
+            label    = "Array values example:  ['Item1', 'Item2', 'Item3', 'Item4', 'Item5', 'Item6'] "
+            items    = "demoCtrl.pickerArray"
+            ng-model = "demoCtrl.pickerArrayValue"
             >
-			</mx-picker>
+         </mx-picker>
 
-            <!-- LAZY LOADING EXAMPLE -->
-            <mx-picker
-               label              = "Lazy-loading example"
-               ng-model           = "demoCtrl.pickerLoadOnTypingValue"
-               item-title-field   = "DisplayString"
-               item-details-field = "Description"
-               item-id-field      = "Value"
-               load-items         = "demoCtrl.loadItems"
-               not-found          = "demoCtrl.notFoundDescriptor"
-               load-on-typing     = "true"
-            >
-            </mx-picker>
+         <!-- SIMPLE VALUE EXAMPLE: -->
+         <mx-picker
+               label            = "Array of objects example:  [ { id: 1, title: 'item 1' },  ... ] "
+               items            = "demoCtrl.pickerData"
+               ng-model         = "demoCtrl.pickerValue"
+               ng-required      = "true"
+               navigate-item    = "demoCtrl.navigateSelectedItem"
+               browse-lookup    = "demoCtrl.browseLookup"
+               item-title-field = "title"
+         >
+         </mx-picker>
 
-        </form>
+         <!-- LAZY LOADING EXAMPLE -->
+         <mx-picker
+            label              = "Lazy-loading example"
+            ng-model           = "demoCtrl.pickerLoadOnTypingValue"
+            item-title-field   = "DisplayString"
+            item-details-field = "Description"
+            item-id-field      = "Value"
+            load-items         = "demoCtrl.loadItems"
+            not-found          = "demoCtrl.notFoundDescriptor"
+            load-on-typing     = "true"
+         >
+         </mx-picker>
 
 
         <h1>mx-picker directive API:</h1>

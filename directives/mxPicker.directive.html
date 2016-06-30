@@ -1,5 +1,6 @@
 <md-autocomplete
         clear-autocomplete
+        ng-form                   = "autocompleteForm"
         ng-required               = "vm.required"
         ng-disabled               = "vm.disabled || (vm.readOnly && vm.selectedItem)"
         md-no-cache               = "true"
@@ -27,7 +28,7 @@
         <div class="hint hint-info" ng-if="vm.showHints">Tell us what you like!</div>
 
         <div style="position: relative;" ng-messages="autocompleteForm.autocomplete.$error" ng-if="autocompleteForm.autocomplete.$touched && !vm.showHints">
-                <div class="hint" ng-message="vm.required">This field is required</div>
+                <div class="hint" ng-message="required">This field is required</div>
                 <div ng-message="md-input-maxlength">The name has to be less than 30 characters long.</div>
         </div>
 

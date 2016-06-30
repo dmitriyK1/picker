@@ -13,7 +13,6 @@
             disabled      : '=ngDisabled',
             required      : '=',
             label         : '@',
-            cache         : '=',
             items         : '=',
             showHints     : '=hints',
             onSearchClick : '&',

@@ -10,7 +10,7 @@
     function mxPicker(commonPickerProperties) {
 
         var bindToController = {
-            disabled      : '=',
+            disabled      : '=ngDisabled',
             required      : '=',
             label         : '@',
             cache         : '=',

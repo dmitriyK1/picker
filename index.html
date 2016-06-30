@@ -91,19 +91,19 @@
             <!-- ARRAY VALUES EXAMPLE -->
             <mx-picker
                label    = "Array values example:  ['Item1', 'Item2', 'Item3', 'Item4', 'Item5', 'Item6'] "
-               items    = "vm.pickerArray"
-               ng-model = "vm.pickerArrayValue"
+               items    = "demoCtrl.pickerArray"
+               ng-model = "demoCtrl.pickerArrayValue"
                >
             </mx-picker>
 
             <!-- SIMPLE VALUE EXAMPLE: -->
 			<mx-picker
-               label            = "Array of objects example:  [ { id: 1, title: 'item 1' },  ... ] "
-				items            = "vm.pickerData"
-				ng-model         = "vm.pickerValue"
+                label            = "Array of objects example:  [ { id: 1, title: 'item 1' },  ... ] "
+				items            = "demoCtrl.pickerData"
+				ng-model         = "demoCtrl.pickerValue"
 				ng-required      = "true"
-				navigate-item    = "vm.navigateSelectedItem"
-				browse-lookup    = "vm.browseLookup"
+				navigate-item    = "demoCtrl.navigateSelectedItem"
+				browse-lookup    = "demoCtrl.browseLookup"
                 item-title-field = "title"
             >
 			</mx-picker>
@@ -111,12 +111,12 @@
             <!-- LAZY LOADING EXAMPLE -->
             <mx-picker
                label              = "Lazy-loading example"
-               ng-model           = "vm.pickerLoadOnTypingValue"
+               ng-model           = "demoCtrl.pickerLoadOnTypingValue"
                item-title-field   = "DisplayString"
                item-details-field = "Description"
                item-id-field      = "Value"
-               load-items         = "vm.loadItems"
-               not-found          = "vm.notFoundDescriptor"
+               load-items         = "demoCtrl.loadItems"
+               not-found          = "demoCtrl.notFoundDescriptor"
                load-on-typing     = "true"
             >
             </mx-picker>

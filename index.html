@@ -91,9 +91,10 @@
 
             <!-- ARRAY VALUES EXAMPLE -->
             <mx-picker
-               label    = "Array values example:  ['Item1', 'Item2', 'Item3', 'Item4', 'Item5', 'Item6'] "
-               items    = "demoCtrl.pickerArray"
-               ng-model = "demoCtrl.pickerArrayValue"
+               label            = "Array values example:  ['Item1', 'Item2', 'Item3', 'Item4', 'Item5', 'Item6'] "
+               items            = "demoCtrl.pickerArray"
+               ng-model         = "demoCtrl.pickerArrayValue"
+               on-browse-lookup = "demoCtrl.browseLookup"
                >
             </mx-picker>
 
@@ -119,6 +120,7 @@
                load-items         = "demoCtrl.loadItems"
                not-found          = "demoCtrl.notFoundDescriptor"
                load-on-typing     = "true"
+               on-browse-lookup   = "demoCtrl.browseLookup"
             >
             </mx-picker>
 

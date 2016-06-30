@@ -87,31 +87,34 @@
 
             <hr>
 
+            <!-- SIMPLE VALUE EXAMPLE: -->
 			<mx-picker
-				data-items="vm.pickerData"
+                label="Array of objects example"
+				items="vm.pickerData"
 				ng-model="vm.pickerValue"
 				ng-required="true"
-				data-label="Classic, predfined items"
 				navigate-item="vm.navigateSelectedItem"
 				browse-lookup="vm.browseLookup"
-				data-item-title-field="title">
+				item-title-field="title">
 			</mx-picker>
 
+            <!-- ARRAY VALUES EXAMPLE -->
 			<mx-picker
-				data-items="vm.pickerArray"
-				ng-model="vm.pickerArrayValue"
-				data-label="Simple Plain Array">
+                label="Array values example"
+				items="vm.pickerArray"
+				ng-model="vm.pickerArrayValue">
 			</mx-picker>
 
+            <!-- LAZY LOADING EXAMPLE -->
             <mx-picker
+               label="Lazy loading example"
                ng-model="vm.pickerLoadOnTypingValue"
-               data-item-title-field="DisplayString"
-               data-item-details-field="Description"
-               data-item-id-field="Value"
-               data-load-items="vm.loadItems"
-               data-not-found="vm.notFoundDescriptor"
-               data-load-on-typing="true"
-               data-label="Load on typing, with details">
+               item-title-field="DisplayString"
+               item-details-field="Description"
+               item-id-field="Value"
+               load-items="vm.loadItems"
+               not-found="vm.notFoundDescriptor"
+               load-on-typing="true">
             </mx-picker>
 
         </form>

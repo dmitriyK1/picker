@@ -26,6 +26,8 @@
             alert('search...');
         }
 
+        // --------------------------------------------------------------------------------
+
         vm.pickerValue = 2;
 
         vm.pickerData = [{
@@ -48,8 +50,13 @@
             title: 'filtered item 2'
         }];
 
-        vm.pickerArray      = ['Item1', 'Item2', 'Item3', 'Item4', 'Item5', 'Item6'];
+        // --------------------------------------------------------------------------------
+
         vm.pickerArrayValue = 'Item5';
+
+        vm.pickerArray      = ['Item1', 'Item2', 'Item3', 'Item4', 'Item5', 'Item6'];
+
+        // --------------------------------------------------------------------------------
 
         var items = [{
             Value: 1,
@@ -90,6 +97,7 @@
         vm.navigateSelectedItem    = navigateSelectedItem;
         vm.browseLookup            = browseLookup;
 
+        // --------------------------------------------------------------------------------
 
         function loadItems(searchText, ctrl, itms) {
             if (itms) {

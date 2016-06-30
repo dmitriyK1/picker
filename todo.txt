@@ -6,20 +6,21 @@
 - все кроме DOM-манипуляций вынести в link \ service + наследование сервисов а не контроллеров
 
 - добавить lazy-loading (подгрузку списка через promise)                            // уточнить как должна работать
-- типы hints ?
 
 - валидация при focus / blur
-
-- валидация инпута без формы (? ng-form )
 
 - по tab сброс значения
 
 - refactor two-way data-binding into method binding
 
-- как должно readOnly работать? становиться disabled после того как хотя бы одно значение выбрано?
+
+
+
+# как должно readOnly работать? становиться disabled после того как хотя бы одно значение выбрано?
     ng-disabled="vm._disabled || vm._readOnly"
     readonly="(vm._disabled || vm._readOnly) && vm.selectedItems.length > 0"
  
+# типы hints ?
 
 --------------------------------------------------------------------------------
 

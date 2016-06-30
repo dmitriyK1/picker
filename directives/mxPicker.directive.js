@@ -164,6 +164,9 @@
         return ddo;
 
         function link(scope, element, attrs) {
+
+            if (!attrs.mdFloatingLabel) return;
+
             var template = [
                 '<md-button ng-hide="vm.disabled || vm.readOnly" tabindex="-1" class="md-icon-button clear-autocomplete">',
                 '<md-icon md-svg-icon="md-close">',

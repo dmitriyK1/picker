@@ -10,14 +10,14 @@
     function mxPicker(commonPickerProperties) {
 
         var bindToController = {
-            disabled      : '=ngDisabled',
-            readOnly      : '=',
-            required      : '=',
-            label         : '@',
-            items         : '=',
-            showHints     : '=hints',
-            onSearchClick : '&',
-            createItem    : '&'
+            disabled       : '=ngDisabled',
+            readOnly       : '=',
+            required       : '=',
+            label          : '@',
+            items          : '=',
+            showHints      : '=hints',
+            onBrowseLookup : '=',
+            createItem     : '='
         };
 
         angular.extend(bindToController, commonPickerProperties);

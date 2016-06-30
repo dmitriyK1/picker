@@ -63,9 +63,8 @@
                 load-on-typing      = ""
                 load-delay          = ""
                 navigate-item       = ""
-                create-item         = "demoCtrl.onCreateClick(searchText)"
-                browse-lookup       = ""
-                on-search-click     = "demoCtrl.onSearchClick()"
+                create-item         = "demoCtrl.onCreateClick"
+                on-browse-lookup    = "demoCtrl.browseLookup"
             >
                 <!-- ng&#45;model="" -->
             </mx-picker>
@@ -105,7 +104,7 @@
                      ng-model         = "demoCtrl.pickerValue"
                      ng-required      = "true"
                      navigate-item    = "demoCtrl.navigateSelectedItem"
-                     browse-lookup    = "demoCtrl.browseLookup"
+                     on-browse-lookup = "demoCtrl.browseLookup"
                      item-title-field = "title"
             >
             </mx-picker>
@@ -147,9 +146,8 @@
                 load-on-typing      = ""
                 load-delay          = ""
                 navigate-item       = ""
-                create-item         = "demoCtrl.onCreateClick(searchText)"
-                browse-lookup       = ""
-                on-search-click     = "demoCtrl.onSearchClick()"
+                create-item         = "demoCtrl.onCreateClick"
+                browse-lookup       = "demoCtrl.browseLookup"
 
                 ng-model            = ""
             &gt;

@@ -20,6 +20,7 @@
         ng-click                  = "onValueClick($event, searchTextValid)"
         ng-class                  = "isValidSearch ? ''  : 'invalid-value' "
         md-menu-class             = "{{ :: vm.dropdownHtmlClass }}"
+        md-delay                  = "vm.loadDelay"
 >
 
         <md-item-template>
@@ -38,6 +39,6 @@
                 <a ng-click="vm.createItem({ searchText: searchText })">Create a new one!</a>
         </md-not-found>
 
-        <md-icon tabindex="-1" class="autocomplete-search" ng-hide="vm.disabled || (vm.readOnly && vm.selectedItem)" ng-click="vm.onSearchClick()">search</md-icon>
+        <md-icon tabindex="-1" class="autocomplete-search" ng-hide="vm.disabled || (vm.readOnly && vm.selectedItem)" ng-click="vm.onBrowseLookup()">search</md-icon>
 </md-autocomplete>
 

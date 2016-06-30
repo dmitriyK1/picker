@@ -21,7 +21,6 @@
     readonly="(vm._disabled || vm._readOnly) && vm.selectedItems.length > 0"
  
 
-
 --------------------------------------------------------------------------------
 
 # singlePicker
@@ -29,6 +28,11 @@
 
 # autocompletePicker
     -autocompleteController + singlePickerController + BasePickerProperties
+
+{
+    searchText   : 'Default Value',
+    selectedItem : 'Default object'
+}
 
 --------------------------------------------------------------------------------
 

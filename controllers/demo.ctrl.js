@@ -10,9 +10,8 @@
         var vm        = this;
 
         vm.isDisabled = false;
+        vm.isReadOnly = false;
         vm.isRequired = true;
-        vm.isReadOnly = true;
-        vm.cache      = false;
 
         vm.autocompleteItems = ['Broccoli', 'Cabbage', 'Carrot', 'Lettuce', 'Spinach', 'Cherry', 'Apple'];
         vm.onSearchClick     = onSearchClick;

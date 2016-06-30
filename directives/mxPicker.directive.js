@@ -9,9 +9,7 @@
 
     function mxPicker(commonPickerProperties) {
 
-        // var bindToController = {
-       // temporary using scope instead of bindToController
-        var scope = {
+        var bindToController = {
             disabled      : '=',
             required      : '=',
             label         : '@',
@@ -22,13 +20,13 @@
             onCreateClick : '&'
         };
 
-        angular.extend(scope, commonPickerProperties);
+        angular.extend(bindToController, commonPickerProperties);
 
         var ddo = {
-            templateUrl : 'directives/mxPicker.directive.html',
-            controller  : 'MxPickerCtrl as vm',
-            scope: scope,
-            bindToController: true
+            templateUrl      : 'directives/mxPicker.directive.html',
+            controller       : 'MxPickerCtrl as vm',
+            scope            : {},
+            bindToController : bindToController
         };
 
         return ddo;
@@ -57,6 +55,8 @@
                 element.off('focusin');
                 element.off('focusout');
             });
+
+            console.log(ctrl);
 
             function querySearch(query, items) {
                 return query ? scope.filteredItems = items.filter(createFilterFor(query)) : items;

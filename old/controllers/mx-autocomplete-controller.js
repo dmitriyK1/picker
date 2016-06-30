@@ -1,5 +1,4 @@
 function MxAutocompleteCtrl($timeout, $q, $element, $scope, internationalization) {
-
 	var vm                  = this;
 	vm.selectedItem         = vm.model;
 	vm.setSelectedItems     = setSelectedItems;

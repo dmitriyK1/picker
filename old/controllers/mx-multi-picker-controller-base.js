@@ -1,4 +1,4 @@
- function MxMultiPickerControllerBase($timeout, $q, $element, $scope, internationalization) {
+function MxMultiPickerControllerBase($timeout, $q, $element, $scope, internationalization) {
 	var vm                      = this;
 	vm.onNavigateItem           = onNavigateItem;
 	vm.onBrowseLookup           = onBrowseLookup;

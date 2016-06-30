@@ -2,9 +2,9 @@
 * выделить что можно из md-autocomplete в link mx-picker
 * по doubleclick на autocomplete-popover удалять его и фокусировать инпут
 * ? clear-autocomplete объединить с mxPicker ?
+* прописать в шаблоне mx-autocomplete данные, получаемые из атрибутов mx-picker
 
 
-- прописать в шаблоне mx-autocomplete данные, получаемые из атрибутов mx-picker
 
 - рефакторить код с учетом использования контроллеров, сервисов
 

@@ -1,5 +1,7 @@
 function MxMultiPickerControllerBase($timeout, $q, $element, $scope, internationalization) {
+
 	var vm                      = this;
+
 	vm.onNavigateItem           = onNavigateItem;
 	vm.onBrowseLookup           = onBrowseLookup;
 	vm.selectedItems            = [];
@@ -9,7 +11,22 @@ function MxMultiPickerControllerBase($timeout, $q, $element, $scope, internation
 	vm.setSelectedItems         = setSelectedItems;
 	vm.getSelectedItemTitle     = getSelectedItemTitle;
 	vm.getItemDetails           = getItemDetails;
-	vm.itemsIsPlainArray        = typeof vm.itemsIsPlainArray === 'string' ? (vm.itemsIsPlainArray || '').toLowerCase() === 'true' : vm.itemsIsPlainArray || false;
+	vm.itemsIsPlainArray        = typeof (vm.itemsIsPlainArray === 'string')
+																			? vm.itemsIsPlainArray || ''.toLowerCase() === 'true'
+																			: vm.itemsIsPlainArray || false;
+
+
+	vm.TypingChanged = function() {
+		_setLabels();
+	};
+
+	_setLabels();
+
+	mx
+		.components
+		.PickerControlControllerBase
+		.call(this, $timeout, $q, $element, $scope, internationalization);
+
 
 	function getItemDetails(item) {
 		if (vm.itemDetailsField) {
@@ -18,14 +35,6 @@ function MxMultiPickerControllerBase($timeout, $q, $element, $scope, internation
 
 		return null;
 	}
-
-	vm.TypingChanged = function() {
-		_setLabels();
-	};
-
-	_setLabels();
-
-	mx.components.PickerControlControllerBase.call(this, $timeout, $q, $element, $scope, internationalization);
 
 	function getSelectedItemTitle(item) {
 		var name = vm.getTitle(item);
@@ -36,15 +45,18 @@ function MxMultiPickerControllerBase($timeout, $q, $element, $scope, internation
 				name += details;
 			}
 		}
+
 		return name;
 	}
 
 
 	function extraFilterSelectedItems(items) {
 		if (items.length > 0 && vm.selectedItems.length > 0) {
+
 			var selectedIds = vm.selectedItems.map(function(item) {
 				return vm.getId(item);
 			});
+
 			items = items.filter(function (item) {
 				return selectedIds.indexOf(vm.getId(item)) < 0;
 			});
@@ -60,7 +72,9 @@ function MxMultiPickerControllerBase($timeout, $q, $element, $scope, internation
 					vm.model = null;
 				} else if(Array.isArray(data)) {
 					var newItems = extraFilterSelectedItems(data);
-					vm.model = vm.model ? vm.model.concat(newItems) : newItems;
+					vm.model = vm.model
+										? vm.model.concat(newItems)
+										: newItems;
 				} else {
 					vm.model = data;
 				}
@@ -76,7 +90,8 @@ function MxMultiPickerControllerBase($timeout, $q, $element, $scope, internation
 
 	function onSelectionChange() {
 		vm.internalSet = true;
-		vm.model = vm.selectedItemsToValue();
+		vm.model       = vm.selectedItemsToValue();
+
 		_setLabels();
 
 		vm.setNotFoundButtonAvailability(true);
@@ -92,10 +107,10 @@ function MxMultiPickerControllerBase($timeout, $q, $element, $scope, internation
 
 	function _setLabels() {
 		if (vm.selectedItems.length > 0 || vm._isTyping) {
-			vm.controlLabel = vm.label;
+			vm.controlLabel    = vm.label;
 			vm.autoPlaceholder = vm.defaultPickerLabel;
 		} else {
-			vm.controlLabel = null;
+			vm.controlLabel    = null;
 			vm.autoPlaceholder = vm.label;
 		}
 	}
@@ -106,6 +121,7 @@ function MxMultiPickerControllerBase($timeout, $q, $element, $scope, internation
 		if (len === 0) {
 			return null;
 		}
+
 		var res = null;
 
 		if (vm.single) {
@@ -132,4 +148,4 @@ function MxMultiPickerControllerBase($timeout, $q, $element, $scope, internation
 		_setLabels();
 	}
 
-};
+}

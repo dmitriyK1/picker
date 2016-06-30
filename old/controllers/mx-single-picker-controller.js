@@ -1,5 +1,7 @@
 function MxSinglePickerCtrl($timeout, $q, $element, $scope, internationalization) {
+
 	var vm    = this;
+
 	vm.single = true;
 
 	mx

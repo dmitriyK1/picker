@@ -11,7 +11,9 @@
 									: internationalization.get('components.mx-picker.defaultNotFoundMessage');
 
 	vm.defaultPickerLabel = internationalization.get('components.mx-picker.defaultLabel');
-	vm.itemsIsPlainArray  = typeof vm.itemsIsPlainArray === 'string' ? (vm.itemsIsPlainArray || '').toLowerCase() === 'true' : vm.itemsIsPlainArray || false;
+	vm.itemsIsPlainArray  = typeof vm.itemsIsPlainArray === 'string'
+																	? (vm.itemsIsPlainArray || '').toLowerCase() === 'true'
+																	:  vm.itemsIsPlainArray || false;
 	vm.isLoading          = false;
 	vm.setModelInternal   = setModelInternal;
 
@@ -26,7 +28,9 @@
 
 	function _setItemsValue(value) {
 		_items = value || [];
-		vm.itemsIsPlainArray = _items.length > 0 ? typeof _items[0] !== 'object' : vm.itemsIsPlainArray;
+		vm.itemsIsPlainArray = _items.length > 0
+												? typeof _items[0] !== 'object'
+												: vm.itemsIsPlainArray;
 
 		if (_items.length > 0) {
 			if (vm.isLoading) {
@@ -136,6 +140,7 @@
 
 					vm.setSelectedItems(selectedItems);
 					return vm.selectedItemsToValue();
+
 				} else if(vm.isLoading) {
 					_tempValue = value;
 					vm.setSelectedItems(Array.isArray(value) ? value : [value]);
@@ -145,6 +150,7 @@
 		}
 
 		vm.setSelectedItems([]);
+
 		return null;
 	};
 

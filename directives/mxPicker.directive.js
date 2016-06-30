@@ -78,7 +78,11 @@
             function onFocusIn(e) {
                 if (e.target.tagName !== 'INPUT') return;
 
-                // e.target.value = e.target.value.trim();
+                var inputValue = e.target.value;
+
+                if (inputValue.trim().length === 0) {
+                    e.target.value = e.target.value.trim();
+                }
 
                 setTimeout(function() {
                     angular

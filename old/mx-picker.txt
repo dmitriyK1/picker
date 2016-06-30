@@ -35,35 +35,3 @@
 	* - `item` – `{object}` – Control selected item. `null` if nothing selected.
 	*
 */
-
- <mx-picker
-		items            = "vm.pickerData"
-		ng-model         = "vm.pickerValue"
-		ng-required      = "true"
-		label            = "Classic, predfined items"
-		value-as-id      = "true"
-		item-title-field = "'title'">
-</mx-picker>
-
---------------------------------------------------------------------------------
-
-var basePickerProperties = {
-	items             : '=',
-	loadItems         : '=',
-	selectedItems     : '='
-	itemIdField       : '@',
-	itemsIsPlainArray : '@',
-	itemTitleField    : '@',
-	dropdownHtmlClass : '@',
-};
-
-var commonPickerProperties = angular.extend(
-	basePickerProperties, {
-		loadOnTyping     : '@',
-		loadDelay        : '@',
-		itemDetailsField : '@'
-		navigateItem     : '=',
-		browseLookup     : '=',
-		notFound         : '=',
-	});
-

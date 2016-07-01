@@ -10,6 +10,10 @@
        pre {
           padding-left: 1rem;
        }
+
+       h1 {
+          margin-bottom: -1rem;
+       }
     </style>
 </head>
 
@@ -170,44 +174,45 @@
                 ng-model             = ""
             &gt;
 
-            <h2 style="margin-bottom: -1rem;">Binding settings:</h2>
-            <span style="font-size: 1rem;">
-               bindToController: {
+            <h1>Binding settings:</h1>
 
-                  <b>// Boolean</b>
-                        disabled          : "=ngDisabled",
-                        readOnly          : "=",
-                        required          : "=",
-                        showHints         : "=hints",
-                        itemsIsPlainArray : "@",
-                        loadOnTyping      : "@",
+      <span style="font-size: 1rem;">
+         bindToController: {
 
-                  <b>// Number</b>
-                        loadDelay         : "@",
+            <b>// Boolean</b>
+                  disabled          : "=ngDisabled",
+                  readOnly          : "=",
+                  required          : "=",
+                  showHints         : "=hints",
+                  itemsIsPlainArray : "@",
+                  loadOnTyping      : "@",
 
-                  <b>// String</b>
-                        name              : "@",
-                        label             : "@",
-                        dropdownHtmlClass : "@",
-                        itemIdField       : "@",
-                        itemTitleField    : "@",
-                        itemDetailsField  : "@",
+            <b>// Number</b>
+                  loadDelay         : "@",
 
-                  <b>// Function</b>
-                        browseLookup      : "=",
-                        createItem        : "=",
-                        onBrowseLookup    : "=",
-                        loadItems         : "=",
-                        navigateItem      : "=",
+            <b>// String</b>
+                  name              : "@",
+                  label             : "@",
+                  dropdownHtmlClass : "@",
+                  itemIdField       : "@",
+                  itemTitleField    : "@",
+                  itemDetailsField  : "@",
 
-                  <b>// Object</b>
-                        model             : "=ngModel",
-                        items             : "=",
-                        selectedItem      : "=",
-                        notFound          : "="
+            <b>// Function</b>
+                  browseLookup      : "=",
+                  createItem        : "=",
+                  onBrowseLookup    : "=",
+                  loadItems         : "=",
+                  navigateItem      : "=",
 
-               }
-            </span>
+            <b>// Object</b>
+                  model             : "=ngModel",
+                  items             : "=",
+                  selectedItem      : "=",
+                  notFound          : "="
+
+         }
+      </span>
 
         </pre>
 

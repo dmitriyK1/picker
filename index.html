@@ -59,7 +59,7 @@
                 <input type="text" flex aria-label="Input" placeholder="Input to test keyboard navigation">
             </md-input-container>
 
-            <mx-picker
+            <mx-picker-new
                 required            = "demoCtrl.isRequired"
                 read-only           = "demoCtrl.isReadOnly"
                 ng-disabled         = "demoCtrl.isDisabled"
@@ -82,7 +82,7 @@
                 on-browse-lookup    = "demoCtrl.browseLookup"
             >
                 <!-- ng&#45;model="" -->
-            </mx-picker>
+            </mx-picker-new>
 
             <div layout="column" layout-padding>
                <md-checkbox ng-model="demoCtrl.isRequired">Required</md-checkbox>
@@ -105,16 +105,16 @@
             <hr>
 
             <!-- ARRAY VALUES EXAMPLE -->
-            <mx-picker
+            <mx-picker-new
                label            = "Array values example:  ['Item1', 'Item2', 'Item3', 'Item4', 'Item5', 'Item6'] "
                items            = "demoCtrl.pickerArray"
                ng-model         = "demoCtrl.pickerArrayValue"
                on-browse-lookup = "demoCtrl.browseLookup"
                >
-            </mx-picker>
+            </mx-picker-new>
 
             <!-- SIMPLE VALUE EXAMPLE: -->
-            <mx-picker
+            <mx-picker-new
                      label            = "Array of objects example:  [ { id: 1, title: 'item 1' },  ... ] "
                      items            = "demoCtrl.pickerData"
                      ng-model         = "demoCtrl.pickerValue"
@@ -123,10 +123,10 @@
                      on-browse-lookup = "demoCtrl.browseLookup"
                      item-title-field = "title"
             >
-            </mx-picker>
+            </mx-picker-new>
 
             <!-- LAZY LOADING EXAMPLE -->
-            <mx-picker
+            <mx-picker-new
                label              = "Lazy-loading example"
                ng-model           = "demoCtrl.pickerLoadOnTypingValue"
                item-title-field   = "DisplayString"
@@ -137,7 +137,7 @@
                load-on-typing     = "true"
                on-browse-lookup   = "demoCtrl.browseLookup"
             >
-            </mx-picker>
+            </mx-picker-new>
 
         </form>
 

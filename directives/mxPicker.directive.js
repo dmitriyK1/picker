@@ -5,9 +5,9 @@
         .module('app')
         .directive('mdAutocomplete', mdAutocomplete)
         .directive('clearAutocomplete', clearAutocomplete)
-        .directive('mxPicker', mxPicker)
+        .directive('mxPickerNew', mxPickerNew)
 
-    function mxPicker(commonPickerProperties) {
+    function mxPickerNew(commonPickerProperties) {
 
         var bindToController = {
             disabled       : '=ngDisabled',
@@ -34,7 +34,7 @@
 
         function link(scope, element, attrs, ctrl) {
             // for debugging, delete later
-            console.count('Directives count');
+            console.count('mxPicker directives count');
             console.dir(ctrl);
         }
     }

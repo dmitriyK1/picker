@@ -4,7 +4,8 @@
     angular
         .module('app', [
             'ngMaterial',
-            'ngMessages'
+            'ngMessages',
+            'mx.components'
         ])
 
 })(window);

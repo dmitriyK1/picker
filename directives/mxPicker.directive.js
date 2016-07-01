@@ -14,9 +14,7 @@
             readOnly       : '=',
             required       : '=',
             label          : '@',
-            items          : '=',
-            showHints      : '=hints',
-            onBrowseLookup : '=',
+            showHints      : '=',
             createItem     : '='
         };
 
@@ -33,8 +31,6 @@
         return ddo;
 
         function link(scope, element, attrs, ctrl) {
-            // for debugging, delete later
-            console.count('mxPicker directives count');
             console.dir(ctrl);
         }
     }

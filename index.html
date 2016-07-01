@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type='text/css'>
     <link rel="stylesheet" href="directives/mxPicker.directive.css" media="all">
     <style>
+
        pre {
           padding-left: 1rem;
        }
@@ -14,6 +15,16 @@
        h1 {
           margin-bottom: -1rem;
        }
+
+       md-checkbox {
+          width: 25%;
+       }
+
+       md-checkbox span {
+          -webkit-user-select: none;
+          user-select: none;
+       }
+
     </style>
 </head>
 
@@ -66,7 +77,7 @@
                 required            = "demoCtrl.isRequired"
                 read-only           = "demoCtrl.isReadOnly"
                 ng-disabled         = "demoCtrl.isDisabled"
-                hints               = "demoCtrl.showHints"
+                show-hints          = "demoCtrl.showHints"
 
                 name                = ""
                 label               = "Single picker"
@@ -82,14 +93,14 @@
                 load-delay          = ""
                 navigate-item       = ""
                 create-item         = "demoCtrl.onCreateClick"
-                on-browse-lookup    = "demoCtrl.browseLookup"
+                browse-lookup    = "demoCtrl.browseLookup"
             >
                 <!-- ng&#45;model="" -->
             </mx-picker-new>
 
             <div layout="column" layout-padding>
                <md-checkbox ng-model="demoCtrl.isRequired">Required</md-checkbox>
-               <md-checkbox ng-model="demoCtrl.isReadOnly">Readonly</md-checkbox>
+               <md-checkbox ng-model="demoCtrl.isReadOnly">Read-only</md-checkbox>
                <md-checkbox ng-model="demoCtrl.isDisabled">Disabled</md-checkbox>
             </div>
 
@@ -112,7 +123,7 @@
                label            = "Array values example:  ['Item1', 'Item2', 'Item3', 'Item4', 'Item5', 'Item6'] "
                items            = "demoCtrl.pickerArray"
                ng-model         = "demoCtrl.pickerArrayValue"
-               on-browse-lookup = "demoCtrl.browseLookup"
+               browse-lookup = "demoCtrl.browseLookup"
                >
             </mx-picker-new>
 
@@ -123,7 +134,7 @@
                      ng-model         = "demoCtrl.pickerValue"
                      ng-required      = "true"
                      navigate-item    = "demoCtrl.navigateSelectedItem"
-                     on-browse-lookup = "demoCtrl.browseLookup"
+                     browse-lookup = "demoCtrl.browseLookup"
                      item-title-field = "title"
             >
             </mx-picker-new>
@@ -138,7 +149,7 @@
                load-items         = "demoCtrl.loadItems"
                not-found          = "demoCtrl.notFoundDescriptor"
                load-on-typing     = "true"
-               on-browse-lookup   = "demoCtrl.browseLookup"
+               browse-lookup      = "demoCtrl.browseLookup"
             >
             </mx-picker-new>
 
@@ -148,31 +159,35 @@
         <pre>
             <h1>mx-picker directive API:</h1>
 
-            &lt;mx-picker
-                required             = "demoCtrl.isRequired"
-                read-only            = "demoCtrl.isReadOnly"
+            <b style="font-size: 1rem;">&lt;mx-picker</b>
                 ng-disabled          = "demoCtrl.isDisabled"
-                hints                = "demoCtrl.showHints"
+                read-only            = "demoCtrl.isReadOnly"
+                required             = "demoCtrl.isRequired"
+                show-hints           = "demoCtrl.showHints"
                 items-is-plain-array = "true"
+                load-on-typing       = "true"
 
-                name                 = ""
+                load-delay           = "500"
+
+                name                 = "vegetables"
                 label                = "Single picker"
-                item-title-field     = ""
-                item-id-field        = ""
-                dropdown-html-class  = ""
+                item-title-field     = "title"
+                item-id-field        = "value"
+                item-details-field   = "description"
+                dropdown-html-class  = "mx-picker-default"
+                hint                 = "Hello, I am a hint"
 
-                selected-item        = ""
-                items                = "demoCtrl.autocompleteItems"
-
-                load-items           = ""
-                load-on-typing       = ""
-                load-delay           = ""
-                navigate-item        = ""
-                create-item          = "demoCtrl.onCreateClick"
                 browse-lookup        = "demoCtrl.browseLookup"
+                create-item          = "demoCtrl.onCreateClick"
+                load-items           = "demoCtrl.loadItems"
+                navigate-item        = "demoCtrl.navigateSelectedItem"
+                on-change            = "demoCtrl.onChange()"
 
-                ng-model             = ""
-            &gt;
+                ng-model             = "vm.pickerArrayValue"
+                items                = "demoCtrl.autocompleteItems"
+                selected-item        = "demoCtrl.pickerSelectedItem"
+                not-found            = "demoCtrl.notFoundDescriptor"
+            <b style="font-size: 1rem;">&gt;</b>
 
             <h1>Binding settings:</h1>
 
@@ -183,7 +198,7 @@
                   disabled          : "=ngDisabled",
                   readOnly          : "=",
                   required          : "=",
-                  showHints         : "=hints",
+                  showHints         : "=",
                   itemsIsPlainArray : "@",
                   loadOnTyping      : "@",
 
@@ -197,13 +212,14 @@
                   itemIdField       : "@",
                   itemTitleField    : "@",
                   itemDetailsField  : "@",
+                  hint              : "@",
 
             <b>// Function</b>
                   browseLookup      : "=",
                   createItem        : "=",
-                  onBrowseLookup    : "=",
                   loadItems         : "=",
                   navigateItem      : "=",
+                  onChange          : "&",
 
             <b>// Object</b>
                   model             : "=ngModel",

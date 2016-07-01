@@ -108,6 +108,7 @@ md-autocomplete.valid-value input {
     left: 15px;
     top: 12px;
     font-size: 14px;
+    transition: color 0.3s ease-in-out;
 }
 
 [md-floating-label] .autocomplete-popover {
@@ -124,7 +125,6 @@ md-autocomplete.valid-value input {
     text-decoration-style: dashed;
     -webkit-text-decoration-style: dashed;
     cursor: pointer;
-    transition: color 0.3s;
 }
 
 .hint {

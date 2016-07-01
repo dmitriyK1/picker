@@ -1,7 +1,7 @@
 
-- implement all attribute bindings
+* implement all attribute bindings
 
-* по doubleclick на autocomplete-popover удалять его и фокусировать инпут
+- по doubleclick на autocomplete-popover удалять его и фокусировать инпут
 
 - прописать в шаблоне mx-autocomplete данные, получаемые из атрибутов mx-picker ( посмотреть как в старом коде сделано )
 

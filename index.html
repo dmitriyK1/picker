@@ -7,8 +7,8 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type='text/css'>
     <link rel="stylesheet" href="directives/mxPicker.directive.css" media="all">
     <style>
-       li {
-          list-style: none;
+       body {
+          padding: 1rem;
        }
     </style>
 </head>
@@ -144,38 +144,72 @@
         <h1>mx-picker directive API:</h1>
         <pre>
             &lt;mx-picker
-                required            = "demoCtrl.isRequired"
-                read-only           = "demoCtrl.isReadOnly"
-                ng-disabled         = "demoCtrl.isDisabled"
-                hints               = "demoCtrl.showHints"
+                required             = "demoCtrl.isRequired"
+                read-only            = "demoCtrl.isReadOnly"
+                ng-disabled          = "demoCtrl.isDisabled"
+                hints                = "demoCtrl.showHints"
+                items-is-plain-array = "true"
 
-                name                = ""
-                label               = "Single picker"
-                item-title-field    = ""
-                item-id-field       = ""
-                dropdown-html-class = ""
+                name                 = ""
+                label                = "Single picker"
+                item-title-field     = ""
+                item-id-field        = ""
+                dropdown-html-class  = ""
 
-                selected-item       = ""
-                items               = "demoCtrl.autocompleteItems"
+                selected-item        = ""
+                items                = "demoCtrl.autocompleteItems"
 
-                load-items          = ""
-                load-on-typing      = ""
-                load-delay          = ""
-                navigate-item       = ""
-                create-item         = "demoCtrl.onCreateClick"
-                browse-lookup       = "demoCtrl.browseLookup"
+                load-items           = ""
+                load-on-typing       = ""
+                load-delay           = ""
+                navigate-item        = ""
+                create-item          = "demoCtrl.onCreateClick"
+                browse-lookup        = "demoCtrl.browseLookup"
 
-                ng-model            = ""
+                ng-model             = ""
             &gt;
 
+            <h2 style="margin-bottom: -1rem;">Binding settings:</h2>
+            <span style="font-size: 1rem;">
+               bindToController: {
+
+                  <b>// Boolean</b>
+                  disabled          : "=ngDisabled",
+                  readOnly          : "=",
+                  required          : "=",
+                  showHints         : "=hints",
+                  itemsIsPlainArray : "@",
+                  loadOnTyping      : "@",
+
+                  <b>// Number</b>
+                  loadDelay         : "@",
+
+                  <b>// String</b>
+                  name              : "@",
+                  label             : "@",
+                  dropdownHtmlClass : "@",
+                  itemIdField       : "@",
+                  itemTitleField    : "@",
+                  itemDetailsField  : "@",
+
+                  <b>// Function</b>
+                  browseLookup      : "=",
+                  createItem        : "=",
+                  onBrowseLookup    : "=",
+                  loadItems         : "=",
+                  navigateItem      : "=",
+
+                  <b>// Object</b>
+                  model             : "=ngModel"
+                  items             : "=",
+                  selectedItem      : "=",
+                  notFound          : "=",
+
+               }
+            </span>
 
         </pre>
-        <ul>
-            <li>hints: =</li>
-            <li>disabled: =ngDisabled</li>
-            <li>required: =</li>
-            <li>readOnly: </li>
-        </ul>
+
     </div>
     <!-- DemoCtrl end  -->
 

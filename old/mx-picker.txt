@@ -1,37 +1,27 @@
 /**
-	* @param {string} name@              - The name property sets or returns the value of the name attribute of a mxPicker.
-	* @param {string} label@             - Defines control label displayed on the form.
-	* @param {string} itemTitleField@    - Specify field name to be displayed as picker item name
-	* @param {string} itemIdField@       - field name to be interpreted as ID
-	* @param {string} dropdownHtmlClass@ - This will be applied to the dropdown menu for styling
-
-	* @param {boolean} required=      - The required property sets or returns whether a mxPicker must be filled out before submitting a form.
-	* @param {boolean} disabled=      - The disabled property sets or returns whether a mxPicker should be disabled, or not.
-	* @param {boolean} readOnly=      - The readOnly property sets or returns whether the contents of a mxPicker should be readonly.
-
-	* @param {object} model=ngModel   - directive binds element to the object in the model.
-	* @param {object} selectedItem=   - Item to be selected.
-	* @param {object[]} items=        - The items property sets or returns items to be loaded for selection.
-
-	* @param {function(searchText:string): object} loadItems= - Callback function for loading
+	* @param {function(searchText:string): object} loadItems= 
+	
+	- Callback function for loading
 	* available `items` which match the typed text. Returns the object has the following properties:
+
 	* - `items` – `{Array}` – Array of Items.
 	* - `searchText` – `{string}` – Keyword text for which `items` been found
 	* - `all` – `{boolean}` – Signals whether the all `items` been returns which fits the `searchText`.
-	*
-	* @param {boolean} loadOnTyping= - Reloads items on typing.
-	* @param {int} loadDelay= - Delay (ms) before data loading start
 
-	* @param {function(item:object)} navigateItem= - A callback Function which handles the selected Item navigation event. If the property is not defined
+	* @param {function(item:object)} navigateItem= 
+	
+	- A callback Function which handles the selected Item navigation event. If the property is not defined
 	* the navigation logic is disabled.
+
 	* The function accepts the following parameters:
 	* - `item` – `{object}` – Item to navigate.
-	*
-	* @param {function(item:object):object} browseLookup= - A callback function which provides extended view for
+
+	* @param {function(item:object):object} browseLookup= 
+	
+	- A callback function which provides extended view for
 	* browsing available items. Returns a new selected item. In case `null` is returned, then the control selection is clean up.
+
 	* * If function returns `undefined` then the operation skipped.
-	*
-	* Parameters:
-	* - `item` – `{object}` – Control selected item. `null` if nothing selected.
-	*
+        * Parameters:
+        * - `item` – `{object}` – Control selected item. `null` if nothing selected.
 */

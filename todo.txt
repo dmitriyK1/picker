@@ -1,4 +1,5 @@
 
+- implement all attribute bindings
 
 * по doubleclick на autocomplete-popover удалять его и фокусировать инпут
 

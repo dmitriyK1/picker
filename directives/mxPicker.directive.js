@@ -7,7 +7,7 @@
         .directive('clearAutocomplete', clearAutocomplete)
         .directive('mxPickerNew', mxPickerNew)
 
-    function mxPickerNew(commonPickerProperties) {
+    function mxPickerNew() {
 
         var bindToController = {
             disabled       : '=ngDisabled',
@@ -20,7 +20,7 @@
             createItem     : '='
         };
 
-        angular.extend(bindToController, commonPickerProperties);
+        angular.extend(bindToController, w.mx.components.CommonPickerProperties);
 
         var ddo = {
             templateUrl      : 'directives/mxPicker.directive.html',

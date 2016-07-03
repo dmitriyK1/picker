@@ -1,7 +1,5 @@
-
-
 1) * implement all attribute bindings
-    # * прописать в шаблоне mx-autocomplete данные, получаемые из атрибутов mx-picker ( посмотреть как в старом коде сделано )
+    # * прописать в шаблоне mx-autocomplete данные, получаемые из атрибутов mx-picker
 
 
 

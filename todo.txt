@@ -1,7 +1,13 @@
-1) implement all attribute bindings
-    # сделать hint не boolean а string
-    # прописать в шаблоне mx-autocomplete данные, получаемые из атрибутов mx-picker ( посмотреть как в старом коде сделано )
+
+
+
+1) * implement all attribute bindings
     # сделать selectedItem вместо selectedItems
+    # прописать в шаблоне mx-autocomplete данные, получаемые из атрибутов mx-picker ( посмотреть как в старом коде сделано )
+
+
+
+
 
 2) сделать чтобы работало без нового кода со старым baseController
     # максимально использовать имеющийся код из baseController ( найти аналоги того что используется в link mdAutocomplete )
@@ -9,7 +15,6 @@
 
 3) убрать все из mdAutocomplete в mxPicker \ пропатчить внутренний mdAutocomplete с помощью доп. директивы-атрибута в шаблоне mxPicker
     # уменьшить кол-во dom-манипуляций
-
 
 4) рефакторить часть функционала baseController в отдельный service
     # хранить данные, уникальные для каждой директивы в controller instance
@@ -22,10 +27,10 @@
 --------------------------------------------------------------------------------
 
 # singlePicker
-    -singlePickerController + commonPickerProperties
+    singlePickerController + commonPickerProperties
 
 # autocompletePicker
-    -autocompleteController + singlePickerController + BasePickerProperties
+    autocompleteController + singlePickerController + BasePickerProperties
 
 {
     searchText   : 'Default Value',

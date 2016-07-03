@@ -6,14 +6,11 @@
         .controller('DemoCtrl', DemoCtrl)
 
     function DemoCtrl($q) {
-
         var vm        = this;
 
         vm.isDisabled = false;
         vm.isReadOnly = false;
         vm.isRequired = true;
-
-        vm.hint       = 'Tell us what you like!';
 
         vm.autocompleteItems = ['Broccoli', 'Cabbage', 'Carrot', 'Lettuce', 'Spinach', 'Cherry', 'Apple'];
         vm.onCreateClick     = onCreateClick;

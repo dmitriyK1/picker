@@ -10,13 +10,13 @@
         md-floating-label         = "{{ :: vm.label }}"
         md-input-name             = "autocomplete"
         md-search-text            = "searchText"
-        md-search-text-change     = "onSearchTextChange()"
         md-selected-item          = "vm.selectedItem"
         md-items                  = "item in querySearch(searchText, vm.items)"
         md-item-text              = "item"
         md-min-length             = "0 || +vm.readOnly"
         md-input-maxlength        = "30"
-        md-selected-item-change   = "onItemChange()"
+        md-search-text-change     = "vm.autoCompleteSearchTextChange()"
+        md-selected-item-change   = "vm.onItemChange(item)"
         ng-class                  = "isValidSearch ? ''  : 'invalid-value' "
         md-menu-class             = "{{ :: vm.dropdownHtmlClass }}"
         md-delay                  = "vm.loadDelay"
@@ -35,7 +35,7 @@
         >
         </div>
 
-        <div 
+        <div
                 ng-messages = "autocompleteForm.autocomplete.$error"
                 ng-if       = "autocompleteForm.autocomplete.$touched && (!vm.readOnly)"
                 ng-hide     = "vm.disabled"

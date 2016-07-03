@@ -20,10 +20,14 @@
         // temp; replace on vm.pickerData
         vm.autocompleteItems = ['Broccoli', 'Cabbage', 'Carrot', 'Lettuce', 'Spinach', 'Cherry', 'Apple'];
         vm.onCreateClick     = onCreateClick;
+        vm.onChange          = onChange;
 
-        // temp
         function onCreateClick(searchText) {
             alert('creating...: ' + searchText);
+        }
+
+        function onChange() {
+            console.log('search item changed');
         }
 
         // --------------------------------------------------------------------------------

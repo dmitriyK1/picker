@@ -21,7 +21,6 @@
 
 - add unit tests
 
-* implement vm.onChange()
 * implement vm.notFoundDescriptor
 
 --------------------------------------------------------------------------------

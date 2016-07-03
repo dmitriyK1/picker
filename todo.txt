@@ -25,6 +25,8 @@
 
 --------------------------------------------------------------------------------
 
+- delete stub function from mxPickerCtrl
+
 # vm.selectedValue                   - alias to vm.model
 # BasePickerProperties.selectedItems - в singlePicker лишнее
 

@@ -8,7 +8,7 @@
     function MxPickerCtrl() {
         var vm = this;
 
-        vm.onItemChange = onItemChange;
+        vm.onItemChange                   = onItemChange;
         vm.autoCompleteSelectedItemChange = autoCompleteSelectedItemChange;
 
         function onItemChange(item) {

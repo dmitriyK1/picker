@@ -95,7 +95,7 @@
                 dropdown-html-class = "mx-picker-default"
                 hint                = "Tell us what you like!"
 
-                selected-item       = ""
+                selected-item       = "demoCtrl.selectedItem"
                 items               = "demoCtrl.autocompleteItems"
 
                 load-items          = ""
@@ -122,6 +122,7 @@
                items         = "demoCtrl.pickerArray"
                ng-model      = "demoCtrl.pickerArrayValue"
                browse-lookup = "demoCtrl.browseLookup"
+               selected-item = "demoCtrl.selectedItem"
                >
             </mx-picker-new>
 
@@ -134,6 +135,7 @@
                      navigate-item    = "demoCtrl.navigateSelectedItem"
                      browse-lookup    = "demoCtrl.browseLookup"
                      item-title-field = "title"
+                     selected-item    = "demoCtrl.selectedItem"
             >
             </mx-picker-new>
 
@@ -148,6 +150,7 @@
                not-found          = "demoCtrl.notFoundDescriptor"
                load-on-typing     = "true"
                browse-lookup      = "demoCtrl.browseLookup"
+               selected-item      = "demoCtrl.selectedItem"
             >
             </mx-picker-new>
 

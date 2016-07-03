@@ -12,6 +12,8 @@
         vm.isReadOnly = false;
         vm.isRequired = true;
 
+        vm.selectedItem = 'Broccoli';
+
         vm.autocompleteItems = ['Broccoli', 'Cabbage', 'Carrot', 'Lettuce', 'Spinach', 'Cherry', 'Apple'];
         vm.onCreateClick     = onCreateClick;
 

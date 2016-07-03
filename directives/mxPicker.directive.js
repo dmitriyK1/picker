@@ -48,7 +48,8 @@
             required       : '=',
             label          : '@',
             hint           : '@',
-            createItem     : '='
+            createItem     : '=',
+            selectedItem   : '='
         };
 
         angular.extend(bindToController, w.mx.components.CommonPickerProperties);

@@ -1,11 +1,7 @@
 
 
-
 1) * implement all attribute bindings
-    # сделать selectedItem вместо selectedItems
-    # прописать в шаблоне mx-autocomplete данные, получаемые из атрибутов mx-picker ( посмотреть как в старом коде сделано )
-
-
+    # * прописать в шаблоне mx-autocomplete данные, получаемые из атрибутов mx-picker ( посмотреть как в старом коде сделано )
 
 
 
@@ -23,8 +19,11 @@
 
 - add unit tests
 
+- фокус при shift-tab не возвращается сразу на md-autocomplete
 
 --------------------------------------------------------------------------------
+
+# BasePickerProperties.selectedItems - в singlePicker лишнее
 
 # singlePicker
     singlePickerController + commonPickerProperties

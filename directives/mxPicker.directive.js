@@ -81,7 +81,6 @@
             scope.searchText         = '';
             scope.querySearch        = querySearch;
             scope.onSearchTextChange = onSearchTextChange;
-            scope.onValueClick       = onValueClick;
 
             element.on('focusin', onFocusIn);
             element.on('focusout', onFocusOut);
@@ -178,12 +177,6 @@
                 }
 
                 scope.symbolsCount = scope.searchText.length;
-            }
-
-            function onValueClick(e) {
-                if (e.target.className !== 'autocomplete-popover') return;
-
-                alert('Redirecting...');
             }
 
             function onKeyDown(event) {

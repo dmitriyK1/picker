@@ -159,7 +159,7 @@
                         input.setSelectionRange(0, input.value.length);
                     };
 
-                    var template = '<div sglclick="singleClick()" ng-dblclick="doubleClick()">';
+                    var template = '<div tabindex="-1" sglclick="singleClick()" ng-dblclick="doubleClick()">';
                     var linkFn   = $compile(template);
                     var popover  = linkFn(scope);
 

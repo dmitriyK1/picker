@@ -127,10 +127,6 @@ md-autocomplete.valid-value input {
     cursor: pointer;
 }
 
-.autocomplete-popover:focus {
-    outline: 0;
-}
-
 .hint {
     font-size: 12px;
     line-height: 14px;

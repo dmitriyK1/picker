@@ -159,3 +159,30 @@ md-autocomplete.valid-value input {
     bottom: 7px;
     opacity: 1;
 }
+
+/* ================================================================================ */
+/* styles to disable focus in readonly mode */
+/* ================================================================================ */
+mx-picker-new md-autocomplete[readonly] md-input-container label {
+    -webkit-transform: translate3d(0, 28px, 0) scale(1) !important;
+    transform: translate3d(0, 28px, 0) scale(1) !important;
+    transition: -webkit-transform cubic-bezier(0.25, 0.8, 0.25, 1) 0.4s, width cubic-bezier(0.25, 0.8, 0.25, 1) 0.4s !important;
+    transition: transform cubic-bezier(0.25, 0.8, 0.25, 1) 0.4s, width cubic-bezier(0.25, 0.8, 0.25, 1) 0.4s !important;
+    width: auto !important;
+}
+
+mx-picker-new md-autocomplete[readonly] md-input-container input {
+    border-bottom-width: 1px !important;
+    border-color: rgba(0,0,0,0.12) !important;
+}
+
+mx-picker-new md-autocomplete[readonly] md-input-container label,
+mx-picker-new md-autocomplete[readonly] md-input-container label:after {
+    color: gray !important;
+}
+
+mx-picker-new md-autocomplete[readonly] md-input-container.md-input-has-value label,
+mx-picker-new md-autocomplete[readonly] md-input-container.md-input-has-value label:after {
+    color: transparent !important;
+}
+/* ================================================================================ */

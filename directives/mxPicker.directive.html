@@ -29,13 +29,18 @@
         </md-item-template>
 
         <div
-                class="hint hint-info"
-                ng-if="autocompleteForm.autocomplete.$valid || (autocompleteForm.autocomplete.$invalid && !autocompleteForm.autocomplete.$touched)"
-                ng-bind="::vm.hint"
+                class   = "hint hint-info"
+                ng-if   = "autocompleteForm.autocomplete.$valid || (autocompleteForm.autocomplete.$invalid && !autocompleteForm.autocomplete.$touched)"
+                ng-hide = "vm.readOnly"
+                ng-bind = "::vm.hint"
         >
         </div>
 
-        <div ng-messages="autocompleteForm.autocomplete.$error" ng-if="autocompleteForm.autocomplete.$touched">
+        <div 
+                ng-messages = "autocompleteForm.autocomplete.$error"
+                ng-if       = "autocompleteForm.autocomplete.$touched && (!vm.readOnly)"
+                ng-hide     = "vm.disabled"
+        >
                 <div class="hint" ng-message="required">This field is required</div>
                 <div ng-message="md-input-maxlength">The name has to be less than 30 characters long.</div>
         </div>

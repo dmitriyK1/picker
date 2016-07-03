@@ -45,8 +45,7 @@
         </div>
 
         <md-not-found>
-                No states matching "{{searchText}}" were found.
-                <a ng-click="vm.createItem(searchText)">Create a new one!</a>
+                <span>{{ vm.notFoundMessage }}</span>
         </md-not-found>
 
         <md-icon tabindex="-1" class="autocomplete-search" ng-hide="vm.disabled || vm.readOnly" ng-click="vm.browseLookup()">search</md-icon>

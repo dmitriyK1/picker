@@ -98,16 +98,15 @@
                 selected-item       = "demoCtrl.selectedItem"
                 ng-model            = "demoCtrl.selectedItem"
                 items               = "demoCtrl.autocompleteItems"
+                not-found           = "demoCtrl.notFound"
 
                 load-items          = "demoCtrl.loadItems"
                 load-on-typing      = "true"
                 load-delay          = "500"
                 navigate-item       = "demoCtrl.navigateSelectedItem"
-                create-item         = "demoCtrl.onCreateClick"
                 browse-lookup       = "demoCtrl.browseLookup"
                 on-change           = "demoCtrl.onChange()"
             >
-                <!-- ng&#45;model="" -->
             </mx-picker-new>
 
             <div layout="column" layout-padding>
@@ -125,6 +124,7 @@
                ng-model      = "demoCtrl.pickerArrayValue"
                browse-lookup = "demoCtrl.browseLookup"
                selected-item = "demoCtrl.selectedItem"
+               not-found     = "demoCtrl.notFound"
             >
             </mx-picker-new>
 
@@ -138,6 +138,7 @@
                navigate-item    = "demoCtrl.navigateSelectedItem"
                browse-lookup    = "demoCtrl.browseLookup"
                selected-item    = "demoCtrl.selectedItem"
+               not-found        = "demoCtrl.notFound"
             >
             </mx-picker-new>
 
@@ -148,7 +149,7 @@
                item-title-field   = "DisplayString"
                item-details-field = "Description"
                load-items         = "demoCtrl.loadItems"
-               not-found          = "demoCtrl.notFoundDescriptor"
+               not-found          = "demoCtrl.notFound"
                load-on-typing     = "true"
                browse-lookup      = "demoCtrl.browseLookup"
                selected-item      = "demoCtrl.selectedItem"
@@ -179,7 +180,6 @@
                 hint                 = "Hello, I am a hint"
 
                 browse-lookup        = "demoCtrl.browseLookup"
-                create-item          = "demoCtrl.onCreateClick"
                 load-items           = "demoCtrl.loadItems"
                 navigate-item        = "demoCtrl.navigateSelectedItem"
                 on-change            = "demoCtrl.onChange()"
@@ -216,7 +216,6 @@
 
             <b>// Function</b>
                   browseLookup      : "=",
-                  createItem        : "=",
                   loadItems         : "=",
                   navigateItem      : "=",
                   onChange          : "&",

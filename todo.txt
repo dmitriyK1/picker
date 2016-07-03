@@ -1,11 +1,8 @@
-
 1) * implement all attribute bindings
-    # * прописать в шаблоне mx-autocomplete данные, получаемые из атрибутов mx-picker
-        mx-picker-new template
+        * mx-picker-new template
         # combine /w mx-autocomplete bindings
 
         - compare controllers (mx-new mx-picker mx-autocomplete)
-
 
 2) сделать чтобы работало без нового кода со старым baseController
     # максимально использовать имеющийся код из baseController ( найти аналоги того что используется в link mdAutocomplete )
@@ -17,11 +14,9 @@
 4) рефакторить часть функционала baseController в отдельный service
     # хранить данные, уникальные для каждой директивы в controller instance
 
-- сделать функцию фильтрации по любому фрагменту внутри слова
-
 - add unit tests
 
-* implement vm.notFoundDescriptor
+- сделать функцию фильтрации по любому фрагменту внутри слова
 
 --------------------------------------------------------------------------------
 

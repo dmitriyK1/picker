@@ -48,7 +48,6 @@
             required     : '=',
             label        : '@',
             hint         : '@',
-            createItem   : '=',
             selectedItem : '=',
             model        : "=ngModel",
             name         : "@",

@@ -43,13 +43,16 @@
     function mxPickerNew() {
 
         var bindToController = {
-            disabled       : '=ngDisabled',
-            readOnly       : '=',
-            required       : '=',
-            label          : '@',
-            hint           : '@',
-            createItem     : '=',
-            selectedItem   : '='
+            disabled     : '=ngDisabled',
+            readOnly     : '=',
+            required     : '=',
+            label        : '@',
+            hint         : '@',
+            createItem   : '=',
+            selectedItem : '=',
+            model        : "=ngModel",
+            name         : "@",
+            onChange     : "&"
         };
 
         angular.extend(bindToController, w.mx.components.CommonPickerProperties);
@@ -80,7 +83,6 @@
         function link(scope, element, attrs, ctrl) {
             scope.searchText         = '';
             scope.querySearch        = querySearch;
-            scope.onSearchTextChange = onSearchTextChange;
 
             element.on('focusin', onFocusIn);
             element.on('focusout', onFocusOut);
@@ -168,15 +170,6 @@
                     element.append(popover);
                     element.addClass('valid-value');
                 }, 10);
-            }
-
-            function onSearchTextChange() {
-                if (!scope.searchText) {
-                    scope.symbolsCount = 0;
-                    return;
-                }
-
-                scope.symbolsCount = scope.searchText.length;
             }
 
             function onKeyDown(event) {

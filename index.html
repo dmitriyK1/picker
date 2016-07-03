@@ -96,6 +96,7 @@
                 hint                = "Tell us what you like!"
 
                 selected-item       = "demoCtrl.selectedItem"
+                ng-model            = "demoCtrl.selectedItem"
                 items               = "demoCtrl.autocompleteItems"
 
                 load-items          = "demoCtrl.loadItems"
@@ -104,6 +105,7 @@
                 navigate-item       = "demoCtrl.navigateSelectedItem"
                 create-item         = "demoCtrl.onCreateClick"
                 browse-lookup       = "demoCtrl.browseLookup"
+                on-change           = "demoCtrl.onChange()"
             >
                 <!-- ng&#45;model="" -->
             </mx-picker-new>
@@ -123,19 +125,21 @@
                ng-model      = "demoCtrl.pickerArrayValue"
                browse-lookup = "demoCtrl.browseLookup"
                selected-item = "demoCtrl.selectedItem"
-               >
+               on-change     = "demoCtrl.onChange()"
+            >
             </mx-picker-new>
 
             <!-- SIMPLE VALUE EXAMPLE: -->
             <mx-picker-new
-                     ng-required      = "true"
-                     item-title-field = "title"
-                     label            = "Array of objects example:  [ { id: 1, title: 'item 1' },  ... ] "
-                     items            = "demoCtrl.pickerData"
-                     ng-model         = "demoCtrl.pickerValue"
-                     navigate-item    = "demoCtrl.navigateSelectedItem"
-                     browse-lookup    = "demoCtrl.browseLookup"
-                     selected-item    = "demoCtrl.selectedItem"
+               ng-required      = "true"
+               item-title-field = "title"
+               label            = "Array of objects example:  [ { id: 1, title: 'item 1' },  ... ] "
+               items            = "demoCtrl.pickerData"
+               ng-model         = "demoCtrl.pickerValue"
+               navigate-item    = "demoCtrl.navigateSelectedItem"
+               browse-lookup    = "demoCtrl.browseLookup"
+               selected-item    = "demoCtrl.selectedItem"
+               on-change        = "demoCtrl.onChange()"
             >
             </mx-picker-new>
 
@@ -145,12 +149,12 @@
                ng-model           = "demoCtrl.pickerLoadOnTypingValue"
                item-title-field   = "DisplayString"
                item-details-field = "Description"
-
                load-items         = "demoCtrl.loadItems"
                not-found          = "demoCtrl.notFoundDescriptor"
                load-on-typing     = "true"
                browse-lookup      = "demoCtrl.browseLookup"
                selected-item      = "demoCtrl.selectedItem"
+               on-change          = "demoCtrl.onChange()"
             >
             </mx-picker-new>
 
@@ -183,8 +187,8 @@
                 navigate-item        = "demoCtrl.navigateSelectedItem"
                 on-change            = "demoCtrl.onChange()"
 
-                ng-model             = "vm.pickerArrayValue"
                 items                = "demoCtrl.autocompleteItems"
+                ng-model             = "demoCtrl.pickerArrayValue"
                 selected-item        = "demoCtrl.pickerSelectedItem"
                 not-found            = "demoCtrl.notFoundDescriptor"
             <b style="font-size: 1rem;">&gt;</b>
@@ -222,8 +226,8 @@
 
             <b>// Object</b>
                   model             : "=ngModel",
-                  items             : "=",
                   selectedItem      : "=",
+                  items             : "=",
                   notFound          : "="
 
          }

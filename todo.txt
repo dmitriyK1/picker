@@ -1,8 +1,10 @@
 
 1) * implement all attribute bindings
     # * прописать в шаблоне mx-autocomplete данные, получаемые из атрибутов mx-picker
-        bindToController > mx-picker-new template
-        combine /w mx-autocomplete bindings
+        mx-picker-new template
+        # combine /w mx-autocomplete bindings
+
+        - compare controllers (mx-new mx-picker mx-autocomplete)
 
 
 2) сделать чтобы работало без нового кода со старым baseController
@@ -19,10 +21,12 @@
 
 - add unit tests
 
-- implement vm.notFoundDescriptor
+* implement vm.onChange()
+* implement vm.notFoundDescriptor
 
 --------------------------------------------------------------------------------
 
+# vm.selectedValue                   - alias to vm.model
 # BasePickerProperties.selectedItems - в singlePicker лишнее
 
 # singlePicker

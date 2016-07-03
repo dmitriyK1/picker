@@ -8,23 +8,30 @@
     function DemoCtrl($q) {
         var vm        = this;
 
-        vm.isDisabled = false;
         vm.isReadOnly = false;
+        vm.isDisabled = false;
         vm.isRequired = true;
 
+        vm.notFoundDescriptor = 'Value not found';
+
+        // temp; replace vm.pickerValue
         vm.selectedItem = 'Broccoli';
 
+        // temp; replace on vm.pickerData
         vm.autocompleteItems = ['Broccoli', 'Cabbage', 'Carrot', 'Lettuce', 'Spinach', 'Cherry', 'Apple'];
         vm.onCreateClick     = onCreateClick;
 
+        // temp
         function onCreateClick(searchText) {
             alert('creating...: ' + searchText);
         }
 
         // --------------------------------------------------------------------------------
 
+        // ng-model attribute
         vm.pickerValue = 2;
 
+        // items attribute
         vm.pickerData = [{
             id: 1,
             title: 'item 1'
@@ -47,8 +54,10 @@
 
         // --------------------------------------------------------------------------------
 
+        // ng-model attribute
         vm.pickerArrayValue = 'Item5';
 
+        // items attribute
         vm.pickerArray      = ['Item1', 'Item2', 'Item3', 'Item4', 'Item5', 'Item6'];
 
         // --------------------------------------------------------------------------------
@@ -87,13 +96,21 @@
             Description: 'Details for ABZ'
         }];
 
+        // ng-model attribute
         vm.pickerLoadOnTypingValue = 5;
+
+        // load-items attribute
         vm.loadItems               = loadItems;
+
+        // navigate-item attribute
         vm.navigateSelectedItem    = navigateSelectedItem;
+
+        // browse-lookup attribute
         vm.browseLookup            = browseLookup;
 
         // --------------------------------------------------------------------------------
 
+        // load-items attribute
         function loadItems(searchText, ctrl, itms) {
             if (itms) {
                 itms.forEach(function(itm) {
@@ -120,10 +137,12 @@
             }
         }
 
+        // navigate-item attribute
         function navigateSelectedItem(item) {
-            alert(JSON.stringify(item));
+            alert('Navigate: ' + JSON.stringify(item));
         }
 
+        // browse-lookup attribute
         function browseLookup() {
             if (confirm('Add items?')) {
                 return $q.when(vm.pickerData[2]);
@@ -131,8 +150,6 @@
                 return $q.when();
             }
         }
-
-
 
 
     }

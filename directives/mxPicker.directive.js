@@ -146,8 +146,7 @@
                     //     .addClass('autocomplete-popover')
                     //     .html(scope.searchText);
 
-                    scope.singleClick = () => alert('single click');
-                    scope.doubleClick = () => {
+                    scope.doubleClick = function() {
                         angular
                             .element(document.querySelectorAll('.autocomplete-popover'))
                             .remove();
@@ -159,7 +158,7 @@
                         input.setSelectionRange(0, input.value.length);
                     };
 
-                    var template = '<div tabindex="-1" sglclick="singleClick()" ng-dblclick="doubleClick()">';
+                    var template = '<div tabindex="-1" sglclick="vm.navigateItem(searchText)" ng-dblclick="doubleClick()">';
                     var linkFn   = $compile(template);
                     var popover  = linkFn(scope);
 

@@ -88,7 +88,7 @@
                 read-only           = "demoCtrl.isReadOnly"
                 ng-disabled         = "demoCtrl.isDisabled"
 
-                name                = ""
+                name                = "vegetables"
                 label               = "Single picker"
                 item-title-field    = ""
                 item-id-field       = ""
@@ -98,10 +98,10 @@
                 selected-item       = "demoCtrl.selectedItem"
                 items               = "demoCtrl.autocompleteItems"
 
-                load-items          = ""
-                load-on-typing      = ""
-                load-delay          = ""
-                navigate-item       = ""
+                load-items          = "demoCtrl.loadItems"
+                load-on-typing      = "true"
+                load-delay          = "500"
+                navigate-item       = "demoCtrl.navigateSelectedItem"
                 create-item         = "demoCtrl.onCreateClick"
                 browse-lookup       = "demoCtrl.browseLookup"
             >
@@ -128,13 +128,13 @@
 
             <!-- SIMPLE VALUE EXAMPLE: -->
             <mx-picker-new
+                     ng-required      = "true"
+                     item-title-field = "title"
                      label            = "Array of objects example:  [ { id: 1, title: 'item 1' },  ... ] "
                      items            = "demoCtrl.pickerData"
                      ng-model         = "demoCtrl.pickerValue"
-                     ng-required      = "true"
                      navigate-item    = "demoCtrl.navigateSelectedItem"
                      browse-lookup    = "demoCtrl.browseLookup"
-                     item-title-field = "title"
                      selected-item    = "demoCtrl.selectedItem"
             >
             </mx-picker-new>
@@ -145,7 +145,7 @@
                ng-model           = "demoCtrl.pickerLoadOnTypingValue"
                item-title-field   = "DisplayString"
                item-details-field = "Description"
-               item-id-field      = "Value"
+
                load-items         = "demoCtrl.loadItems"
                not-found          = "demoCtrl.notFoundDescriptor"
                load-on-typing     = "true"

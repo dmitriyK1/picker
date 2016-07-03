@@ -1,8 +1,8 @@
+
 1) * implement all attribute bindings
     # * прописать в шаблоне mx-autocomplete данные, получаемые из атрибутов mx-picker
-
-    demoCtrl > mx-picker-new attributes > bindToController > mx-picker-new template
-
+        bindToController > mx-picker-new template
+        combine /w mx-autocomplete bindings
 
 
 2) сделать чтобы работало без нового кода со старым baseController
@@ -18,6 +18,8 @@
 - сделать функцию фильтрации по любому фрагменту внутри слова
 
 - add unit tests
+
+- implement vm.notFoundDescriptor
 
 --------------------------------------------------------------------------------
 

@@ -147,11 +147,14 @@
 
                     scope.singleClick = () => alert('single click');
                     scope.doubleClick = () => {
-                        angular.element( document.querySelectorAll('.autocomplete-popover') ).remove();
+                        angular
+                            .element(document.querySelectorAll('.autocomplete-popover'))
+                            .remove();
 
                         var input = element.find('input')[0];
 
                         // element.find('input')[0].select();
+                        input.focus();
                         input.setSelectionRange(0, input.value.length);
                     };
 

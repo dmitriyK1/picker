@@ -14,7 +14,7 @@
         md-selected-item          = "vm.selectedItem"
         md-items                  = "item in querySearch(searchText, vm.items)"
         md-item-text              = "item"
-        md-min-length             = "0 || vm.readOnly"
+        md-min-length             = "0 || +vm.readOnly"
         md-input-maxlength        = "30"
         md-selected-item-change   = "onItemChange()"
         ng-click                  = "onValueClick($event, searchTextValid)"
@@ -28,9 +28,14 @@
                 <span md-highlight-flags="^i" md-highlight-text="searchText">{{ item }}</span>
         </md-item-template>
 
-        <div class="hint hint-info" ng-if="vm.showHints">Tell us what you like!</div>
+        <div
+                class="hint hint-info"
+                ng-if="autocompleteForm.autocomplete.$valid || (autocompleteForm.autocomplete.$invalid && !autocompleteForm.autocomplete.$touched)"
+                ng-bind="::vm.hint"
+        >
+        </div>
 
-        <div style="position: relative;" ng-messages="autocompleteForm.autocomplete.$error" ng-if="autocompleteForm.autocomplete.$touched && !vm.showHints">
+        <div ng-messages="autocompleteForm.autocomplete.$error" ng-if="autocompleteForm.autocomplete.$touched">
                 <div class="hint" ng-message="required">This field is required</div>
                 <div ng-message="md-input-maxlength">The name has to be less than 30 characters long.</div>
         </div>
@@ -42,4 +47,3 @@
 
         <md-icon tabindex="-1" class="autocomplete-search" ng-hide="vm.disabled || vm.readOnly" ng-click="vm.browseLookup()">search</md-icon>
 </md-autocomplete>
-

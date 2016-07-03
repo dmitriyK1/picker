@@ -13,6 +13,8 @@
         vm.isReadOnly = false;
         vm.isRequired = true;
 
+        vm.hint       = 'Tell us what you like!';
+
         vm.autocompleteItems = ['Broccoli', 'Cabbage', 'Carrot', 'Lettuce', 'Spinach', 'Cherry', 'Apple'];
         vm.onCreateClick     = onCreateClick;
 

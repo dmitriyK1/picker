@@ -1,36 +1,28 @@
 
-* implement all attribute bindings
+Easy:
+    * по doubleclick на autocomplete-popover удалять его и фокусировать инпут
+    - сделать чтобы нельзя было сфокусировать инпут если readOnly
 
-- по doubleclick на autocomplete-popover удалять его и фокусировать инпут
+1) implement all attribute bindings
+    # сделать hint не boolean а string
+    # прописать в шаблоне mx-autocomplete данные, получаемые из атрибутов mx-picker ( посмотреть как в старом коде сделано )
+    # сделать selectedItem вместо selectedItems
 
-- прописать в шаблоне mx-autocomplete данные, получаемые из атрибутов mx-picker ( посмотреть как в старом коде сделано )
+2) сделать чтобы работало без нового кода со старым baseController
+    # максимально использовать имеющийся код из baseController ( найти аналоги того что используется в link mdAutocomplete )
+    # валидация при focus / blur ( использовать из baseController )
 
-- выделить что можно из md-autocomplete в link mx-picker
+3) убрать все из mdAutocomplete в mxPicker \ пропатчить внутренний mdAutocomplete с помощью доп. директивы-атрибута в шаблоне mxPicker
+    # уменьшить кол-во dom-манипуляций
 
-- сделать hint не boolean а string
 
-- рефакторить код с учетом использования контроллеров, сервисов
-- уменьшить кол-во dom-манипуляций
-
-- максимально использовать имеющийся код из baseController ( найти аналоги того что используется в md-autocomplete - link() )
-
-- все кроме DOM-манипуляций вынести в link \ service + наследование сервисов а не контроллеров
-
-- придумать где хранить данные уникальные для каждой директивы ( вынести то что хранится сейчас в service обратно в контроллер )
-
-- валидация при focus / blur
-
-- сначала использовать функционал baseController, а потом только рефакторить часть функционала baseController в отдельный service
-
-- сделать чтобы нельзя было сфокусировать инпут если readOnly
-
-- показывать hints если нет error
-
-- сделать selectedItem вместо selectedItems
+4) рефакторить часть функционала baseController в отдельный service
+    # хранить данные, уникальные для каждой директивы в controller instance
 
 - сделать функцию фильтрации по любому фрагменту внутри слова
 
 - add unit tests
+
 
 --------------------------------------------------------------------------------
 
@@ -44,14 +36,6 @@
     searchText   : 'Default Value',
     selectedItem : 'Default object'
 }
-
---------------------------------------------------------------------------------
-
-# как должно readOnly работать? становиться disabled после того как хотя бы одно значение выбрано?
-    ng-disabled="vm._disabled || vm._readOnly"
-    readonly="(vm._disabled || vm._readOnly) && vm.selectedItems.length > 0"
- 
-# типы hints ?
 
 --------------------------------------------------------------------------------
 

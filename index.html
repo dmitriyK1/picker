@@ -3,7 +3,10 @@
 <head>
     <meta name="viewport" content="initial-scale=1" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.0-rc4/angular-material.css" type="text/css" media="all">
+
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular&#45;material/1.1.0&#45;rc4/angular&#45;material.css" type="text/css" media="all"> -->
+    <link rel="stylesheet" href="libs/angular-material/angular-material.css" type="text/css" media="all">
+
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type='text/css'>
     <link rel="stylesheet" href="directives/mxPicker.directive.css" media="all">
     <style>
@@ -29,25 +32,32 @@
 </head>
 
 <body>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular-animate.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular-aria.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular-messages.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.0-rc4/angular-material.js"></script>
 
-	<script src="libs/angular-sanitize/angular-sanitize.js"></script>
-	<script src="libs/html2canvas/build/html2canvas.min.js"></script>
-	<script src="libs/ua-parser-js/dist/ua-parser.min.js"></script>
-	<script src="libs/ng-file-upload/ng-file-upload.js"></script>
-	<script src="libs/angular-ui-grid/ui-grid.js"></script>
-	<script src="libs/angular-route/angular-route.js"></script>
-	<script src="libs/tinymce-dist/tinymce.js"></script>
-	<script src="libs/angular-ui-tinymce/src/tinymce.js"></script>
-	<script src="libs/sc-date-time/dist/sc-date-time.js"></script>
-	<script src="libs/mx.components/mx.components.all.js"></script>
-	<script src="libs/moment/moment.js"></script>
-	<script src="libs/angular-moment/angular-moment.js"></script>
-	<script src="libs/oclazyload/dist/ocLazyLoad.js"></script>
+    <script src="libs/angular/angular.js"></script>
+    <script src="libs/angular-animate/angular-animate.js"></script>
+    <script src="libs/angular-aria/angular-aria.js"></script>
+    <script src="libs/angular-material/angular-material.js"></script>
+    <script src="libs/angular-messages/angular-messages.js"></script>
+
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular.js"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular&#45;animate.js"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular&#45;aria.js"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular&#45;messages.js"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/angular&#45;material/1.1.0&#45;rc4/angular&#45;material.js"></script> -->
+
+   <script src="libs/angular-sanitize/angular-sanitize.js"></script>
+   <script src="libs/html2canvas/build/html2canvas.min.js"></script>
+   <script src="libs/ua-parser-js/dist/ua-parser.min.js"></script>
+   <script src="libs/ng-file-upload/ng-file-upload.js"></script>
+   <script src="libs/angular-ui-grid/ui-grid.js"></script>
+   <script src="libs/angular-route/angular-route.js"></script>
+   <script src="libs/tinymce-dist/tinymce.js"></script>
+   <script src="libs/angular-ui-tinymce/src/tinymce.js"></script>
+   <script src="libs/sc-date-time/dist/sc-date-time.js"></script>
+   <script src="libs/mx.components/mx.components.all.js"></script>
+   <script src="libs/moment/moment.js"></script>
+   <script src="libs/angular-moment/angular-moment.js"></script>
+   <script src="libs/oclazyload/dist/ocLazyLoad.js"></script>
 
 
    <!-- ================================================================================  -->
@@ -77,13 +87,13 @@
                 required            = "demoCtrl.isRequired"
                 read-only           = "demoCtrl.isReadOnly"
                 ng-disabled         = "demoCtrl.isDisabled"
-                show-hints          = "demoCtrl.showHints"
 
                 name                = ""
                 label               = "Single picker"
                 item-title-field    = ""
                 item-id-field       = ""
                 dropdown-html-class = "mx-picker-default"
+                hint                = "{{ demoCtrl.hint }}"
 
                 selected-item       = ""
                 items               = "demoCtrl.autocompleteItems"
@@ -93,7 +103,7 @@
                 load-delay          = ""
                 navigate-item       = ""
                 create-item         = "demoCtrl.onCreateClick"
-                browse-lookup    = "demoCtrl.browseLookup"
+                browse-lookup       = "demoCtrl.browseLookup"
             >
                 <!-- ng&#45;model="" -->
             </mx-picker-new>
@@ -104,25 +114,13 @@
                <md-checkbox ng-model="demoCtrl.isDisabled">Disabled</md-checkbox>
             </div>
 
-            <md-input-container>
-                <md-switch
-                    ng-model = "demoCtrl.showHints"
-                    ng-init  = "demoCtrl.showHints=true"
-                >
-                    Showing {{ demoCtrl.showHints ? "Hints" : "Errors" }}
-                </md-switch>
-            </md-input-container>
-
-            <!-- <div> Symbols entered: {{ symbolsCount || 0 }} </div> -->
-            <!-- <div ng&#45;messages="userForm.name.$error" ng&#45;if="!showHints"> </div> -->
-
             <hr>
 
             <!-- ARRAY VALUES EXAMPLE -->
             <mx-picker-new
-               label            = "Array values example:  ['Item1', 'Item2', 'Item3', 'Item4', 'Item5', 'Item6'] "
-               items            = "demoCtrl.pickerArray"
-               ng-model         = "demoCtrl.pickerArrayValue"
+               label         = "Array values example:  ['Item1', 'Item2', 'Item3', 'Item4', 'Item5', 'Item6'] "
+               items         = "demoCtrl.pickerArray"
+               ng-model      = "demoCtrl.pickerArrayValue"
                browse-lookup = "demoCtrl.browseLookup"
                >
             </mx-picker-new>
@@ -134,7 +132,7 @@
                      ng-model         = "demoCtrl.pickerValue"
                      ng-required      = "true"
                      navigate-item    = "demoCtrl.navigateSelectedItem"
-                     browse-lookup = "demoCtrl.browseLookup"
+                     browse-lookup    = "demoCtrl.browseLookup"
                      item-title-field = "title"
             >
             </mx-picker-new>
@@ -163,7 +161,6 @@
                 ng-disabled          = "demoCtrl.isDisabled"
                 read-only            = "demoCtrl.isReadOnly"
                 required             = "demoCtrl.isRequired"
-                show-hints           = "demoCtrl.showHints"
                 items-is-plain-array = "true"
                 load-on-typing       = "true"
 
@@ -198,7 +195,6 @@
                   disabled          : "=ngDisabled",
                   readOnly          : "=",
                   required          : "=",
-                  showHints         : "=",
                   itemsIsPlainArray : "@",
                   loadOnTyping      : "@",
 

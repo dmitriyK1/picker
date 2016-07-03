@@ -14,7 +14,7 @@
             readOnly       : '=',
             required       : '=',
             label          : '@',
-            showHints      : '=',
+            hint           : '@',
             createItem     : '='
         };
 

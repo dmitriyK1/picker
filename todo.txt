@@ -1,8 +1,3 @@
-
-Easy:
-    * по doubleclick на autocomplete-popover удалять его и фокусировать инпут
-    - сделать чтобы нельзя было сфокусировать инпут если readOnly
-
 1) implement all attribute bindings
     # сделать hint не boolean а string
     # прописать в шаблоне mx-autocomplete данные, получаемые из атрибутов mx-picker ( посмотреть как в старом коде сделано )

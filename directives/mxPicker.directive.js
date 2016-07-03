@@ -6,6 +6,39 @@
         .directive('mdAutocomplete', mdAutocomplete)
         .directive('clearAutocomplete', clearAutocomplete)
         .directive('mxPickerNew', mxPickerNew)
+        .directive('sglclick', singleClick)
+
+    function singleClick($parse) {
+        return {
+            restrict: 'A',
+            link: function(scope, element, attr) {
+                var fn     = $parse(attr['sglclick']);
+                var delay  = 250;
+                var clicks = 0;
+                var timer  = null;
+
+                element.on('click', function(event) {
+                    clicks++;
+
+                    if (clicks === 1) {
+                        timer = setTimeout(function() {
+                            scope.$apply(function() {
+                                fn(scope, {
+                                    $event: event
+                                });
+                            });
+
+                            clicks = 0;
+
+                        }, delay);
+                    } else {
+                        clearTimeout(timer);
+                        clicks = 0;
+                    }
+                });
+            }
+        };
+    }
 
     function mxPickerNew() {
 
@@ -35,7 +68,7 @@
         }
     }
 
-    function mdAutocomplete($mdConstant) {
+    function mdAutocomplete($mdConstant, $compile) {
         var ddo = {
             link    : link,
             require : 'mdAutocomplete'
@@ -107,8 +140,26 @@
 
                     ctrl.scope.isValidSearch = true;
 
-                    var popover = angular
-                        .element('<div>')
+                    // var popover = angular
+                    //     .element('<div>')
+                    //     .addClass('autocomplete-popover')
+                    //     .html(scope.searchText);
+
+                    scope.singleClick = () => alert('single click');
+                    scope.doubleClick = () => {
+                        angular.element( document.querySelectorAll('.autocomplete-popover') ).remove();
+
+                        var input = element.find('input')[0];
+
+                        // element.find('input')[0].select();
+                        input.setSelectionRange(0, input.value.length);
+                    };
+
+                    var template = '<div sglclick="singleClick()" ng-dblclick="doubleClick()">';
+                    var linkFn   = $compile(template);
+                    var popover  = linkFn(scope);
+
+                    popover
                         .addClass('autocomplete-popover')
                         .html(scope.searchText);
 
@@ -141,8 +192,8 @@
                     return;
                 }
 
-                if (event.keyCode !== $mdConstant.KEY_CODE.TAB) return;
-                if (scope.filteredItems.length !== 1) return;
+                if (event.keyCode !== $mdConstant.KEY_CODE.TAB)  return;
+                if (scope.filteredItems.length !== 1)            return;
                 if (scope.searchText === scope.filteredItems[0]) return;
 
                 ctrl.select(0);

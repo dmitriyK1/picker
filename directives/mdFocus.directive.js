@@ -13,17 +13,15 @@
                         var nativeFocus = $mdAutocompleteCtrl.focus;
 
                         $mdAutocompleteCtrl.focus = function() {
+
+                            if (!input.val().trim()) {
+                                input.val('');
+                            }
+
                             nativeFocus.call($mdAutocompleteCtrl);
 
                             $mdUtil.nextTick(function () {
                                 $scope.$eval($attributes.mdFocus, {"$mdAutocomplete": $mdAutocompleteCtrl });
-
-                                var inputValue = input.value;
-
-                                if (inputValue && !inputValue.trim()) {
-                                    input.value = '';
-                                }
-
                             });
                         };
                     });

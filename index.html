@@ -66,10 +66,13 @@
 
     <!-- <script src="services/mxBasePicker.service.js"></script> -->
 
-    <script src="directives/mxPicker.directive.js"></script>
-
     <script src="controllers/demo.ctrl.js"></script>
     <script src="controllers/mxPicker.ctrl.js"></script>
+
+    <script src="directives/mxPickerAutocomplete.directive.js"></script>
+    <script src="directives/mxClearPickerBtn.directive.js"></script>
+    <script src="directives/mxSglclick.directive.js"></script>
+    <script src="directives/mxPicker.directive.js"></script>
 
    <!-- ================================================================================  -->
 
@@ -90,8 +93,6 @@
 
                 name                = "vegetables"
                 label               = "Single picker"
-                item-title-field    = ""
-                item-id-field       = ""
                 dropdown-html-class = "mx-picker-default"
                 hint                = "Tell us what you like!"
 
@@ -99,12 +100,10 @@
                 items               = "demoCtrl.autocompleteItems"
                 not-found           = "demoCtrl.notFound"
 
-                load-items          = "demoCtrl.loadItems"
-                load-on-typing      = "true"
-                load-delay          = "500"
                 navigate-item       = "demoCtrl.navigateSelectedItem"
                 browse-lookup       = "demoCtrl.browseLookup"
                 on-change           = "demoCtrl.onChange()"
+                selected-items      = "demoCtrl.selectedItems"
             >
             </mx-picker-new>
 
@@ -118,11 +117,13 @@
 
             <!-- ARRAY VALUES EXAMPLE -->
             <mx-picker-new
-               label         = "Array values example:  ['Item1', 'Item2', 'Item3', 'Item4', 'Item5', 'Item6'] "
-               items         = "demoCtrl.pickerArray"
-               ng-model      = "demoCtrl.pickerArrayValue"
-               browse-lookup = "demoCtrl.browseLookup"
-               not-found     = "demoCtrl.notFound"
+               item-title-field = "title"
+               items            = "demoCtrl.pickerArray"
+               label            = "Array values example:  ['Item1', 'Item2', 'Item3', 'Item4', 'Item5', 'Item6'] "
+               browse-lookup    = "demoCtrl.browseLookup"
+               not-found        = "demoCtrl.notFound"
+               ng-model         = "demoCtrl.pickerArrayValue"
+               selected-items   = "demoCtrl.selectedItems"
             >
             </mx-picker-new>
 
@@ -136,6 +137,7 @@
                navigate-item    = "demoCtrl.navigateSelectedItem"
                browse-lookup    = "demoCtrl.browseLookup"
                not-found        = "demoCtrl.notFound"
+               selected-items   = "demoCtrl.selectedItems"
             >
             </mx-picker-new>
 
@@ -145,10 +147,13 @@
                ng-model           = "demoCtrl.pickerLoadOnTypingValue"
                item-title-field   = "DisplayString"
                item-details-field = "Description"
+               item-id-field      = "Value"
                load-items         = "demoCtrl.loadItems"
-               not-found          = "demoCtrl.notFound"
                load-on-typing     = "true"
+               not-found          = "demoCtrl.notFoundDescriptor"
                browse-lookup      = "demoCtrl.browseLookup"
+               items              = "[]"
+               selected-items     = "demoCtrl.selectedItems"
             >
             </mx-picker-new>
 

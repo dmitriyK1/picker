@@ -15,9 +15,9 @@ md-autocomplete button md-icon {
     z-index: 100;
 }
 
-md-autocomplete.invalid-value input {
-    color: red !important;
-}
+/* md-autocomplete.invalid-value input { */
+    /* color: red !important; */
+/* } */
 
 .autocomplete-search {
     cursor: pointer;
@@ -88,17 +88,17 @@ md-autocomplete input:focus {
     color: rgba(0,0,0,0.87) !important;
 }
 
-md-autocomplete md-input-container .md-input {
-    color: transparent;
-}
+/* md-autocomplete md-input-container .md-input { */
+    /* color: transparent; */
+/* } */
 
-md-autocomplete.error input {
-    color: red !important;
-}
+/* md-autocomplete.error input { */
+    /* color: red !important; */
+/* } */
 
-md-autocomplete.valid-value input {
-    color: transparent !important;
-}
+/* md-autocomplete.valid-value input { */
+    /* color: transparent !important; */
+/* } */
 
 .autocomplete-popover {
     position: absolute;

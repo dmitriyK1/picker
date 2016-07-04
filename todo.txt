@@ -1,35 +1,12 @@
 
+- подсветка невалидного значения
 
-* 2) сделать чтобы работало без нового кода со старым baseController
-    # максимально использовать имеющийся код из baseController ( найти аналоги того что используется в link mdAutocomplete )
-    # валидация при focus / blur ( использовать из baseController )
-    # уменьшить кол-во dom-манипуляций
+- навешивать autocomplete-popover
 
+
+
+- впилить в samples page
 - add unit tests
-
-- сделать функцию фильтрации по любому фрагменту внутри слова
-
-
-??? 4) рефакторить часть функционала baseController в отдельный service
-    # хранить данные, уникальные для каждой директивы в controller instance
-
---------------------------------------------------------------------------------
-
-# add clean-up everywhere
-
-# BasePickerProperties.selectedItems - в singlePicker лишнее
-
-# singlePicker
-    singlePickerController + commonPickerProperties
-
-# autocompletePicker
-    autocompleteController + singlePickerController + BasePickerProperties
-
-{
-    searchText   : 'Default Value',
-    selectedItem : 'Default object'
-}
-
 --------------------------------------------------------------------------------
 
 http://www.bennadel.com/blog/2926-overriding-directive-definitions-in-angularjs.htm

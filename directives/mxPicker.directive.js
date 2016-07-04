@@ -5,8 +5,6 @@
         .module('app')
         .directive('mxPickerNew', mxPickerNew)
         // .directive('mxPickerAutocomplete', mxPickerAutocomplete)
-        // .directive('clearAutocompleteBtn', clearAutocompleteBtn)
-        // .directive('sglclick', singleClick)
 
     function mxPickerNew() {
         var directive = new mx.components.FormControlBase(mx.components.MxPickerCtrl, 'directives/mxPicker.directive.html');
@@ -23,37 +21,6 @@
         return directive;
     }
 
-    function singleClick($parse) {
-        return {
-            restrict: 'A',
-            link: function(scope, element, attr) {
-                var fn     = $parse(attr['sglclick']);
-                var delay  = 250;
-                var clicks = 0;
-                var timer  = null;
-
-                element.on('click', function(event) {
-                    clicks++;
-
-                    if (clicks === 1) {
-                        timer = setTimeout(function() {
-                            scope.$apply(function() {
-                                fn(scope, {
-                                    $event: event
-                                });
-                            });
-
-                            clicks = 0;
-
-                        }, delay);
-                    } else {
-                        clearTimeout(timer);
-                        clicks = 0;
-                    }
-                });
-            }
-        };
-    }
 
     // function mxPickerNew() {
     //     var bindToController = {
@@ -160,7 +127,7 @@
                         input.setSelectionRange(0, input.value.length);
                     };
 
-                    var template = '<div tabindex="-1" sglclick="vm.navigateItem(searchText)" ng-dblclick="doubleClick()">';
+                    var template = '<div tabindex="-1" mxSglclick="vm.navigateItem(searchText)" ng-dblclick="doubleClick()">';
                     var linkFn   = $compile(template);
                     var popover  = linkFn(scope);
 
@@ -192,53 +159,5 @@
         }
     }
 
-    function clearAutocompleteBtn($parse, $compile) {
-        var ddo = {
-            restrict: 'A',
-            link: link
-        };
-
-        return ddo;
-
-        function link(scope, element, attrs) {
-
-            if (!attrs.mdFloatingLabel) return;
-
-            var template = [
-                '<md-button ng-hide="vm.disabled || vm.readOnly" tabindex="-1" class="md-icon-button clear-autocomplete">',
-                '<md-icon md-svg-icon="md-close">',
-                '</md-icon>',
-                '</md-button>'
-            ].join('');
-
-            var linkFn = $compile(template);
-            var button = linkFn(scope);
-            element.append(button);
-
-            var searchTextModel = $parse(attrs.mdSearchText);
-
-            scope.$watch(searchTextModel, function(searchText) {
-                if (searchText && searchText !== '' && searchText !== null) {
-                    button.addClass('visible');
-                } else {
-                    button.removeClass('visible');
-                }
-            });
-
-            button.on('click', onClick);
-
-            scope.$on('$destroy', function() {
-                button.off('click');
-            });
-
-            function onClick() {
-                searchTextModel.assign(scope, undefined);
-                scope.$digest();
-                angular.element(document.querySelectorAll('.autocomplete-popover')).remove();
-                element.removeClass('valid-value');
-            }
-        }
-
-    }
 
 })(window);

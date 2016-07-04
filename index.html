@@ -121,32 +121,28 @@
             <!-- ARRAY VALUES EXAMPLE -->
             <mx-picker-new
                item-title-field = "title"
-               items            = "demoCtrl.pickerData"
+               items            = "demoCtrl.pickerArray"
                label            = "Array values example:  ['Item1', 'Item2', 'Item3', 'Item4', 'Item5', 'Item6'] "
                browse-lookup    = "demoCtrl.browseLookup"
                not-found        = "demoCtrl.notFound"
-               ng-model         = "demoCtrl.autocompleteValue"
+               ng-model         = "demoCtrl.pickerArrayValue"
                selected-items   = "demoCtrl.selectedItems"
             >
             </mx-picker-new>
-               <!-- items         = "demoCtrl.pickerArray" -->
-               <!-- ng&#45;model      = "demoCtrl.pickerArrayValue" -->
-
-
-
 
             <!-- SIMPLE VALUE EXAMPLE: -->
-            <!-- <mx&#45;picker&#45;new -->
-            <!--    ng&#45;required      = "true" -->
-            <!--    item&#45;title&#45;field = "title" -->
-            <!--    label            = "Array of objects example:  [ { id: 1, title: 'item 1' },  ... ] " -->
-            <!--    items            = "demoCtrl.pickerData" -->
-            <!--    ng&#45;model         = "demoCtrl.pickerValue" -->
-            <!--    navigate&#45;item    = "demoCtrl.navigateSelectedItem" -->
-            <!--    browse&#45;lookup    = "demoCtrl.browseLookup" -->
-            <!--    not&#45;found        = "demoCtrl.notFound" -->
-            <!-- > -->
-            <!-- </mx&#45;picker&#45;new> -->
+            <mx-picker-new
+               ng-required      = "true"
+               item-title-field = "title"
+               label            = "Array of objects example:  [ { id: 1, title: 'item 1' },  ... ] "
+               items            = "demoCtrl.pickerData"
+               ng-model         = "demoCtrl.pickerValue"
+               navigate-item    = "demoCtrl.navigateSelectedItem"
+               browse-lookup    = "demoCtrl.browseLookup"
+               not-found        = "demoCtrl.notFound"
+               selected-items   = "demoCtrl.selectedItems"
+            >
+            </mx-picker-new>
 
             <!-- LAZY LOADING EXAMPLE -->
             <!-- <mx&#45;picker&#45;new -->
@@ -158,6 +154,7 @@
             <!--    not&#45;found          = "demoCtrl.notFound" -->
             <!--    load&#45;on&#45;typing     = "true" -->
             <!--    browse&#45;lookup      = "demoCtrl.browseLookup" -->
+            <!--    selected&#45;items     = "demoCtrl.selectedItems" -->
             <!-- > -->
             <!-- </mx&#45;picker&#45;new> -->
 

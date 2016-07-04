@@ -16,8 +16,6 @@
         directive.bindToController.hint         = '@';
         directive.bindToController.loadOnTyping = '@';
 
-        console.log(directive.bindToController)
-
         return directive;
     }
 

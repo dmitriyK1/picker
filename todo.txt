@@ -1,5 +1,5 @@
-
-- навешивать autocomplete-popover
+# уточнить что делать с:
+    ng-form                   = "autocompleteForm"
 
 - inspect css
 

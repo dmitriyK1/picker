@@ -117,7 +117,7 @@ md-autocomplete input:focus {
 
 [md-floating-label] .autocomplete-popover {
     left: 4px;
-    top: 26px;
+    top: 8px;
     font-size: 16px;
     text-decoration: underline;
     color: #608DA0;

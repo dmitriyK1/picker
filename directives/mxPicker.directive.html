@@ -1,9 +1,8 @@
 <md-autocomplete
         mx-clear-picker-btn
-        mx-picker-autocomplete
-	md-item-text              = "vm.getTitle(item)"
-	md-items                  = "item in vm.autoCompleteSearch()"
-	md-search-text            = "vm.autoCompleteSearchText"
+        md-item-text              = "vm.getTitle(item)"
+        md-items                  = "item in vm.autoCompleteSearch()"
+        md-search-text            = "vm.autoCompleteSearchText"
         md-autoselect             = "true"
         md-delay                  = "vm.loadDelay"
         md-floating-label         = "{{ :: vm.label }}"
@@ -24,6 +23,15 @@
         ng-class                  = "vm.selectedItem ? '' : 'mx-picker-autocomplete--invalid' "
         spellcheck                = "false"
 >
+
+        <div
+                class       = "autocomplete-popover"
+                tabindex    = "-1"
+                ng-if       = "vm.selectedItem"
+                mx-sglclick = "vm.navigateItem(vm.autoCompleteSearchText)"
+        >
+                {{ vm.autoCompleteSearchText }}
+        </div>
 
         <md-item-template>
                 <span md-highlight-flags="^i" md-highlight-text="vm.autoCompleteSearchText">{{$parent.vm.getTitle(item)}}</span>

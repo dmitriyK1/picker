@@ -1,21 +1,18 @@
-1) * implement all attribute bindings
 
-        # combine /w mx-autocomplete bindings
-
-
-2) сделать чтобы работало без нового кода со старым baseController
+* 2) сделать чтобы работало без нового кода со старым baseController
     # максимально использовать имеющийся код из baseController ( найти аналоги того что используется в link mdAutocomplete )
     # валидация при focus / blur ( использовать из baseController )
 
 3) убрать все из mdAutocomplete в mxPicker \ пропатчить внутренний mdAutocomplete с помощью доп. директивы-атрибута в шаблоне mxPicker
     # уменьшить кол-во dom-манипуляций
 
-4) рефакторить часть функционала baseController в отдельный service
-    # хранить данные, уникальные для каждой директивы в controller instance
-
 - add unit tests
 
 - сделать функцию фильтрации по любому фрагменту внутри слова
+
+
+??? 4) рефакторить часть функционала baseController в отдельный service
+    # хранить данные, уникальные для каждой директивы в controller instance
 
 --------------------------------------------------------------------------------
 

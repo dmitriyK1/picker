@@ -66,10 +66,10 @@
 
     <!-- <script src="services/mxBasePicker.service.js"></script> -->
 
-    <script src="directives/mxPicker.directive.js"></script>
-
     <script src="controllers/demo.ctrl.js"></script>
     <script src="controllers/mxPicker.ctrl.js"></script>
+
+    <script src="directives/mxPicker.directive.js"></script>
 
    <!-- ================================================================================  -->
 
@@ -83,30 +83,30 @@
                 <input type="text" flex aria-label="Input" placeholder="Input to test keyboard navigation">
             </md-input-container>
 
-            <mx-picker-new
-                required            = "demoCtrl.isRequired"
-                read-only           = "demoCtrl.isReadOnly"
-                ng-disabled         = "demoCtrl.isDisabled"
-
-                name                = "vegetables"
-                label               = "Single picker"
-                item-title-field    = ""
-                item-id-field       = ""
-                dropdown-html-class = "mx-picker-default"
-                hint                = "Tell us what you like!"
-
-                ng-model            = "demoCtrl.selectedItem"
-                items               = "demoCtrl.autocompleteItems"
-                not-found           = "demoCtrl.notFound"
-
-                load-items          = "demoCtrl.loadItems"
-                load-on-typing      = "true"
-                load-delay          = "500"
-                navigate-item       = "demoCtrl.navigateSelectedItem"
-                browse-lookup       = "demoCtrl.browseLookup"
-                on-change           = "demoCtrl.onChange()"
-            >
-            </mx-picker-new>
+            <!-- <mx&#45;picker&#45;new -->
+            <!--     required            = "demoCtrl.isRequired" -->
+            <!--     read&#45;only           = "demoCtrl.isReadOnly" -->
+            <!--     ng&#45;disabled         = "demoCtrl.isDisabled" -->
+            <!--  -->
+            <!--     name                = "vegetables" -->
+            <!--     label               = "Single picker" -->
+            <!--     item&#45;title&#45;field    = "" -->
+            <!--     item&#45;id&#45;field       = "" -->
+            <!--     dropdown&#45;html&#45;class = "mx&#45;picker&#45;default" -->
+            <!--     hint                = "Tell us what you like!" -->
+            <!--  -->
+            <!--     ng&#45;model            = "demoCtrl.selectedItem" -->
+            <!--     items               = "demoCtrl.autocompleteItems" -->
+            <!--     not&#45;found           = "demoCtrl.notFound" -->
+            <!--  -->
+            <!--     load&#45;items          = "demoCtrl.loadItems" -->
+            <!--     load&#45;on&#45;typing      = "true" -->
+            <!--     load&#45;delay          = "500" -->
+            <!--     navigate&#45;item       = "demoCtrl.navigateSelectedItem" -->
+            <!--     browse&#45;lookup       = "demoCtrl.browseLookup" -->
+            <!--     on&#45;change           = "demoCtrl.onChange()" -->
+            <!-- > -->
+            <!-- </mx&#45;picker&#45;new> -->
 
             <div layout="column" layout-padding>
                <md-checkbox ng-model="demoCtrl.isRequired">Required</md-checkbox>
@@ -118,39 +118,45 @@
 
             <!-- ARRAY VALUES EXAMPLE -->
             <mx-picker-new
-               label         = "Array values example:  ['Item1', 'Item2', 'Item3', 'Item4', 'Item5', 'Item6'] "
-               items         = "demoCtrl.pickerArray"
-               ng-model      = "demoCtrl.pickerArrayValue"
-               browse-lookup = "demoCtrl.browseLookup"
-               not-found     = "demoCtrl.notFound"
-            >
-            </mx-picker-new>
-
-            <!-- SIMPLE VALUE EXAMPLE: -->
-            <mx-picker-new
-               ng-required      = "true"
                item-title-field = "title"
-               label            = "Array of objects example:  [ { id: 1, title: 'item 1' },  ... ] "
                items            = "demoCtrl.pickerData"
-               ng-model         = "demoCtrl.pickerValue"
-               navigate-item    = "demoCtrl.navigateSelectedItem"
+               label            = "Array values example:  ['Item1', 'Item2', 'Item3', 'Item4', 'Item5', 'Item6'] "
                browse-lookup    = "demoCtrl.browseLookup"
                not-found        = "demoCtrl.notFound"
+               ng-model         = "demoCtrl.autocompleteValue"
             >
             </mx-picker-new>
+               <!-- items         = "demoCtrl.pickerArray" -->
+               <!-- ng&#45;model      = "demoCtrl.pickerArrayValue" -->
+
+
+
+
+            <!-- SIMPLE VALUE EXAMPLE: -->
+            <!-- <mx&#45;picker&#45;new -->
+            <!--    ng&#45;required      = "true" -->
+            <!--    item&#45;title&#45;field = "title" -->
+            <!--    label            = "Array of objects example:  [ { id: 1, title: 'item 1' },  ... ] " -->
+            <!--    items            = "demoCtrl.pickerData" -->
+            <!--    ng&#45;model         = "demoCtrl.pickerValue" -->
+            <!--    navigate&#45;item    = "demoCtrl.navigateSelectedItem" -->
+            <!--    browse&#45;lookup    = "demoCtrl.browseLookup" -->
+            <!--    not&#45;found        = "demoCtrl.notFound" -->
+            <!-- > -->
+            <!-- </mx&#45;picker&#45;new> -->
 
             <!-- LAZY LOADING EXAMPLE -->
-            <mx-picker-new
-               label              = "Lazy-loading example"
-               ng-model           = "demoCtrl.pickerLoadOnTypingValue"
-               item-title-field   = "DisplayString"
-               item-details-field = "Description"
-               load-items         = "demoCtrl.loadItems"
-               not-found          = "demoCtrl.notFound"
-               load-on-typing     = "true"
-               browse-lookup      = "demoCtrl.browseLookup"
-            >
-            </mx-picker-new>
+            <!-- <mx&#45;picker&#45;new -->
+            <!--    label              = "Lazy&#45;loading example" -->
+            <!--    ng&#45;model           = "demoCtrl.pickerLoadOnTypingValue" -->
+            <!--    item&#45;title&#45;field   = "DisplayString" -->
+            <!--    item&#45;details&#45;field = "Description" -->
+            <!--    load&#45;items         = "demoCtrl.loadItems" -->
+            <!--    not&#45;found          = "demoCtrl.notFound" -->
+            <!--    load&#45;on&#45;typing     = "true" -->
+            <!--    browse&#45;lookup      = "demoCtrl.browseLookup" -->
+            <!-- > -->
+            <!-- </mx&#45;picker&#45;new> -->
 
         </form>
 

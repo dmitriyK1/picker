@@ -1,8 +1,6 @@
 
-
 * 2) сделать чтобы работало без нового кода со старым baseController
-    # максимально использовать имеющийся код из baseController ( найти аналоги того что используется в link mdAutocomplete )
-    # валидация при focus / blur ( использовать из baseController )
+    # найти аналоги того что используется в link mdAutocomplete из baseController
     # уменьшить кол-во dom-манипуляций
 
 - add unit tests
@@ -16,14 +14,6 @@
 --------------------------------------------------------------------------------
 
 # add clean-up everywhere
-
-# BasePickerProperties.selectedItems - в singlePicker лишнее
-
-# singlePicker
-    singlePickerController + commonPickerProperties
-
-# autocompletePicker
-    autocompleteController + singlePickerController + BasePickerProperties
 
 {
     searchText   : 'Default Value',

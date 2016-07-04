@@ -3,10 +3,25 @@
 
     angular
         .module('app')
-        .directive('mxPickerAutocomplete', mxPickerAutocomplete)
-        .directive('clearAutocompleteBtn', clearAutocompleteBtn)
-        .directive('sglclick', singleClick)
         .directive('mxPickerNew', mxPickerNew)
+        // .directive('mxPickerAutocomplete', mxPickerAutocomplete)
+        // .directive('clearAutocompleteBtn', clearAutocompleteBtn)
+        // .directive('sglclick', singleClick)
+
+    function mxPickerNew() {
+        var directive = new mx.components.FormControlBase(mx.components.MxPickerCtrl, 'directives/mxPicker.directive.html');
+
+        angular.extend(directive.bindToController, mx.components.BasePickerProperties);
+
+        directive.bindToController.disabled     = '=ngDisabled';
+        directive.bindToController.required     = '=';
+        directive.bindToController.hint         = '@';
+        directive.bindToController.loadOnTyping = '@';
+
+        console.log(directive.bindToController)
+
+        return directive;
+    }
 
     function singleClick($parse) {
         return {
@@ -40,29 +55,29 @@
         };
     }
 
-    function mxPickerNew() {
-        var bindToController = {
-            disabled     : '=ngDisabled',
-            readOnly     : '=',
-            required     : '=',
-            label        : '@',
-            hint         : '@',
-            model        : "=ngModel",
-            name         : "@",
-            onChange     : "&"
-        };
-
-        angular.extend(bindToController, w.mx.components.CommonPickerProperties);
-
-        var ddo = {
-            templateUrl      : 'directives/mxPicker.directive.html',
-            controller       : 'MxPickerCtrl as vm',
-            scope            : {},
-            bindToController : bindToController
-        };
-
-        return ddo;
-    }
+    // function mxPickerNew() {
+    //     var bindToController = {
+    //         disabled     : '=ngDisabled',
+    //         readOnly     : '=',
+    //         required     : '=',
+    //         label        : '@',
+    //         hint         : '@',
+    //         model        : "=ngModel",
+    //         name         : "@",
+    //         onChange     : "&"
+    //     };
+    //
+    //     angular.extend(bindToController, w.mx.components.CommonPickerProperties);
+    //
+    //     var ddo = {
+    //         templateUrl      : 'directives/mxPicker.directive.html',
+    //         controller       : 'MxPickerCtrl as vm',
+    //         scope            : {},
+    //         bindToController : bindToController
+    //     };
+    //
+    //     return ddo;
+    // }
 
     function mxPickerAutocomplete($mdConstant, $compile) {
         var ddo = {

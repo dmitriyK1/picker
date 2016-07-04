@@ -1,8 +1,7 @@
 
-* 2) сделать чтобы работало без нового кода со старым baseController
-    найти аналоги того что используется в link mdAutocomplete из
-    baseController \ удалить то что уже делает baseController & уменьшить
-    благодаря этому кол-во dom-манипуляций
+найти аналоги того что используется в link mdAutocomplete из
+baseController \ удалить то что уже делает baseController & уменьшить
+благодаря этому кол-во dom-манипуляций
 
 - add unit tests
 

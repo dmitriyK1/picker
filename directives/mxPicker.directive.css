@@ -123,6 +123,10 @@ md-autocomplete input:focus {
     color: #608DA0;
 }
 
+.md-input-focused .autocomplete-popover {
+    display: none !important;
+}
+
 .autocomplete-popover:hover {
     color: orange;
     text-decoration: underline;

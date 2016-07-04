@@ -21,6 +21,8 @@
         vm.autocompleteItems = ['Broccoli', 'Cabbage', 'Carrot', 'Lettuce', 'Spinach', 'Cherry', 'Apple'];
         vm.onChange          = onChange;
 
+        vm.selectedItems = [];
+
         vm.notFound = {
             message: 'item not found'
         };

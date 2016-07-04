@@ -23,11 +23,8 @@
         ng-required               = "vm.required"
 >
 
-
         <md-item-template>
-                <span md-highlight-flags="^i" md-highlight-text="searchText">{{ item }}</span>
-
-                <!-- <span md&#45;highlight&#45;text="vm.autoCompleteSearchText">{{$parent.vm.getTitle(item)}}</span> -->
+                <span md-highlight-flags="^i" md-highlight-text="vm.autoCompleteSearchText">{{$parent.vm.getTitle(item)}}</span>
         </md-item-template>
 
         <div
@@ -37,8 +34,6 @@
                 ng-bind = "::vm.hint"
         >
         </div>
-
-        <!-- <mx&#45;control&#45;errors></mx&#45;control&#45;errors> -->
 
         <div
                 ng-messages = "autocompleteForm.autocomplete.$error"
@@ -50,8 +45,7 @@
         </div>
 
         <md-not-found>
-                <span>{{ vm.notFoundMessage }}</span>
-                <!-- <span>{{vm.notFoundMessage}}<a ng&#45;if="vm.availableNotFoundButton" href ng&#45;click="vm.notFoundClick()">{{vm.notFound.buttonText}}</a></span> -->
+                <span>{{vm.notFoundMessage}}<a ng-if="vm.availableNotFoundButton" href ng-click="vm.notFoundClick()">{{vm.notFound.buttonText}}</a></span>
         </md-not-found>
 
         <md-icon tabindex="-1" class="autocomplete-search" ng-if="vm.browseLookup && !(vm.disabled || vm.readOnly)" ng-click="vm.browseLookup()">search</md-icon>

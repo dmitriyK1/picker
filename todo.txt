@@ -5,6 +5,8 @@ baseController \ удалить то что уже делает baseController &
 
 - add unit tests
 
+- впилить в samples page
+
 --------------------------------------------------------------------------------
 
 http://www.bennadel.com/blog/2926-overriding-directive-definitions-in-angularjs.htm

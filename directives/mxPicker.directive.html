@@ -48,5 +48,13 @@
                 <span>{{vm.notFoundMessage}}<a ng-if="vm.availableNotFoundButton" href ng-click="vm.notFoundClick()">{{vm.notFound.buttonText}}</a></span>
         </md-not-found>
 
-        <md-icon tabindex="-1" class="autocomplete-search" ng-if="vm.browseLookup && !(vm.disabled || vm.readOnly)" ng-click="vm.browseLookup()">search</md-icon>
+        <md-icon
+                tabindex = "-1"
+                class    = "autocomplete-search"
+                ng-if    = "vm.selectedItem && vm.browseLookup && !(vm.disabled || vm.readOnly)"
+                ng-click = "vm.browseLookup()"
+        >
+                search
+        </md-icon>
+
 </md-autocomplete>

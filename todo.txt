@@ -1,7 +1,8 @@
 
 - навешивать autocomplete-popover
 
-- впилить в samples page
+- inspect css
+
 - add unit tests
 --------------------------------------------------------------------------------
 

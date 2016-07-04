@@ -7,8 +7,6 @@ baseController \ удалить то что уже делает baseController &
 
 - впилить в samples page
 
-- заменить chips в lazy-loading
-
 --------------------------------------------------------------------------------
 
 http://www.bennadel.com/blog/2926-overriding-directive-definitions-in-angularjs.htm

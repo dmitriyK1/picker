@@ -27,8 +27,9 @@
         <div
                 class       = "autocomplete-popover"
                 tabindex    = "-1"
-                ng-if       = "vm.selectedItem"
+                ng-if       = "vm.selectedItem && vm.navigateItem"
                 mx-sglclick = "vm.navigateItem(vm.autoCompleteSearchText)"
+                ng-dblclick = "vm.dblClick()"
         >
                 {{ vm.autoCompleteSearchText }}
         </div>

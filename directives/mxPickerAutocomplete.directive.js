@@ -9,11 +9,4 @@ function onFocusIn(e) {
     }
 }
 
-// autocomplete-popover
-scope.doubleClick = function() {
-    var input = element.find('input')[0];
-
-    input.focus();
-    input.setSelectionRange(0, input.value.length);
-};
 

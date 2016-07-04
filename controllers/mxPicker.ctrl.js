@@ -12,13 +12,19 @@
 
         mx.components.SinglePickerCtrl.call(this, $timeout, $q, $element, $scope, internationalization);
 
-        vm.selectedItem                   = vm.model;
-        vm.onItemChange                   = onItemChange;
-        vm.setSelectedItems               = setSelectedItems;
-        vm.selectedItemsToValue           = selectedItemsToValue;
-        vm.setAutoCompleteValue           = setAutoCompleteValue;
-        // delete
-        vm.notFoundMessage = 'No matching states were found.';
+        vm.selectedItem         = vm.model;
+        vm.onItemChange         = onItemChange;
+        vm.setSelectedItems     = setSelectedItems;
+        vm.selectedItemsToValue = selectedItemsToValue;
+        vm.setAutoCompleteValue = setAutoCompleteValue;
+        vm.dblClick             = onDblClick;
+        vm.notFoundMessage      = 'No matching states were found.';
+
+        function onDblClick() {
+            var input = $element.find('input')[0];
+            input.focus();
+            input.setSelectionRange(0, input.value.length);
+        }
 
         function onItemChange(item) {
             if (vm.onChange) {

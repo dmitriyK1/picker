@@ -65,9 +65,7 @@
 
         return ddo;
 
-        function link(scope, element, attrs, ctrl) {
-            console.dir(ctrl);
-        }
+        function link(scope, element, attrs, ctrl) {}
     }
 
     function mdAutocomplete($mdConstant, $compile) {

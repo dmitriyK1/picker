@@ -4,27 +4,33 @@
         md-floating-label         = "{{ :: vm.label }}"
         md-input-maxlength        = "30"
         md-input-name             = "autocomplete"
-        md-item-text              = "item"
-        md-items                  = "item in querySearch(searchText, vm.items)"
         md-match-case-insensitive = "true"
         md-menu-class             = "{{ :: vm.dropdownHtmlClass }}"
         md-min-length             = "0 || +vm.readOnly"
         md-no-cache               = "true"
-        md-search-text            = "searchText"
         md-search-text-change     = "vm.autoCompleteSearchTextChange()"
-        md-select-on-match        = "true"
         md-selected-item-change   = "vm.onItemChange(item)"
         md-selected-item          = "vm.selectedItem"
-        ng-class                  = "isValidSearch ? ''  : 'invalid-value' "
         ng-disabled               = "vm.disabled"
-        ng-form                   = "autocompleteForm"
         ng-readonly               = "vm.readOnly"
         ng-required               = "vm.required"
-        placeholder               = "Single picker"
+
+        md-select-on-match        = "true"
+        ng-form                   = "autocompleteForm"
+        ng-class                  = "isValidSearch ? ''  : 'invalid-value' "
+        md-search-text            = "searchText"
+        md-items                  = "item in querySearch(searchText, vm.items)"
+        md-item-text              = "item"
 >
+
+	<!-- md&#45;items                = "item in vm.autoCompleteSearch()" -->
+	<!-- md&#45;search&#45;text          = "vm.autoCompleteSearchText" -->
+	<!-- md&#45;item&#45;text            = "vm.getTitle(item)" -->
 
         <md-item-template>
                 <span md-highlight-flags="^i" md-highlight-text="searchText">{{ item }}</span>
+
+                <!-- <span md&#45;highlight&#45;text="vm.autoCompleteSearchText">{{$parent.vm.getTitle(item)}}</span> -->
         </md-item-template>
 
         <div
@@ -34,6 +40,8 @@
                 ng-bind = "::vm.hint"
         >
         </div>
+
+        <!-- <mx&#45;control&#45;errors></mx&#45;control&#45;errors> -->
 
         <div
                 ng-messages = "autocompleteForm.autocomplete.$error"
@@ -46,7 +54,8 @@
 
         <md-not-found>
                 <span>{{ vm.notFoundMessage }}</span>
+                <!-- <span>{{vm.notFoundMessage}}<a ng&#45;if="vm.availableNotFoundButton" href ng&#45;click="vm.notFoundClick()">{{vm.notFound.buttonText}}</a></span> -->
         </md-not-found>
 
-        <md-icon tabindex="-1" class="autocomplete-search" ng-hide="vm.disabled || vm.readOnly" ng-click="vm.browseLookup()">search</md-icon>
+        <md-icon tabindex="-1" class="autocomplete-search" ng-if="vm.browseLookup && !(vm.disabled || vm.readOnly)" ng-click="vm.browseLookup()">search</md-icon>
 </md-autocomplete>

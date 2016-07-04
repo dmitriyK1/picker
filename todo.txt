@@ -1,7 +1,5 @@
 1) * implement all attribute bindings
 
-        * mx-picker-new template
-
         # combine /w mx-autocomplete bindings
 
 

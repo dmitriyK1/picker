@@ -84,6 +84,10 @@ md-autocomplete button.clear-autocomplete:after {
     font-weight: bold;
 }
 
+md-autocomplete input {
+    transition: color .2s ease-in-out;
+}
+
 md-autocomplete input:focus {
     color: rgba(0,0,0,0.87) !important;
 }
@@ -187,4 +191,6 @@ mx-picker-new md-autocomplete[readonly] md-input-container.md-input-has-value la
 }
 /* ================================================================================ */
 
-
+.mx-picker-autocomplete--invalid input {
+    color: red !important;
+}

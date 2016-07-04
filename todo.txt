@@ -1,9 +1,5 @@
 
-- подсветка невалидного значения
-
 - навешивать autocomplete-popover
-
-
 
 - впилить в samples page
 - add unit tests

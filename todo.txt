@@ -7,19 +7,6 @@
 
 - сделать функцию фильтрации по любому фрагменту внутри слова
 
-
-??? 4) рефакторить часть функционала baseController в отдельный service
-    # хранить данные, уникальные для каждой директивы в controller instance
-
---------------------------------------------------------------------------------
-
-# add clean-up everywhere
-
-{
-    searchText   : 'Default Value',
-    selectedItem : 'Default object'
-}
-
 --------------------------------------------------------------------------------
 
 http://www.bennadel.com/blog/2926-overriding-directive-definitions-in-angularjs.htm

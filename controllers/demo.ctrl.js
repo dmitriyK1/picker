@@ -13,9 +13,9 @@
         vm.isRequired = true;
 
         vm.notFoundDescriptor = 'Value not found';
-        vm.selectedItem      = 'Broccoli';
-        vm.autocompleteItems = ['Broccoli', 'Cabbage', 'Carrot', 'Lettuce', 'Spinach', 'Cherry', 'Apple'];
-        vm.onChange          = onChange;
+        vm.selectedItem       = '';
+        vm.autocompleteItems  = ['Broccoli', 'Cabbage', 'Carrot', 'Lettuce', 'Spinach', 'Cherry', 'Apple'];
+        vm.onChange           = onChange;
 
         vm.selectedItems = [];
 

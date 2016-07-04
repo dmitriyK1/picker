@@ -86,7 +86,7 @@
 			return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
 				s4() + '-' + s4() + s4() + s4();
 		}
-		
+
 		function guidEmpty() {
 			return '00000000-0000-0000-0000-000000000000';
 		}
@@ -990,15 +990,15 @@ angular.module('mx.components', [
 /**
  * Swiper 3.0.3
  * Most modern mobile touch slider and framework with hardware accelerated transitions
- * 
+ *
  * http://www.idangero.us/swiper/
- * 
+ *
  * Copyright 2015, Vladimir Kharlampidi
  * The iDangero.us
  * http://www.idangero.us/
- * 
+ *
  * Licensed under MIT
- * 
+ *
  * Released on: March 1, 2015
  */
 (function () {
@@ -1126,24 +1126,24 @@ angular.module('mx.components', [
             Callbacks:
             onInit: function (swiper)
             onDestroy: function (swiper)
-            onClick: function (swiper, e) 
-            onTap: function (swiper, e) 
-            onDoubleTap: function (swiper, e) 
-            onSliderMove: function (swiper, e) 
-            onSlideChangeStart: function (swiper) 
-            onSlideChangeEnd: function (swiper) 
-            onTransitionStart: function (swiper) 
-            onTransitionEnd: function (swiper) 
-            onImagesReady: function (swiper) 
-            onProgress: function (swiper, progress) 
-            onTouchStart: function (swiper, e) 
-            onTouchMove: function (swiper, e) 
-            onTouchMoveOpposite: function (swiper, e) 
-            onTouchEnd: function (swiper, e) 
-            onReachBeginning: function (swiper) 
-            onReachEnd: function (swiper) 
-            onSetTransition: function (swiper, duration) 
-            onSetTranslate: function (swiper, translate) 
+            onClick: function (swiper, e)
+            onTap: function (swiper, e)
+            onDoubleTap: function (swiper, e)
+            onSliderMove: function (swiper, e)
+            onSlideChangeStart: function (swiper)
+            onSlideChangeEnd: function (swiper)
+            onTransitionStart: function (swiper)
+            onTransitionEnd: function (swiper)
+            onImagesReady: function (swiper)
+            onProgress: function (swiper, progress)
+            onTouchStart: function (swiper, e)
+            onTouchMove: function (swiper, e)
+            onTouchMoveOpposite: function (swiper, e)
+            onTouchEnd: function (swiper, e)
+            onReachBeginning: function (swiper)
+            onReachEnd: function (swiper)
+            onSetTransition: function (swiper, duration)
+            onSetTranslate: function (swiper, translate)
             onAutoplayStart: function (swiper)
             onAutoplayStop: function (swiper)
             */
@@ -1161,10 +1161,10 @@ angular.module('mx.components', [
                 }
             }
         }
-        
+
         // Swiper
         var s = this;
-        
+
         // Params
         s.params = params;
         /*=========================
@@ -1178,7 +1178,7 @@ angular.module('mx.components', [
             $ = Dom7;
         }
         if (!$) return;
-        
+
         /*=========================
           Preparation - Define Container, Wrapper and Pagination
           ===========================*/
@@ -1190,13 +1190,13 @@ angular.module('mx.components', [
             });
             return;
         }
-        
+
         // Save instance in container HTML Element and in data
         s.container[0].swiper = s;
         s.container.data('swiper', s);
-        
+
         s.container.addClass('swiper-container-' + s.params.direction);
-        
+
         if (s.params.freeMode) {
             s.container.addClass('swiper-container-free-mode');
         }
@@ -1229,15 +1229,15 @@ angular.module('mx.components', [
             s.params.watchSlidesProgress = true;
             s.params.spaceBetween = 0;
         }
-        
+
         // Grab Cursor
         if (s.params.grabCursor && s.support.touch) {
             s.params.grabCursor = false;
         }
-        
+
         // Wrapper
         s.wrapper = s.container.children('.' + s.params.wrapperClass);
-        
+
         // Pagination
         if (s.params.pagination) {
             s.paginationContainer = $(s.params.pagination);
@@ -1245,30 +1245,30 @@ angular.module('mx.components', [
                 s.paginationContainer.addClass('swiper-pagination-clickable');
             }
         }
-        
+
         // Is Horizontal
         function isH() {
             return s.params.direction === 'horizontal';
         }
-        
+
         // RTL
         s.rtl = isH() && (s.container[0].dir.toLowerCase() === 'rtl' || s.container.css('direction') === 'rtl');
         if (s.rtl) s.container.addClass('swiper-container-rtl');
-        
+
         // Wrong RTL support
         if (s.rtl) {
             s.wrongRTL = s.wrapper.css('display') === '-webkit-box';
         }
-        
+
         // Translate
         s.translate = 0;
-        
+
         // Progress
         s.progress = 0;
-        
+
         // Velocity
         s.velocity = 0;
-        
+
         // Locks, unlocks
         s.lockSwipeToNext = function () {
             s.params.allowSwipeToNext = false;
@@ -1288,13 +1288,13 @@ angular.module('mx.components', [
         s.unlockSwipes = function () {
             s.params.allowSwipeToNext = s.params.allowSwipeToPrev = true;
         };
-        
+
         // Columns
         if (s.params.slidesPerColumn > 1) {
             s.container.addClass('swiper-container-multirow');
         }
-        
-        
+
+
         /*=========================
           Set grab cursor
           ===========================*/
@@ -1309,7 +1309,7 @@ angular.module('mx.components', [
           ===========================*/
         s.imagesToLoad = [];
         s.imagesLoaded = 0;
-        
+
         function loadImage(img) {
             var image, src;
             var onReady = function () {
@@ -1320,7 +1320,7 @@ angular.module('mx.components', [
                     if (s.params.onImagesReady) s.params.onImagesReady(s);
                 }
             };
-        
+
             if (!img.complete) {
                 src = (img.currentSrc || img.getAttribute('src'));
                 if (src) {
@@ -1331,19 +1331,19 @@ angular.module('mx.components', [
                 } else {
                     onReady();
                 }
-        
+
             } else {//image already loaded...
                 onReady();
             }
         }
         s.preloadImages = function () {
             s.imagesToLoad = s.container.find('img');
-        
+
             for (var i = 0; i < s.imagesToLoad.length; i++) {
                 loadImage(s.imagesToLoad[i]);
             }
         };
-        
+
         /*=========================
           Autoplay
           ===========================*/
@@ -1423,13 +1423,13 @@ angular.module('mx.components', [
             s.height = s.container[0].clientHeight;
             s.size = isH() ? s.width : s.height;
         };
-        
+
         s.updateSlidesSize = function () {
             s.slides = s.wrapper.children('.' + s.params.slideClass);
             s.snapGrid = [];
             s.slidesGrid = [];
             s.slidesSizesGrid = [];
-            
+
             var spaceBetween = s.params.spaceBetween,
                 slidePosition = 0,
                 i,
@@ -1438,12 +1438,12 @@ angular.module('mx.components', [
             if (typeof spaceBetween === 'string' && spaceBetween.indexOf('%') >= 0) {
                 spaceBetween = parseFloat(spaceBetween.replace('%', '')) / 100 * s.size;
             }
-        
+
             s.virtualWidth = -spaceBetween;
             // reset margins
             if (s.rtl) s.slides.css({marginLeft: '', marginTop: ''});
             else s.slides.css({marginRight: '', marginBottom: ''});
-        
+
             var slidesNumberEvenToRows;
             if (s.params.slidesPerColumn > 1) {
                 if (Math.floor(s.slides.length / s.params.slidesPerColumn) === s.slides.length / s.params.slidesPerColumn) {
@@ -1453,7 +1453,7 @@ angular.module('mx.components', [
                     slidesNumberEvenToRows = Math.ceil(s.slides.length / s.params.slidesPerColumn) * s.params.slidesPerColumn;
                 }
             }
-        
+
             // Calc slides
             var slideSize;
             for (i = 0; i < s.slides.length; i++) {
@@ -1482,7 +1482,7 @@ angular.module('mx.components', [
                         slidesPerRow = slidesNumberEvenToRows / slidesPerColumn;
                         row = Math.floor(i / slidesPerRow);
                         column = i - row * slidesPerRow;
-                        
+
                     }
                     slide
                         .css({
@@ -1490,7 +1490,7 @@ angular.module('mx.components', [
                         })
                         .attr('data-swiper-column', column)
                         .attr('data-swiper-row', row);
-                        
+
                 }
                 if (slide.css('display') === 'none') continue;
                 if (s.params.slidesPerView === 'auto') {
@@ -1507,8 +1507,8 @@ angular.module('mx.components', [
                 }
                 s.slides[i].swiperSlideSize = slideSize;
                 s.slidesSizesGrid.push(slideSize);
-                
-                
+
+
                 if (s.params.centeredSlides) {
                     slidePosition = slidePosition + slideSize / 2 + prevSlideSize / 2 + spaceBetween;
                     if (i === 0) slidePosition = slidePosition - s.size / 2 - spaceBetween;
@@ -1521,21 +1521,21 @@ angular.module('mx.components', [
                     s.slidesGrid.push(slidePosition);
                     slidePosition = slidePosition + slideSize + spaceBetween;
                 }
-        
+
                 s.virtualWidth += slideSize + spaceBetween;
-        
+
                 prevSlideSize = slideSize;
-        
+
                 index ++;
             }
             s.virtualWidth = Math.max(s.virtualWidth, s.size);
-        
+
             var newSlidesGrid;
-        
+
             if (s.rtl && s.wrongRTL && (s.params.effect === 'slide' || s.params.effect === 'coverflow')) {
                 s.wrapper.css({width: s.virtualWidth + s.params.spaceBetween + 'px'});
             }
-        
+
             if (s.params.slidesPerColumn > 1) {
                 s.virtualWidth = (slideSize + s.params.spaceBetween) * slidesNumberEvenToRows;
                 s.virtualWidth = Math.ceil(s.virtualWidth / s.params.slidesPerColumn) - s.params.spaceBetween;
@@ -1548,7 +1548,7 @@ angular.module('mx.components', [
                     s.snapGrid = newSlidesGrid;
                 }
             }
-        
+
             // Remove last grid elements depending on width
             if (!s.params.centeredSlides) {
                 newSlidesGrid = [];
@@ -1563,7 +1563,7 @@ angular.module('mx.components', [
                 }
             }
             if (s.snapGrid.length === 0) s.snapGrid = [0];
-                
+
             if (s.params.spaceBetween !== 0) {
                 if (isH()) {
                     if (s.rtl) s.slides.css({marginLeft: spaceBetween + 'px'});
@@ -1580,7 +1580,7 @@ angular.module('mx.components', [
                 s.slides[i].swiperSlideOffset = isH() ? s.slides[i].offsetLeft : s.slides[i].offsetTop;
             }
         };
-        
+
         /*=========================
           Slider/slides progress
           ===========================*/
@@ -1590,10 +1590,10 @@ angular.module('mx.components', [
             }
             if (s.slides.length === 0) return;
             if (typeof s.slides[0].swiperSlideOffset === 'undefined') s.updateSlidesOffset();
-        
+
             var offsetCenter = s.params.centeredSlides ? -translate + s.size / 2 : -translate;
             if (s.rtl) offsetCenter = s.params.centeredSlides ? translate - s.size / 2 : translate;
-        
+
             // Visible Slides
             var containerBox = s.container[0].getBoundingClientRect();
             var sideBefore = isH() ? 'left' : 'top';
@@ -1633,7 +1633,7 @@ angular.module('mx.components', [
             }
             if (s.isBeginning && s.params.onReachBeginning) s.params.onReachBeginning(s);
             if (s.isEnd && s.params.onReachEnd) s.params.onReachEnd(s);
-            
+
             if (s.params.watchSlidesProgress) s.updateSlidesProgress(translate);
             if (s.params.onProgress) s.params.onProgress(s, s.progress);
         };
@@ -1664,7 +1664,7 @@ angular.module('mx.components', [
             // }
             snapIndex = Math.floor(newActiveIndex / s.params.slidesPerGroup);
             if (snapIndex >= s.snapGrid.length) snapIndex = s.snapGrid.length - 1;
-        
+
             if (newActiveIndex === s.activeIndex) {
                 return;
             }
@@ -1673,7 +1673,7 @@ angular.module('mx.components', [
             s.activeIndex = newActiveIndex;
             s.updateClasses();
         };
-        
+
         /*=========================
           Classes
           ===========================*/
@@ -1684,7 +1684,7 @@ angular.module('mx.components', [
             activeSlide.addClass(s.params.slideActiveClass);
             activeSlide.next('.' + s.params.slideClass).addClass(s.params.slideNextClass);
             activeSlide.prev('.' + s.params.slideClass).addClass(s.params.slidePrevClass);
-        
+
             // Pagination
             if (s.bullets && s.bullets.length > 0) {
                 s.bullets.removeClass(s.params.bulletActiveClass);
@@ -1705,7 +1705,7 @@ angular.module('mx.components', [
                 }
                 s.bullets.eq(bulletIndex).addClass(s.params.bulletActiveClass);
             }
-        
+
             // Next/active buttons
             if (!s.params.loop) {
                 if (s.params.prevButton) {
@@ -1718,7 +1718,7 @@ angular.module('mx.components', [
                 }
             }
         };
-        
+
         /*=========================
           Pagination
           ===========================*/
@@ -1768,10 +1768,10 @@ angular.module('mx.components', [
                         forceSetTranslate();
                     }
                 }
-                    
+
             }
         };
-        
+
         /*=========================
           Resize Handler
           ===========================*/
@@ -1798,13 +1798,13 @@ angular.module('mx.components', [
                     s.slideTo(s.activeIndex, 0, false, true);
                 }
             }
-                
+
         };
-        
+
         /*=========================
           Events
           ===========================*/
-        
+
         //Define Touch Events
         var desktopEvents = ['mousedown', 'mousemove', 'mouseup'];
         if (window.navigator.pointerEnabled) desktopEvents = ['pointerdown', 'pointermove', 'pointerup'];
@@ -1814,22 +1814,22 @@ angular.module('mx.components', [
             move : s.support.touch || !s.params.simulateTouch ? 'touchmove' : desktopEvents[1],
             end : s.support.touch || !s.params.simulateTouch ? 'touchend' : desktopEvents[2]
         };
-            
-        
+
+
         // WP8 Touch Events Fix
         if (window.navigator.pointerEnabled || window.navigator.msPointerEnabled) {
             (s.params.touchEventsTarget === 'container' ? s.container : s.wrapper).addClass('swiper-wp8-' + s.params.direction);
         }
-        
+
         // Attach/detach events
         s.events = function (detach) {
             var actionDom = detach ? 'off' : 'on';
             var action = detach ? 'removeEventListener' : 'addEventListener';
             var touchEventsTarget = s.params.touchEventsTarget === 'container' ? s.container[0] : s.wrapper[0];
             var target = s.support.touch ? touchEventsTarget : document;
-        
+
             var moveCapture = s.params.nested ? true : false;
-        
+
             //Touch Events
             if (s.browser.ie) {
                 touchEventsTarget[action](s.touchEvents.start, s.onTouchStart, false);
@@ -1849,14 +1849,14 @@ angular.module('mx.components', [
                 }
             }
             window[action]('resize', s.onResize);
-        
+
             // Next, Prev, Index
             if (s.params.nextButton) $(s.params.nextButton)[actionDom]('click', s.onClickNext);
             if (s.params.prevButton) $(s.params.prevButton)[actionDom]('click', s.onClickPrev);
             if (s.params.pagination && s.params.paginationClickable) {
                 $(s.paginationContainer)[actionDom]('click', '.' + s.params.bulletClass, s.onClickIndex);
             }
-        
+
             // Prevent Links Clicks
             if (s.params.preventClicks || s.params.preventClicksPropagation) touchEventsTarget[action]('click', s.preventClicks, true);
         };
@@ -1866,7 +1866,7 @@ angular.module('mx.components', [
         s.detachEvents = function () {
             s.events(true);
         };
-        
+
         /*=========================
           Handle Clicks
           ===========================*/
@@ -1896,7 +1896,7 @@ angular.module('mx.components', [
             if (s.params.loop) index = index + s.loopedSlides;
             s.slideTo(index);
         };
-        
+
         /*=========================
           Handle Touches
           ===========================*/
@@ -1960,25 +1960,25 @@ angular.module('mx.components', [
                 }
             }
         };
-        
-        var isTouched, 
-            isMoved, 
-            touchStartTime, 
-            isScrolling, 
-            currentTranslate, 
-            startTranslate, 
+
+        var isTouched,
+            isMoved,
+            touchStartTime,
+            isScrolling,
+            currentTranslate,
+            startTranslate,
             allowThresholdMove,
             // Form elements to match
             formElements = 'input, select, textarea, button',
             // Last click time
             lastClickTime = Date.now(), clickTimeout,
             //Velocities
-            velocities = [], 
+            velocities = [],
             allowMomentumBounce;
-        
+
         // Animating Flag
         s.animating = false;
-        
+
         // Touches information
         s.touches = {
             startX: 0,
@@ -1987,7 +1987,7 @@ angular.module('mx.components', [
             currentY: 0,
             diff: 0
         };
-        
+
         // Touch handlers
         var isTouchEvent;
         s.onTouchStart = function (e) {
@@ -2021,7 +2021,7 @@ angular.module('mx.components', [
             }
             if (s.params.onTouchStart) s.params.onTouchStart(s, e);
         };
-        
+
         s.onTouchMove = function (e) {
             if (e.originalEvent) e = e.originalEvent;
             if (isTouchEvent && e.type === 'mousemove') return;
@@ -2034,10 +2034,10 @@ angular.module('mx.components', [
             if (s.params.onTouchMove) s.params.onTouchMove(s, e);
             s.allowClick = false;
             if (e.targetTouches && e.targetTouches.length > 1) return;
-            
+
             s.touches.currentX = e.type === 'touchmove' ? e.targetTouches[0].pageX : e.pageX;
             s.touches.currentY = e.type === 'touchmove' ? e.targetTouches[0].pageY : e.pageY;
-        
+
             if (typeof isScrolling === 'undefined') {
                 var touchAngle = Math.atan2(Math.abs(s.touches.currentY - s.touches.startY), Math.abs(s.touches.currentX - s.touches.startX)) * 180 / Math.PI;
                 isScrolling = isH() ? touchAngle > s.params.touchAngle : (90 - touchAngle > s.params.touchAngle);
@@ -2052,12 +2052,12 @@ angular.module('mx.components', [
                 return;
             }
             if (s.params.onSliderMove) s.params.onSliderMove(s, e);
-        
+
             e.preventDefault();
             if (s.params.touchMoveStopPropagation && !s.params.nested) {
                 e.stopPropagation();
             }
-        
+
             if (!isMoved) {
                 if (params.loop) {
                     s.fixLoop();
@@ -2085,15 +2085,15 @@ angular.module('mx.components', [
                 }
             }
             isMoved = true;
-        
+
             var diff = s.touches.diff = isH() ? s.touches.currentX - s.touches.startX : s.touches.currentY - s.touches.startY;
-        
+
             diff = diff * s.params.touchRatio;
             if (s.rtl) diff = -diff;
-        
+
             s.swipeDirection = diff > 0 ? 'prev' : 'next';
             currentTranslate = diff + startTranslate;
-        
+
             var disableParentSwiper = true;
             if ((diff > 0 && currentTranslate > s.minTranslate())) {
                 disableParentSwiper = false;
@@ -2103,11 +2103,11 @@ angular.module('mx.components', [
                 disableParentSwiper = false;
                 if (s.params.resistance) currentTranslate = s.maxTranslate() + 1 - Math.pow(s.maxTranslate() - startTranslate - diff, s.params.resistanceRatio);
             }
-            
+
             if (disableParentSwiper) {
                 e.preventedByNestedSwiper = true;
             }
-        
+
             // Directions locks
             if (!s.params.allowSwipeToNext && s.swipeDirection === 'next' && currentTranslate < startTranslate) {
                 currentTranslate = startTranslate;
@@ -2115,9 +2115,9 @@ angular.module('mx.components', [
             if (!s.params.allowSwipeToPrev && s.swipeDirection === 'prev' && currentTranslate > startTranslate) {
                 currentTranslate = startTranslate;
             }
-            
+
             if (!s.params.followFinger) return;
-        
+
             // Threshold
             if (s.params.threshold > 0) {
                 if (Math.abs(diff) > s.params.threshold || allowThresholdMove) {
@@ -2161,7 +2161,7 @@ angular.module('mx.components', [
             if (e.originalEvent) e = e.originalEvent;
             if (s.params.onTouchEnd) s.params.onTouchEnd(s, e);
             if (!isTouched) return;
-        
+
             //Return Grab Cursor
             if (s.params.grabCursor && isMoved && isTouched) {
                 s.container[0].style.cursor = 'move';
@@ -2169,11 +2169,11 @@ angular.module('mx.components', [
                 s.container[0].style.cursor = '-moz-grab';
                 s.container[0].style.cursor = 'grab';
             }
-        
+
             // Time diff
             var touchEndTime = Date.now();
             var timeDiff = touchEndTime - touchStartTime;
-        
+
             // Tap, doubleTap, Click
             if (s.allowClick) {
                 s.updateClickedSlide(e);
@@ -2187,7 +2187,7 @@ angular.module('mx.components', [
                         }
                         if (s.params.onClick) s.params.onClick(s, e);
                     }, 300);
-                    
+
                 }
                 if (timeDiff < 300 && (touchEndTime - lastClickTime) < 300) {
                     if (clickTimeout) clearTimeout(clickTimeout);
@@ -2196,18 +2196,18 @@ angular.module('mx.components', [
                     }
                 }
             }
-        
+
             lastClickTime = Date.now();
             setTimeout(function () {
                 if (s && s.allowClick) s.allowClick = true;
             }, 0);
-        
+
             if (!isTouched || !isMoved || !s.swipeDirection || s.touches.diff === 0 || currentTranslate === startTranslate) {
                 isTouched = isMoved = false;
                 return;
             }
             isTouched = isMoved = false;
-        
+
             var currentPos;
             if (s.params.followFinger) {
                 currentPos = s.rtl ? s.translate : -s.translate;
@@ -2224,11 +2224,11 @@ angular.module('mx.components', [
                     s.slideTo(s.slides.length - 1);
                     return;
                 }
-                
+
                 if (s.params.freeModeMomentum) {
                     if (velocities.length > 1) {
                         var lastMoveEvent = velocities.pop(), velocityEvent = velocities.pop();
-        
+
                         var distance = lastMoveEvent.position - velocityEvent.position;
                         var time = lastMoveEvent.time - velocityEvent.time;
                         s.velocity = distance / time;
@@ -2244,11 +2244,11 @@ angular.module('mx.components', [
                     } else {
                         s.velocity = 0;
                     }
-        
+
                     velocities.length = 0;
                     var momentumDuration = 1000 * s.params.freeModeMomentumRatio;
                     var momentumDistance = s.velocity * momentumDuration;
-        
+
                     var newPosition = s.translate + momentumDistance;
                     if (s.rtl) newPosition = - newPosition;
                     var doBounce = false;
@@ -2289,7 +2289,7 @@ angular.module('mx.components', [
                             momentumDuration = Math.abs((newPosition - s.translate) / s.velocity);
                         }
                     }
-        
+
                     if (s.params.freeModeMomentumBounce && doBounce) {
                         s.updateProgress(afterBouncePosition);
                         s.setWrapperTransition(momentumDuration);
@@ -2299,7 +2299,7 @@ angular.module('mx.components', [
                         s.wrapper.transitionEnd(function () {
                             if (!s || !allowMomentumBounce) return;
                             if (s.params.onMomentumBounce) s.params.onMomentumBounce(s);
-        
+
                             s.setWrapperTransition(s.params.speed);
                             s.setWrapperTranslate(afterBouncePosition);
                             s.wrapper.transitionEnd(function () {
@@ -2317,11 +2317,11 @@ angular.module('mx.components', [
                                 s.onTransitionEnd();
                             });
                         }
-                            
+
                     } else {
                         s.updateProgress(newPosition);
                     }
-                    
+
                     s.updateActiveIndex();
                 }
                 if (!s.params.freeModeMomentum || timeDiff >= s.params.longSwipesMs) {
@@ -2330,7 +2330,7 @@ angular.module('mx.components', [
                 }
                 return;
             }
-        
+
             // Find current slide
             var i, stopIndex = 0, groupSize = s.slidesSizesGrid[0];
             for (i = 0; i < s.slidesGrid.length; i += s.params.slidesPerGroup) {
@@ -2347,10 +2347,10 @@ angular.module('mx.components', [
                     }
                 }
             }
-        
+
             // Find current slide size
             var ratio = (currentPos - s.slidesGrid[stopIndex]) / groupSize;
-            
+
             if (timeDiff > s.params.longSwipesMs) {
                 // Long touches
                 if (!s.params.longSwipes) {
@@ -2360,7 +2360,7 @@ angular.module('mx.components', [
                 if (s.swipeDirection === 'next') {
                     if (ratio >= s.params.longSwipesRatio) s.slideTo(stopIndex + s.params.slidesPerGroup);
                     else s.slideTo(stopIndex);
-        
+
                 }
                 if (s.swipeDirection === 'prev') {
                     if (ratio > (1 - s.params.longSwipesRatio)) s.slideTo(stopIndex + s.params.slidesPerGroup);
@@ -2375,7 +2375,7 @@ angular.module('mx.components', [
                 }
                 if (s.swipeDirection === 'next') {
                     s.slideTo(stopIndex + s.params.slidesPerGroup);
-        
+
                 }
                 if (s.swipeDirection === 'prev') {
                     s.slideTo(stopIndex);
@@ -2394,11 +2394,11 @@ angular.module('mx.components', [
             if (slideIndex < 0) slideIndex = 0;
             s.snapIndex = Math.floor(slideIndex / s.params.slidesPerGroup);
             if (s.snapIndex >= s.snapGrid.length) s.snapIndex = s.snapGrid.length - 1;
-            
+
             var translate = - s.snapGrid[s.snapIndex];
-        
+
             // Stop autoplay
-        
+
             if (s.params.autoplay && s.autoplaying) {
                 if (internal || !s.params.autoplayDisableOnInteraction) {
                     s.pauseAutoplay(speed);
@@ -2409,18 +2409,18 @@ angular.module('mx.components', [
             }
             // Update progress
             s.updateProgress(translate);
-        
+
             // Normalize slideIndex
             for (var i = 0; i < s.slidesGrid.length; i++) {
                 if (- translate >= s.slidesGrid[i]) {
                     slideIndex = i;
                 }
             }
-        
+
             if (typeof speed === 'undefined') speed = s.params.speed;
             s.previousIndex = s.activeIndex || 0;
             s.activeIndex = slideIndex;
-            
+
             if (translate === s.translate) {
                 s.updateClasses();
                 return false;
@@ -2441,12 +2441,12 @@ angular.module('mx.components', [
                         s.onTransitionEnd(runCallbacks);
                     });
                 }
-                    
+
             }
             s.updateClasses();
             return true;
         };
-        
+
         s.onTransitionStart = function (runCallbacks) {
             if (typeof runCallbacks === 'undefined') runCallbacks = true;
             if (runCallbacks) {
@@ -2462,7 +2462,7 @@ angular.module('mx.components', [
                 if (s.params.onTransitionEnd) s.params.onTransitionEnd(s);
                 if (s.params.onSlideChangeEnd && s.activeIndex !== s.previousIndex) s.params.onSlideChangeEnd(s);
             }
-                
+
         };
         s.slideNext = function (runCallbacks, speed, internal) {
             if (s.params.loop) {
@@ -2491,7 +2491,7 @@ angular.module('mx.components', [
         s.slideReset = function (runCallbacks, speed, internal) {
             return s.slideTo(s.activeIndex, speed, runCallbacks);
         };
-        
+
         /*=========================
           Translate/transition helpers
           ===========================*/
@@ -2519,7 +2519,7 @@ angular.module('mx.components', [
             else {
                 y = translate;
             }
-            
+
             if (s.support.transforms3d) s.wrapper.transform('translate3d(' + x + 'px, ' + y + 'px, ' + z + 'px)');
             else s.wrapper.transform('translate(' + x + 'px, ' + y + 'px)');
             s.translate = isH() ? x : y;
@@ -2541,15 +2541,15 @@ angular.module('mx.components', [
             }
             if (s.params.onSetTranslate) s.params.onSetTranslate(s, s.translate);
         };
-        
+
         s.getTranslate = function (el, axis) {
             var matrix, curTransform, curStyle, transformMatrix;
-        
+
             // automatic axis detection
             if (typeof axis === 'undefined') {
                 axis = 'x';
             }
-        
+
             curStyle = window.getComputedStyle(el, null);
             if (window.WebKitCSSMatrix) {
                 // Some old versions of Webkit choke when 'none' is passed; pass
@@ -2560,7 +2560,7 @@ angular.module('mx.components', [
                 transformMatrix = curStyle.MozTransform || curStyle.OTransform || curStyle.MsTransform || curStyle.msTransform  || curStyle.transform || curStyle.getPropertyValue('transform').replace('translate(', 'matrix(1, 0, 0, 1,');
                 matrix = transformMatrix.toString().split(',');
             }
-        
+
             if (axis === 'x') {
                 //Latest Chrome and webkits Fix
                 if (window.WebKitCSSMatrix)
@@ -2592,7 +2592,7 @@ angular.module('mx.components', [
             }
             return s.getTranslate(s.wrapper[0], axis);
         };
-        
+
         /*=========================
           Observer
           ===========================*/
@@ -2606,13 +2606,13 @@ angular.module('mx.components', [
                     s.onResize();
                 });
             });
-             
+
             observer.observe(target, {
                 attributes: typeof options.attributes === 'undefined' ? true : options.attributes,
                 childList: typeof options.childList === 'undefined' ? true : options.childList,
                 characterData: typeof options.characterData === 'undefined' ? true : options.characterData
             });
-        
+
             s.observers.push(observer);
         }
         s.initObservers = function () {
@@ -2622,10 +2622,10 @@ angular.module('mx.components', [
                     initObserver(containerParents[i]);
                 }
             }
-        
+
             // Observe container
             initObserver(s.container[0], {childList: false});
-        
+
             // Observe wrapper
             initObserver(s.wrapper[0], {attributes: false});
         };
@@ -2642,14 +2642,14 @@ angular.module('mx.components', [
         s.createLoop = function () {
             // Remove duplicated slides
             s.wrapper.children('.' + s.params.slideClass + '.' + s.params.slideDuplicateClass).remove();
-        
+
             var slides = s.wrapper.children('.' + s.params.slideClass);
             s.loopedSlides = parseInt(s.params.loopedSlides || s.params.slidesPerView, 10);
             s.loopedSlides = s.loopedSlides + s.params.loopAdditionalSlides;
             if (s.loopedSlides > slides.length) {
                 s.loopedSlides = slides.length;
             }
-        
+
             var prependSlides = [], appendSlides = [], i;
             slides.each(function (index, el) {
                 var slide = $(this);
@@ -2746,7 +2746,7 @@ angular.module('mx.components', [
                 if (indexToRemove < newActiveIndex) newActiveIndex--;
                 newActiveIndex = Math.max(newActiveIndex, 0);
             }
-        
+
             if (!(s.params.observer && s.support.observer)) {
                 s.update(true);
             }
@@ -2759,7 +2759,7 @@ angular.module('mx.components', [
             }
             s.removeSlide(slidesIndexes);
         };
-        
+
 
         /*=========================
           Effects
@@ -2784,7 +2784,7 @@ angular.module('mx.components', [
                                 opacity: slideOpacity
                             })
                             .transform('translate3d(' + tx + 'px, ' + ty + 'px, 0px)');
-        
+
                     }
                 },
                 setTransition: function (duration) {
@@ -2840,12 +2840,12 @@ angular.module('mx.components', [
                         if (s.rtl) {
                             tx = -tx;
                         }
-                        
+
                         if (!isH()) {
                             ty = tx;
                             tx = 0;
                         }
-                        
+
                         var transform = 'rotateX(' + (isH() ? 0 : -slideAngle) + 'deg) rotateY(' + (isH() ? slideAngle : 0) + 'deg) translate3d(' + tx + 'px, ' + ty + 'px, ' + tz + 'px)';
                         if (progress <= 1 && progress > -1) {
                             wrapperRotate = i * 90 + progress * 90;
@@ -2875,7 +2875,7 @@ angular.module('mx.components', [
                         '-ms-transform-origin': '50% 50% -' + (s.size / 2) + 'px',
                         'transform-origin': '50% 50% -' + (s.size / 2) + 'px'
                     });
-                        
+
                     if (s.params.cube.shadow) {
                         if (isH()) {
                             cubeShadow.transform('translate3d(0px, ' + (s.width / 2 + s.params.cube.shadowOffset) + 'px, ' + (-s.width / 2) + 'px) rotateX(90deg) rotateZ(0deg) scale(' + (s.params.cube.shadowScale) + ')');
@@ -2911,24 +2911,24 @@ angular.module('mx.components', [
                         var slideSize = s.slidesSizesGrid[i];
                         var slideOffset = slide[0].swiperSlideOffset;
                         var offsetMultiplier = (center - slideOffset - slideSize / 2) / slideSize * s.params.coverflow.modifier;
-        
+
                         var rotateY = isH() ? rotate * offsetMultiplier : 0;
                         var rotateX = isH() ? 0 : rotate * offsetMultiplier;
                         // var rotateZ = 0
                         var translateZ = -translate * Math.abs(offsetMultiplier);
-        
+
                         var translateY = isH() ? 0 : s.params.coverflow.stretch * (offsetMultiplier);
                         var translateX = isH() ? s.params.coverflow.stretch * (offsetMultiplier) : 0;
-        
+
                         //Fix for ultra small values
                         if (Math.abs(translateX) < 0.001) translateX = 0;
                         if (Math.abs(translateY) < 0.001) translateY = 0;
                         if (Math.abs(translateZ) < 0.001) translateZ = 0;
                         if (Math.abs(rotateY) < 0.001) rotateY = 0;
                         if (Math.abs(rotateX) < 0.001) rotateX = 0;
-        
+
                         var slideTransform = 'translate3d(' + translateX + 'px,' + translateY + 'px,' + translateZ + 'px)  rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg)';
-        
+
                         slide.transform(slideTransform);
                         slide[0].style.zIndex = -Math.abs(Math.round(offsetMultiplier)) + 1;
                         if (s.params.coverflow.slideShadows) {
@@ -2947,7 +2947,7 @@ angular.module('mx.components', [
                             if (shadowAfter.length) shadowAfter[0].style.opacity = (-offsetMultiplier) > 0 ? -offsetMultiplier : 0;
                         }
                     }
-        
+
                     //Set correct perspective for IE10
                     if (window.navigator.pointerEnabled || window.navigator.msPointerEnabled) {
                         var ws = s.wrapper.style;
@@ -2976,18 +2976,18 @@ angular.module('mx.components', [
                 sb.drag[0].style.width = '';
                 sb.drag[0].style.height = '';
                 sb.trackSize = isH() ? sb.track[0].offsetWidth : sb.track[0].offsetHeight;
-                
+
                 sb.divider = s.size / s.virtualWidth;
                 sb.moveDivider = sb.divider * (sb.trackSize / s.size);
                 sb.dragSize = sb.trackSize * sb.divider;
-        
+
                 if (isH()) {
                     sb.drag[0].style.width = sb.dragSize + 'px';
                 }
                 else {
                     sb.drag[0].style.height = sb.dragSize + 'px';
                 }
-        
+
                 if (sb.divider >= 1) {
                     sb.track[0].style.display = 'none';
                 }
@@ -3004,7 +3004,7 @@ angular.module('mx.components', [
                 var sb = s.scrollbar;
                 var translate = s.translate || 0;
                 var newPos;
-                
+
                 var newSize = sb.dragSize;
                 newPos = (sb.trackSize - sb.dragSize) * s.progress;
                 if (s.rtl && isH()) {
@@ -3146,7 +3146,7 @@ angular.module('mx.components', [
                 var windowWidth = window.innerWidth;
                 var windowHeight = window.innerHeight;
                 var swiperOffset = s.container.offset();
-                
+
                 var swiperCoord = [
                     [swiperOffset.left, swiperOffset.top],
                     [swiperOffset.left + s.width, swiperOffset.top],
@@ -3161,7 +3161,7 @@ angular.module('mx.components', [
                     ) {
                         inView = true;
                     }
-        
+
                 }
                 if (!inView) return;
             }
@@ -3188,7 +3188,7 @@ angular.module('mx.components', [
         s.enableKeyboardControl = function () {
             $(document).on('keydown', handleKeyboard);
         };
-        
+
 
         /*=========================
           Mousewheel Control
@@ -3249,32 +3249,32 @@ angular.module('mx.components', [
                     delta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? - e.deltaX : - e.deltaY;
                 }
             }
-        
+
             if (!s.params.freeMode) {
                 if ((new Date()).getTime() - s._lastWheelScrollTime > 60) {
                     if (delta < 0) s.slideNext();
                     else s.slidePrev();
                 }
                 s._lastWheelScrollTime = (new Date()).getTime();
-        
+
             }
             else {
                 //Freemode or scrollContainer:
                 var position = s.getWrapperTranslate() + delta;
-        
+
                 if (position > 0) position = 0;
                 if (position < s.maxTranslate()) position = s.maxTranslate();
-        
+
                 s.setWrapperTransition(0);
                 s.setWrapperTranslate(position);
                 s.updateProgress();
                 s.updateActiveIndex();
-        
+
                 // Return page scroll on edge positions
                 if (position === 0 || position === s.maxTranslate()) return;
             }
             if (s.params.autoplay) s.stopAutoplay();
-        
+
             if (e.preventDefault) e.preventDefault();
             else e.returnValue = false;
             return false;
@@ -3284,7 +3284,7 @@ angular.module('mx.components', [
             s.container.off(s._wheelEvent, handleMousewheel);
             return true;
         };
-        
+
         s.enableMousewheelControl = function () {
             if (!s._wheelEvent) return false;
             s.container.on(s._wheelEvent, handleMousewheel);
@@ -3297,7 +3297,7 @@ angular.module('mx.components', [
         function setParallaxTransform(el, progress) {
             el = $(el);
             var p, pX, pY, tX, tY;
-            
+
             p = el.attr('data-swiper-parallax');
             pX = el.attr('data-swiper-parallax-x');
             pY = el.attr('data-swiper-parallax-y');
@@ -3331,14 +3331,14 @@ angular.module('mx.components', [
             }
             tX = pX;
             tY = pY;
-        
+
             el.transform('translate3d(' + tX + ', ' + tY + ',0px)');
-        }   
+        }
         s.parallax = {
             setTranslate: function () {
                 s.container.children('[data-swiper-parallax], [data-swiper-parallax-x], [data-swiper-parallax-y]').each(function(){
                     setParallaxTransform(this, s.progress);
-                    
+
                 });
                 s.slides.each(function () {
                     var slide = $(this);
@@ -3358,7 +3358,7 @@ angular.module('mx.components', [
                 });
             }
         };
-            
+
 
         /*=========================
           Init/Destroy
@@ -3381,7 +3381,7 @@ angular.module('mx.components', [
             else {
                 s.slideTo(s.params.initialSlide, 0, s.params.runCallbacksOnInit);
                 if (s.params.initialSlide === 0 && s.parallax && s.params.parallax) {
-                    s.parallax.setTranslate();               
+                    s.parallax.setTranslate();
                 }
             }
             s.attachEvents();
@@ -3405,7 +3405,7 @@ angular.module('mx.components', [
             }
             if (s.params.onInit) s.params.onInit(s);
         };
-        
+
         // Destroy
         s.destroy = function (deleteInstance) {
             s.detachEvents();
@@ -3419,16 +3419,16 @@ angular.module('mx.components', [
             if (s.params.onDestroy) s.params.onDestroy();
             if (deleteInstance !== false) s = null;
         };
-        
-        s.init();
-        
-        
 
-        
+        s.init();
+
+
+
+
         // Return swiper instance
         return s;
     };
-    
+
 
     /*==================================================
         Prototype
@@ -3469,12 +3469,12 @@ angular.module('mx.components', [
             touch : (window.Modernizr && Modernizr.touch === true) || (function () {
                 return !!(('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch);
             })(),
-    
+
             transforms3d : (window.Modernizr && Modernizr.csstransforms3d === true) || (function () {
                 var div = document.createElement('div').style;
                 return ('webkitPerspective' in div || 'MozPerspective' in div || 'OPerspective' in div || 'MsPerspective' in div || 'perspective' in div);
             })(),
-    
+
             flexbox: (function () {
                 var div = document.createElement('div').style;
                 var styles = ('WebkitBox msFlexbox MsFlexbox WebkitFlex MozBox flex').split(' ');
@@ -3482,13 +3482,13 @@ angular.module('mx.components', [
                     if (styles[i] in div) return true;
                 }
             })(),
-    
+
             observer: (function () {
                 return ('MutationObserver' in window || 'WebkitMutationObserver' in window);
             })()
         }
     };
-    
+
 
     /*===========================
     Dom7 Library
@@ -3693,7 +3693,7 @@ angular.module('mx.components', [
                         }
                     }
                 }
-    
+
                 return this;
             },
             off: function (eventName, targetSelector, listener, capture) {
@@ -3853,7 +3853,7 @@ angular.module('mx.components', [
                 }
                 return this;
             },
-            
+
             //Dom manipulation
             each: function (callback) {
                 for (var i = 0; i < this.length; i++) {
@@ -3879,7 +3879,7 @@ angular.module('mx.components', [
                     var el = this[0];
                     if (el === document) return selector === document;
                     if (el === window) return selector === window;
-    
+
                     if (el.matches) return el.matches(selector);
                     else if (el.webkitMatchesSelector) return el.webkitMatchesSelector(selector);
                     else if (el.mozMatchesSelector) return el.mozMatchesSelector(selector);
@@ -3904,7 +3904,7 @@ angular.module('mx.components', [
                     }
                     return false;
                 }
-                
+
             },
             index: function () {
                 if (this[0]) {
@@ -4096,7 +4096,7 @@ angular.module('mx.components', [
                 var children = [];
                 for (var i = 0; i < this.length; i++) {
                     var childNodes = this[i].childNodes;
-    
+
                     for (var j = 0; j < childNodes.length; j++) {
                         if (!selector) {
                             if (childNodes[j].nodeType === 1) children.push(childNodes[j]);
@@ -4135,10 +4135,10 @@ angular.module('mx.components', [
             }
             return unique;
         };
-    
+
         return $;
     })();
-    
+
 
     /*===========================
     Add .swiper plugin from Dom libraries
@@ -4209,8 +4209,8 @@ angular.module('mx.components', [
             };
         }
     }
-        
-    
+
+
 
 })();
 // jshint ignore: end
@@ -4997,7 +4997,7 @@ angular.module('mx.components', [
 						$timeout(function() {
 							if (valueReset) {
 								valueReset = false;
-								_setAutoCompleteValue(null);
+								// _setAutoCompleteValue(null);
 							}
 						}, 500);
 					}
@@ -5005,7 +5005,7 @@ angular.module('mx.components', [
 						if (vm.autoCompleteSearchText && !vm.model) {
 							$timeout(function() {
 								if (!vm.model) {
-									vm.autoCompleteSearchText = null;
+									// vm.autoCompleteSearchText = null;
 								}
 							}, 300);
 						}

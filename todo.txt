@@ -1,11 +1,12 @@
 
-- отключить очищение инпута если невалидное значение
+- подсветка невалидного значения
 
 - навешивать autocomplete-popover
 
+
+
 - впилить в samples page
 - add unit tests
-
 --------------------------------------------------------------------------------
 
 http://www.bennadel.com/blog/2926-overriding-directive-definitions-in-angularjs.htm

@@ -4,6 +4,7 @@
 	md-item-text              = "vm.getTitle(item)"
 	md-items                  = "item in vm.autoCompleteSearch()"
 	md-search-text            = "vm.autoCompleteSearchText"
+        md-autoselect             = "true"
         md-delay                  = "vm.loadDelay"
         md-floating-label         = "{{ :: vm.label }}"
         md-input-maxlength        = "30"
@@ -16,12 +17,10 @@
         md-select-on-match        = "true"
         md-selected-item          = "vm.selectedItem"
         md-selected-item-change   = "vm.onItemChange(item)"
-        ng-class                  = "isValidSearch ? ''  : 'invalid-value' "
         ng-disabled               = "vm.disabled"
         ng-form                   = "autocompleteForm"
         ng-readonly               = "vm.readOnly"
         ng-required               = "vm.required"
-        md-autoselect             = "true"
 >
 
         <md-item-template>

@@ -19,31 +19,6 @@
         return directive;
     }
 
-
-    // function mxPickerNew() {
-    //     var bindToController = {
-    //         disabled     : '=ngDisabled',
-    //         readOnly     : '=',
-    //         required     : '=',
-    //         label        : '@',
-    //         hint         : '@',
-    //         model        : "=ngModel",
-    //         name         : "@",
-    //         onChange     : "&"
-    //     };
-    //
-    //     angular.extend(bindToController, w.mx.components.CommonPickerProperties);
-    //
-    //     var ddo = {
-    //         templateUrl      : 'directives/mxPicker.directive.html',
-    //         controller       : 'MxPickerCtrl as vm',
-    //         scope            : {},
-    //         bindToController : bindToController
-    //     };
-    //
-    //     return ddo;
-    // }
-
     function mxPickerAutocomplete($mdConstant, $compile) {
         var ddo = {
             link    : link,
@@ -53,9 +28,6 @@
         return ddo;
 
         function link(scope, element, attrs, ctrl) {
-            scope.searchText  = '';
-            scope.querySearch = querySearch;
-
             element.on('focusin', onFocusIn);
             element.on('focusout', onFocusOut);
             element.on('keydown', onKeyDown);
@@ -65,18 +37,6 @@
                 element.off('focusin');
                 element.off('focusout');
             });
-
-            function querySearch(query, items) {
-                return query ? scope.filteredItems = items.filter(createFilterFor(query)) : items;
-            }
-
-            function createFilterFor(query) {
-                var lowercaseQuery = angular.lowercase(query);
-
-                return function filterFn(state) {
-                    return (state.toLowerCase().indexOf(lowercaseQuery) === 0);
-                };
-            }
 
             function onFocusIn(e) {
                 if (e.target.tagName !== 'INPUT') return;

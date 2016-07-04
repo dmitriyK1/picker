@@ -1,9 +1,8 @@
 
+
 * 2) сделать чтобы работало без нового кода со старым baseController
     # максимально использовать имеющийся код из baseController ( найти аналоги того что используется в link mdAutocomplete )
     # валидация при focus / blur ( использовать из baseController )
-
-3) убрать все из mdAutocomplete в mxPicker \ пропатчить внутренний mdAutocomplete с помощью доп. директивы-атрибута в шаблоне mxPicker
     # уменьшить кол-во dom-манипуляций
 
 - add unit tests
@@ -16,7 +15,7 @@
 
 --------------------------------------------------------------------------------
 
-- delete stub function from mxPickerCtrl
+# add clean-up everywhere
 
 # BasePickerProperties.selectedItems - в singlePicker лишнее
 

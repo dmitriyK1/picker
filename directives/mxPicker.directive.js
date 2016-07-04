@@ -3,10 +3,10 @@
 
     angular
         .module('app')
-        .directive('mdAutocomplete', mdAutocomplete)
-        .directive('clearAutocomplete', clearAutocomplete)
-        .directive('mxPickerNew', mxPickerNew)
+        .directive('mxPickerAutocomplete', mxPickerAutocomplete)
+        .directive('clearAutocompleteBtn', clearAutocompleteBtn)
         .directive('sglclick', singleClick)
+        .directive('mxPickerNew', mxPickerNew)
 
     function singleClick($parse) {
         return {
@@ -41,7 +41,6 @@
     }
 
     function mxPickerNew() {
-
         var bindToController = {
             disabled     : '=ngDisabled',
             readOnly     : '=',
@@ -59,16 +58,13 @@
             templateUrl      : 'directives/mxPicker.directive.html',
             controller       : 'MxPickerCtrl as vm',
             scope            : {},
-            bindToController : bindToController,
-            link             : link
+            bindToController : bindToController
         };
 
         return ddo;
-
-        function link(scope, element, attrs, ctrl) {}
     }
 
-    function mdAutocomplete($mdConstant, $compile) {
+    function mxPickerAutocomplete($mdConstant, $compile) {
         var ddo = {
             link    : link,
             require : 'mdAutocomplete'
@@ -77,8 +73,8 @@
         return ddo;
 
         function link(scope, element, attrs, ctrl) {
-            scope.searchText         = '';
-            scope.querySearch        = querySearch;
+            scope.searchText  = '';
+            scope.querySearch = querySearch;
 
             element.on('focusin', onFocusIn);
             element.on('focusout', onFocusOut);
@@ -124,7 +120,7 @@
                 if (e.target.tagName !== 'INPUT') return;
 
                 setTimeout(function() {
-                    if (!scope.searchText) return;
+                    if (!scope.searchText)    return;
                     if (!scope.filteredItems) return;
 
                     var isFound = scope.vm.items.some(function(value) {
@@ -138,11 +134,6 @@
 
                     ctrl.scope.isValidSearch = true;
 
-                    // var popover = angular
-                    //     .element('<div>')
-                    //     .addClass('autocomplete-popover')
-                    //     .html(scope.searchText);
-
                     scope.doubleClick = function() {
                         angular
                             .element(document.querySelectorAll('.autocomplete-popover'))
@@ -150,7 +141,6 @@
 
                         var input = element.find('input')[0];
 
-                        // element.find('input')[0].select();
                         input.focus();
                         input.setSelectionRange(0, input.value.length);
                     };
@@ -187,7 +177,7 @@
         }
     }
 
-    function clearAutocomplete($parse, $compile) {
+    function clearAutocompleteBtn($parse, $compile) {
         var ddo = {
             restrict: 'A',
             link: link

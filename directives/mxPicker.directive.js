@@ -4,7 +4,7 @@
     angular
         .module('app')
         .directive('mxPickerNew', mxPickerNew)
-        // .directive('mxPickerAutocomplete', mxPickerAutocomplete)
+        .directive('mxPickerAutocomplete', mxPickerAutocomplete)
 
     function mxPickerNew() {
         var directive = new mx.components.FormControlBase(mx.components.MxPickerCtrl, 'directives/mxPicker.directive.html');
@@ -28,9 +28,9 @@
         return ddo;
 
         function link(scope, element, attrs, ctrl) {
-            element.on('focusin', onFocusIn);
-            element.on('focusout', onFocusOut);
             element.on('keydown', onKeyDown);
+            // element.on('focusin', onFocusIn);
+            // element.on('focusout', onFocusOut);
 
             scope.$on('$destroy', function() {
                 element.off('keydown');
@@ -96,20 +96,21 @@
                     element.append(popover);
                     element.addClass('valid-value');
                 }, 10);
+
             }
 
             function onKeyDown(event) {
-                if (!scope.filteredItems) return;
-                if (!scope.searchText) return;
+                // if (!scope.filteredItems) return;
+                // if (!scope.searchText) return;
 
-                if (scope.filteredItems.length && ~scope.filteredItems[0].indexOf(scope.searchText)) {
-                    scope.selectedItem = null;
-                    return;
-                }
+                // if (scope.filteredItems.length && ~scope.filteredItems[0].indexOf(scope.searchText)) {
+                //     scope.selectedItem = null;
+                //     return;
+                // }
 
                 if (event.keyCode !== $mdConstant.KEY_CODE.TAB)  return;
-                if (scope.filteredItems.length !== 1)            return;
-                if (scope.searchText === scope.filteredItems[0]) return;
+                // if (scope.filteredItems.length !== 1)            return;
+                // if (scope.searchText === scope.filteredItems[0]) return;
 
                 ctrl.select(0);
             }

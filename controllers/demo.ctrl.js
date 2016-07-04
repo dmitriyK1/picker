@@ -13,19 +13,11 @@
         vm.isRequired = true;
 
         vm.notFoundDescriptor = 'Value not found';
-
-        // temp; replace vm.pickerValue
-        vm.selectedItem = 'Broccoli';
-
-        // temp; replace on vm.pickerData
+        vm.selectedItem      = 'Broccoli';
         vm.autocompleteItems = ['Broccoli', 'Cabbage', 'Carrot', 'Lettuce', 'Spinach', 'Cherry', 'Apple'];
         vm.onChange          = onChange;
 
         vm.selectedItems = [];
-
-        vm.notFound = {
-            message: 'item not found'
-        };
 
         function onChange() {
             console.log('search item changed');

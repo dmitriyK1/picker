@@ -45,10 +45,10 @@
             });
 
             function onClick() {
-                searchTextModel.assign(scope, undefined);
-                scope.$digest();
                 angular.element(document.querySelectorAll('.autocomplete-popover')).remove();
                 element.removeClass('valid-value');
+                searchTextModel.assign(scope, undefined);
+                scope.$digest();
             }
         }
 

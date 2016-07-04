@@ -5,8 +5,6 @@
 
 - add unit tests
 
-- сделать функцию фильтрации по любому фрагменту внутри слова
-
 --------------------------------------------------------------------------------
 
 http://www.bennadel.com/blog/2926-overriding-directive-definitions-in-angularjs.htm

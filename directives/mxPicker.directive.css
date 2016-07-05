@@ -1,82 +1,16 @@
-body {
-    padding-top: 5vw;
-}
-
-form {
-    margin: auto;
-}
-
-form,
-md-autocomplete {
-    width: 900px;
+.mx-picker-autocomplete--invalid input {
+    color: red !important;
 }
 
 md-autocomplete button md-icon {
     z-index: 100;
 }
 
-/* md-autocomplete.invalid-value input { */
-    /* color: red !important; */
-/* } */
-
 .autocomplete-search {
     cursor: pointer;
     position: absolute;
     right: 0;
     top: 0;
-}
-
-.md-autocomplete-suggestions a {
-    text-decoration: underline;
-}
-
-.test-input {
-    display: block;
-    width: 100%;
-    transition: background 0.3s ease-out;
-    padding: 5px;
-    margin-bottom: 0.5rem;
-    border: 1px gray solid;
-}
-
-.test-input:focus {
-    outline: 0;
-    border: 1px solid blue;
-    background: #EBEBEB;
-}
-
-.clear-autocomplete {
-    position: absolute;
-    top: 10% !important;
-    right: 20px !important;
-    visibility: hidden;
-    opacity: 0;
-    transition: visibility 0s, opacity 0.25s linear;
-}
-
-
-md-autocomplete.md-default-theme button.clear-autocomplete:after,
-md-autocomplete button.clear-autocomplete:after {
-    background: none;
-}
-
-.clear-autocomplete.visible {
-    visibility: visible;
-    opacity: 1;
-    cursor: pointer;
-}
-
-.clear-autocomplete i {
-    font-size: 20px;
-}
-
-.clear-autocomplete {
-    cursor: pointer;
-    -webkit-user-select: none;
-}
-
-.hidden {
-    display: none !important;
 }
 
 [md-highlight-text] .highlight {
@@ -104,37 +38,11 @@ md-autocomplete input:focus {
     /* color: transparent !important; */
 /* } */
 
-.autocomplete-popover {
-    position: absolute;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    user-select: none;
-    left: 15px;
-    top: 12px;
-    font-size: 14px;
-    transition: color 0.3s ease-in-out;
-}
 
-[md-floating-label] .autocomplete-popover {
-    left: 4px;
-    top: 8px;
-    font-size: 16px;
-    text-decoration: underline;
-    color: #608DA0;
-}
 
-.md-input-focused .autocomplete-popover {
-    display: none !important;
-}
-
-.autocomplete-popover:hover {
-    color: orange;
-    text-decoration: underline;
-    text-decoration-style: dashed;
-    -webkit-text-decoration-style: dashed;
-    cursor: pointer;
-}
-
+/* ================================================================================ */
+/* hints styles
+/* ================================================================================ */
 .hint {
     font-size: 12px;
     line-height: 14px;
@@ -167,7 +75,6 @@ md-autocomplete input:focus {
     bottom: 7px;
     opacity: 1;
 }
-
 /* ================================================================================ */
 /* styles to disable focus in readonly mode */
 /* ================================================================================ */
@@ -194,7 +101,68 @@ mx-picker-new md-autocomplete[readonly] md-input-container.md-input-has-value la
     color: transparent !important;
 }
 /* ================================================================================ */
-
-.mx-picker-autocomplete--invalid input {
-    color: red !important;
+/* clear autocomplete button styles */
+/* ================================================================================ */
+.clear-autocomplete {
+    position: absolute;
+    top: 10% !important;
+    right: 20px !important;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.25s linear;
 }
+
+
+md-autocomplete.md-default-theme button.clear-autocomplete:after,
+md-autocomplete button.clear-autocomplete:after {
+    background: none;
+}
+
+.clear-autocomplete.visible {
+    visibility: visible;
+    opacity: 1;
+    cursor: pointer;
+}
+
+.clear-autocomplete i {
+    font-size: 20px;
+}
+
+.clear-autocomplete {
+    cursor: pointer;
+    -webkit-user-select: none;
+}
+/* ================================================================================ */
+/* popover styles */
+/* ================================================================================ */
+.autocomplete-popover {
+    position: absolute;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    left: 15px;
+    top: 12px;
+    font-size: 14px;
+    transition: color 0.3s ease-in-out;
+}
+
+[md-floating-label] .autocomplete-popover {
+    left: 4px;
+    top: 8px;
+    font-size: 16px;
+    text-decoration: underline;
+    color: #608DA0;
+}
+
+.md-input-focused .autocomplete-popover {
+    display: none !important;
+}
+
+.autocomplete-popover:hover {
+    color: orange;
+    text-decoration: underline;
+    text-decoration-style: dashed;
+    -webkit-text-decoration-style: dashed;
+    cursor: pointer;
+}
+/* ================================================================================ */

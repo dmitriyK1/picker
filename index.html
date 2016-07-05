@@ -10,6 +10,19 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type='text/css'>
     <link rel="stylesheet" href="directives/mxPicker.directive.css" media="all">
     <style>
+      body {
+         padding-top: 5vw;
+      }
+
+      form {
+         margin: auto;
+      }
+
+      form,
+      md-autocomplete {
+         max-width: 900px;
+         min-width: 320px;
+      }
 
        pre {
           padding-left: 1rem;
@@ -20,13 +33,18 @@
        }
 
        md-checkbox {
-          width: 25%;
+          width: 320px;
        }
 
        md-checkbox span {
           -webkit-user-select: none;
           user-select: none;
        }
+
+      .hidden {
+         display: none !important;
+      }
+
 
     </style>
 </head>

@@ -4,7 +4,6 @@
         .module('app')
         .directive('mxClearPickerBtn', mxClearPickerBtn);
 
-
     function mxClearPickerBtn($parse, $compile) {
         var ddo = {
             restrict: 'A',
@@ -45,8 +44,6 @@
             });
 
             function onClick() {
-                angular.element(document.querySelectorAll('.autocomplete-popover')).remove();
-                element.removeClass('valid-value');
                 searchTextModel.assign(scope, undefined);
                 scope.$digest();
             }

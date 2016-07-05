@@ -123,6 +123,7 @@ md-autocomplete button.clear-autocomplete:after {
 .clear-autocomplete {
     cursor: pointer;
     -webkit-user-select: none;
+    user-select: none;
 }
 /* ================================================================================ */
 /* popover styles */
@@ -151,7 +152,7 @@ md-autocomplete button.clear-autocomplete:after {
 }
 
 .autocomplete-popover:hover {
-    color: orange;
+    color: #fc8529;
     text-decoration: underline;
     text-decoration-style: dashed;
     -webkit-text-decoration-style: dashed;

@@ -1,7 +1,6 @@
-.mx-picker-autocomplete--invalid input {
-    color: red !important;
-}
-
+/* ================================================================================ */
+/* autocomplete styles
+/* ================================================================================ */
 md-autocomplete button md-icon {
     z-index: 100;
 }
@@ -26,20 +25,13 @@ md-autocomplete input:focus {
     color: rgba(0,0,0,0.87) !important;
 }
 
-/* md-autocomplete md-input-container .md-input { */
-    /* color: transparent; */
-/* } */
+.mx-picker-autocomplete--invalid input {
+    color: red !important;
+}
 
-/* md-autocomplete.error input { */
-    /* color: red !important; */
-/* } */
-
-/* md-autocomplete.valid-value input { */
-    /* color: transparent !important; */
-/* } */
-
-
-
+md-autocomplete.valid-value input {
+    color: transparent !important;
+}
 /* ================================================================================ */
 /* hints styles
 /* ================================================================================ */

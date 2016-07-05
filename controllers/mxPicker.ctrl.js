@@ -18,7 +18,16 @@
         vm.selectedItemsToValue = selectedItemsToValue;
         vm.setAutoCompleteValue = setAutoCompleteValue;
         vm.dblClick             = onDblClick;
+        vm.onFocus              = onFocus;
         vm.notFoundMessage      = 'No matching states were found.';
+
+        function onFocus() {
+            var input = $element.find('input');
+
+            if (!input.val().trim()) {
+                input.val('');
+            }
+        }
 
         function onDblClick() {
             var input = $element.find('input')[0];

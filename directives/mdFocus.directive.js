@@ -3,7 +3,7 @@
 
     angular
         .module('app')
-        .directive('mdFocus', [ "$mdUtil", "$timeout", function($mdUtil, $timeout) {
+        .directive('mdFocus', [ "$mdUtil", "$timeout", "$parse", function($mdUtil, $timeout, $parse) {
             return {
                 require: "^mdAutocomplete",
                 link: function($scope, $element, $attributes, $mdAutocompleteCtrl) {
@@ -13,10 +13,8 @@
                         var nativeFocus = $mdAutocompleteCtrl.focus;
 
                         $mdAutocompleteCtrl.focus = function() {
-
-                            if (!input.val().trim()) {
-                                input.val('');
-                            }
+                            var fn = $parse($attributes['mdFocus']);
+                            fn();
 
                             nativeFocus.call($mdAutocompleteCtrl);
 

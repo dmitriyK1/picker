@@ -1,6 +1,6 @@
 <md-autocomplete
-        md-focus
         mx-clear-picker-btn
+        md-focus                  = "vm.onFocus()"
         md-item-text              = "vm.getTitle(item)"
         md-items                  = "item in vm.autoCompleteSearch()"
         md-search-text            = "vm.autoCompleteSearchText"

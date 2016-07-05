@@ -147,7 +147,7 @@ md-autocomplete button.clear-autocomplete:after {
 }
 
 .md-input-focused .autocomplete-popover {
-    display: none !important;
+
 }
 
 .autocomplete-popover:hover {

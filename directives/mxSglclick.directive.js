@@ -5,6 +5,8 @@
         .module('app')
         .directive('mxSglclick', mxSglclick)
 
+    mxSglclick.$inject = ['$parse'];
+
     function mxSglclick($parse) {
         return {
             restrict: 'A',

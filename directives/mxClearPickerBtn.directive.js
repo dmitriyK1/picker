@@ -4,6 +4,8 @@
         .module('app')
         .directive('mxClearPickerBtn', mxClearPickerBtn);
 
+    mxClearPickerBtn.$inject = ['$parse', '$compile'];
+
     function mxClearPickerBtn($parse, $compile) {
         var ddo = {
             restrict: 'A',

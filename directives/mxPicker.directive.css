@@ -1,9 +1,6 @@
 /* ================================================================================ */
 /* autocomplete styles
 /* ================================================================================ */
-md-autocomplete button md-icon {
-    z-index: 100;
-}
 
 .autocomplete-search {
     cursor: pointer;
@@ -99,6 +96,7 @@ mx-picker-new md-autocomplete[readonly] md-input-container.md-input-has-value la
     position: absolute;
     top: 10% !important;
     right: 20px !important;
+    z-index: 100;
     visibility: hidden;
     opacity: 0;
     transition: visibility 0s, opacity 0.25s linear;

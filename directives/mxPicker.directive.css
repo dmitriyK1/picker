@@ -3,10 +3,11 @@
 /* ================================================================================ */
 
 .autocomplete-search {
-    cursor: pointer;
     position: absolute;
     right: 0;
     top: 0;
+    display: none;
+    cursor: pointer;
 }
 
 md-autocomplete input {
@@ -156,3 +157,7 @@ md-autocomplete button.clear-autocomplete:after {
     cursor: pointer;
 }
 /* ================================================================================ */
+
+.mx-picker-autocomplete--browsable .autocomplete-search {
+	display: block;
+}

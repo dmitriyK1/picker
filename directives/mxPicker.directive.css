@@ -95,7 +95,7 @@ mx-picker-new md-autocomplete[readonly] md-input-container.md-input-has-value la
 .clear-autocomplete {
     position: absolute;
     top: 10% !important;
-    right: 20px !important;
+    right: 0;
     z-index: 100;
     visibility: hidden;
     opacity: 0;
@@ -122,6 +122,10 @@ md-autocomplete button.clear-autocomplete:after {
     cursor: pointer;
     -webkit-user-select: none;
     user-select: none;
+}
+
+.clear-autocomplete--offset {
+    right: 20px !important;
 }
 /* ================================================================================ */
 /* popover styles */

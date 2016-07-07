@@ -9,11 +9,6 @@
     top: 0;
 }
 
-[md-highlight-text] .highlight {
-    color: red !important;
-    font-weight: bold;
-}
-
 md-autocomplete input {
     transition: color .2s ease-in-out;
 }

@@ -94,7 +94,7 @@ mx-picker-new md-autocomplete[readonly] md-input-container.md-input-has-value la
     z-index: 100;
     visibility: hidden;
     opacity: 0;
-	transition: visibility 0s, opacity 0.25s linear, right 0.2s ease-in-out;
+	transition: visibility 0s, opacity 0.25s linear, right 0.2s ease-out;
 }
 
 

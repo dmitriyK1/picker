@@ -47,10 +47,6 @@ mx-picker-new md-autocomplete input:focus {
     border-bottom-color: #fc8529 !important;
 }
 
-mx-picker-new md-autocomplete input {
-    color: transparent !important;
-}
-
 /* ================================================================================ */
 /* hints styles
 /* ================================================================================ */

@@ -29,6 +29,16 @@ mx-picker-new .md-input-focused md-icon {
 
 mx-picker-new .mx-picker-autocomplete--invalid input {
     /* color: $mx_palette_Rose_500 !important; */
+    /* color: #fb4848 !important; */
+    color: rgba(0,0,0,0.87) !important;
+}
+
+mx-picker-new .mx-picker-autocomplete--invalid input.ng-touched,
+mx-picker-new .mx-picker-autocomplete--invalid input.ng-touched:focus {
+    border-bottom-color: #fb4848 !important;
+}
+
+mx-picker-new .mx-picker-autocomplete--invalid label {
     color: #fb4848 !important;
 }
 

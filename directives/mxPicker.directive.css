@@ -10,21 +10,37 @@
     cursor: pointer;
 }
 
-md-autocomplete input {
+mx-picker-new md-autocomplete input {
     transition: color .2s ease-in-out;
 }
 
-md-autocomplete input:focus {
+
+mx-picker-new .md-input-focused label {
+    color: #fc8529 !important;
+}
+
+mx-picker-new md-icon {
+    transition: 0.2s color ease-in-out;
+}
+
+mx-picker-new .md-input-focused md-icon {
+    color: rgb(48, 70, 81) !important;
+}
+
+mx-picker-new .mx-picker-autocomplete--invalid input {
+    /* color: $mx_palette_Rose_500 !important; */
+    color: #fb4848 !important;
+}
+
+mx-picker-new md-autocomplete input:focus {
     color: rgba(0,0,0,0.87) !important;
+    border-bottom-color: #fc8529 !important;
 }
 
-.mx-picker-autocomplete--invalid input {
-    color: red !important;
-}
-
-md-autocomplete.valid-value input {
+mx-picker-new md-autocomplete.valid-value input {
     color: transparent !important;
 }
+
 /* ================================================================================ */
 /* hints styles
 /* ================================================================================ */
@@ -32,7 +48,7 @@ md-autocomplete.valid-value input {
     font-size: 12px;
     line-height: 14px;
     color: grey;
-    transition: all 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);
+    transition: all 0.2s cubic-bezier(0.55, 0, 0.55, 0.2);
 }
 
 .hint-info {
@@ -40,7 +56,6 @@ md-autocomplete.valid-value input {
 }
 
 .ng-invalid .hint {
-    color: red;
     margin-top: 3px;
 }
 
@@ -91,9 +106,18 @@ mx-picker-new md-autocomplete[readonly] md-input-container.md-input-has-value la
     z-index: 100;
     visibility: hidden;
     opacity: 0;
-	transition: visibility 0s, opacity 0.25s linear, right 0.2s ease-out;
+    transition: visibility 0s, opacity 0.25s linear, right 0.2s ease-out;
 }
 
+.clear-autocomplete md-icon {
+    transform: translate3d(-50%, -50%, 0) scale(0.65);
+    transition:opacity 0.2s linear;
+    opacity: 0.4;
+}
+
+.clear-autocomplete md-icon:hover {
+    opacity: 1;
+}
 
 md-autocomplete.md-default-theme button.clear-autocomplete:after,
 md-autocomplete button.clear-autocomplete:after {
@@ -130,7 +154,7 @@ md-autocomplete button.clear-autocomplete:after {
     left: 15px;
     top: 12px;
     font-size: 14px;
-    transition: color 0.3s ease-in-out;
+    transition: color 0.2s ease-in-out;
 }
 
 [md-floating-label] .autocomplete-popover {
@@ -138,7 +162,8 @@ md-autocomplete button.clear-autocomplete:after {
     top: 8px;
     font-size: 16px;
     text-decoration: underline;
-    color: #608DA0;
+    /* color: $mx_palette_Accent_500; */
+    color: #fc8529;
 }
 
 .md-input-focused .autocomplete-popover {
@@ -146,7 +171,7 @@ md-autocomplete button.clear-autocomplete:after {
 }
 
 .autocomplete-popover:hover {
-    color: #fc8529;
+    color: #0399d7;
     text-decoration: underline;
     text-decoration-style: dashed;
     -webkit-text-decoration-style: dashed;

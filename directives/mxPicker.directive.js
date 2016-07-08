@@ -10,9 +10,9 @@
 
         angular.extend(directive.bindToController, mx.components.BasePickerProperties);
 
-        directive.bindToController.disabled     = '=ngDisabled';
-        directive.bindToController.required     = '=';
-        directive.bindToController.hint         = '@';
+        directive.bindToController.disabled = '=ngDisabled';
+        directive.bindToController.required = '=';
+        directive.bindToController.hint = '@';
         directive.bindToController.loadOnTyping = '@';
 
         var initialLink = directive.link;
@@ -21,36 +21,35 @@
             initialLink.apply(directive, arguments);
 
 
+
+
             $timeout(function() {
 
-                element.find('input').on('select', function() {
+                var input = element.find('input');
+
+                input.on('select', function() {
                     scope.selecting = true;
                     scope.$digest();
-                    console.log('select: ', scope.selecting);
-                });
-
-                element.find('input').on('focusin', function() {
+                }).on('focusin', function() {
                     scope.selecting = true;
                     scope.$digest();
-                    console.log('focusin: ', scope.selecting);
-                });
+                }).on('mousedown keydown', function(e) {
+                    if (e.keyCode === 65 && e.ctrlKey) return;
 
-                element.find('input').on('mousedown keydown', function() {
                     $timeout(function() {
                         scope.selecting = false;
                         scope.$digest();
-                        console.log('mousedown: ', scope.selecting);
                     });
-                });
-
-                element.find('input').on('focusout', function() {
+                }).on('focusout', function() {
                     scope.selecting = false;
                     scope.$digest();
-                    console.log('focusout: ', scope.selecting);
                 });
 
             }, 10);
 
+            scope.$on('$destroy', function cleanUp() {
+                input.off();
+            });
 
         };
 

@@ -30,6 +30,7 @@
 		ng-if = "vm.selectedItem && vm.navigateItem"
 		mx-sglclick = "vm.navigateItem(vm.autoCompleteSearchText)"
 		ng-dblclick = "vm.dblClick()"
+		ng-class = "{ 'autocomplete-popover--selected' : selecting }"
 	>
 		{{ vm.autoCompleteSearchText }}
 	</div>

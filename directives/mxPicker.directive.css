@@ -37,7 +37,7 @@ mx-picker-new md-autocomplete input:focus {
     border-bottom-color: #fc8529 !important;
 }
 
-mx-picker-new md-autocomplete.valid-value input {
+mx-picker-new md-autocomplete input {
     color: transparent !important;
 }
 
@@ -168,6 +168,11 @@ md-autocomplete button.clear-autocomplete:after {
 
 .md-input-focused .autocomplete-popover {
 
+}
+
+.autocomplete-popover--selected {
+    color: #fff !important;
+    transition: none;d
 }
 
 .autocomplete-popover:hover {

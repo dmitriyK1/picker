@@ -5,7 +5,7 @@
         .module('app')
         .directive('mxPickerNew', mxPickerNew);
 
-    function mxPickerNew() {
+    function mxPickerNew($timeout) {
         var directive = new mx.components.FormControlBase(mx.components.MxPickerCtrl, 'directives/mxPicker.directive.html');
 
         angular.extend(directive.bindToController, mx.components.BasePickerProperties);
@@ -14,6 +14,37 @@
         directive.bindToController.required     = '=';
         directive.bindToController.hint         = '@';
         directive.bindToController.loadOnTyping = '@';
+
+        var initialLink = directive.link;
+
+        directive.link = function link(scope, element, attrs, ctrls) {
+            initialLink.apply(directive, arguments);
+
+
+            $timeout(function() {
+
+                element.find('input').on('select', function() {
+                    scope.selecting = true;
+                    scope.$digest();
+                    console.log(scope.selecting);
+                });
+
+                element.find('input').on('click', function() {
+                    scope.selecting = false;
+                    scope.$digest();
+                    console.log(scope.selecting);
+                });
+
+                element.find('input').on('focusout', function() {
+                    scope.selecting = false;
+                    scope.$digest();
+                    console.log(scope.selecting);
+                });
+
+            }, 10);
+
+
+        };
 
         return directive;
     }

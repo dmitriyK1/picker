@@ -26,25 +26,27 @@
                 element.find('input').on('select', function() {
                     scope.selecting = true;
                     scope.$digest();
-                    console.log(scope.selecting);
+                    console.log('select: ', scope.selecting);
                 });
 
                 element.find('input').on('focusin', function() {
                     scope.selecting = true;
                     scope.$digest();
-                    console.log(scope.selecting);
+                    console.log('focusin: ', scope.selecting);
                 });
 
-                element.find('input').on('mousedown', function() {
-                    scope.selecting = false;
-                    scope.$digest();
-                    console.log(scope.selecting);
+                element.find('input').on('mousedown keydown', function() {
+                    $timeout(function() {
+                        scope.selecting = false;
+                        scope.$digest();
+                        console.log('mousedown: ', scope.selecting);
+                    });
                 });
 
                 element.find('input').on('focusout', function() {
                     scope.selecting = false;
                     scope.$digest();
-                    console.log(scope.selecting);
+                    console.log('focusout: ', scope.selecting);
                 });
 
             }, 10);

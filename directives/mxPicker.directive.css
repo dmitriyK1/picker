@@ -154,7 +154,6 @@ md-autocomplete button.clear-autocomplete:after {
     left: 15px;
     top: 12px;
     font-size: 14px;
-    transition: color 0.2s ease-in-out;
 }
 
 [md-floating-label] .autocomplete-popover {
@@ -167,12 +166,11 @@ md-autocomplete button.clear-autocomplete:after {
 }
 
 .md-input-focused .autocomplete-popover {
-
+    color: rgba(0,0,0,0.37);
 }
 
 .autocomplete-popover--selected {
     color: #fff !important;
-    transition: none;d
 }
 
 .autocomplete-popover:hover {
@@ -185,5 +183,5 @@ md-autocomplete button.clear-autocomplete:after {
 /* ================================================================================ */
 
 .mx-picker-autocomplete--browsable .autocomplete-search {
-	display: block;
+    display: block;
 }

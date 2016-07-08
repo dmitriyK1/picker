@@ -29,7 +29,13 @@
                     console.log(scope.selecting);
                 });
 
-                element.find('input').on('click', function() {
+                element.find('input').on('focusin', function() {
+                    scope.selecting = true;
+                    scope.$digest();
+                    console.log(scope.selecting);
+                });
+
+                element.find('input').on('mousedown', function() {
                     scope.selecting = false;
                     scope.$digest();
                     console.log(scope.selecting);

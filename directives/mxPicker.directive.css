@@ -36,10 +36,6 @@ md-autocomplete.valid-value input {
 }
 
 .hint-info {
-    position: absolute;
-    left: 2px;
-    right: auto;
-    bottom: 7px;
     color: gray !important;
 }
 

@@ -102,7 +102,7 @@ mx-picker-new md-autocomplete[readonly] md-input-container.md-input-has-value la
 .clear-autocomplete {
     position: absolute;
     top: 10% !important;
-    right: 0;
+    right: -10px !important;
     z-index: 100;
     visibility: hidden;
     opacity: 0;

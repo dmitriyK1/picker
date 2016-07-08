@@ -1,10 +1,10 @@
 - disabled\readonly визуально не должно отличаться; на readonly можно попасть с помощью tab
 
-- делать label инпута красной только после первой фокусировки (touched)
+- refactor validation into link function ( instead of custom directives - mdFocus mdBlur )
 
 - objectPicker сделать чтобы заработал ( максимально перенести атрибуты из шаблона multipicker'a )
 
-- add unit tests
+- run protractor tests
 
 --------------------------------------------------------------------------------
 

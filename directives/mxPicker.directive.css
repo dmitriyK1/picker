@@ -38,7 +38,7 @@ mx-picker-new .mx-picker-autocomplete--invalid input.ng-touched:focus {
     border-bottom-color: #fb4848 !important;
 }
 
-mx-picker-new .mx-picker-autocomplete--invalid label {
+mx-picker-new .mx-picker-autocomplete--invalid.mx-picker-autocomplete--touched label {
     color: #fb4848 !important;
 }
 

@@ -23,19 +23,25 @@
         function link(scope, element, attrs, ctrl) {
             originalLink.apply(this, arguments);
 
-            element
-                .on('focusin', function onFocusIn() {
-                    var input = element.find('input');
-
-                    element.addClass('mx-picker-autocomplete--touched');
-
-                    if (!input.val().trim()) {
-                        input.val('');
-                    }
-            });
+            element.on('keydown', onKeyDown);
+            element.on('focusin', onFocusOut);
 
             element.on('$destroy', cleanUp);
             scope.$on('$destroy', cleanUp);
+
+            function onKeyDown() {
+                element
+                    .addClass('mx-picker-autocomplete--touched')
+                    .off('keydown', onKeyDown);
+            }
+
+            function onFocusOut() {
+                var input = element.find('input');
+
+                if (!input.val().trim()) {
+                    input.val('');
+                }
+            }
 
             function cleanUp() {
                 element.off();

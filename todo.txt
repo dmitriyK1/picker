@@ -1,7 +1,8 @@
 
-* disabled\readonly визуально не должно отличаться; на readonly можно попасть с помощью tab
+- transfer changes to PandoraComponents
 
 - objectPicker сделать чтобы заработал ( максимально перенести атрибуты из шаблона multipicker'a )
+
 
 # run protractor tests
 

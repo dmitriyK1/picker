@@ -16,12 +16,12 @@
 	md-select-on-match = "true"
 	md-selected-item = "vm.selectedItem"
 	md-selected-item-change = "vm.onItemChange(item)"
-	ng-disabled = "vm.disabled || vm.readOnly"
-	ng-readonly = "vm.readOnly"
+	ng-disabled = "vm.disabled"
 	ng-required = "vm.required"
 	ng-class = "{ 'mx-picker-autocomplete--invalid': !vm.selectedItem, 'mx-picker-autocomplete--browsable': vm.browseLookup }"
 	spellcheck = "false"
 >
+<!-- ng&#45;readonly = "vm.readOnly" -->
 
 	<div
 		class = "autocomplete-popover"
@@ -41,12 +41,12 @@
 
 	<div
 		class = "hint hint-info"
-		ng-hide = "vm.readOnly"
+		ng-hide = "vm.readOnly || vm.disabled"
 		ng-bind = "::vm.hint"
 	>
 	</div>
 
-		<div ng-show="vm.required" ng-hide="vm.readOnly">
+		<div ng-show="vm.required" ng-hide="vm.readOnly || vm.disabled">
 			<mx-control-errors options="{validationStatus:vm.validationStatus}"></mx-control-errors>
 		</div>
 

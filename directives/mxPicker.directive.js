@@ -5,7 +5,7 @@
         .module('app')
         .directive('mxPickerNew', mxPickerNew);
 
-    function mxPickerNew() {
+    function mxPickerNew($mdConstant) {
         var directive = new mx.components.FormControlBase(mx.components.MxPickerCtrl, 'directives/mxPicker.directive.html');
 
         angular.extend(directive.bindToController, mx.components.BasePickerProperties);
@@ -29,10 +29,32 @@
             element.on('$destroy', cleanUp);
             scope.$on('$destroy', cleanUp);
 
-            function onKeyDown() {
+            function onKeyDown(e) {
+                var isCtrlPressed = e.ctrlKey;
+                var isShiftPressed = e.shiftKey;
+                var isXPressed = e.keyCode === 88;
+                var isVPressed = e.keyCode === 86;
+                var isTabPressed = e.keyCode === $mdConstant.KEY_CODE.TAB;
+                var isDeletePressed = e.keyCode === $mdConstant.KEY_CODE.DELETE;
+                var isBackspacePressed = e.keyCode === $mdConstant.KEY_CODE.BACKSPACE;
+                var isArrowKeyPressed = (e.keyCode !== $mdConstant.KEY_CODE.UP_ARROW)
+                    || (e.keyCode !== $mdConstant.KEY_CODE.DOWN_ARROW)
+                    || (e.keyCode !== $mdConstant.KEY_CODE.LEFT_ARROW)
+                    || (e.keyCode !== $mdConstant.KEY_CODE.RIGHT_ARROW);
+
+                if (scope.vm.readOnly) {
+                    if (isDeletePressed || isBackspacePressed || isXPressed || isVPressed) {
+                        e.preventDefault();
+                    }
+
+                    if (!isCtrlPressed && !isTabPressed && !isArrowKeyPressed) {
+                        e.preventDefault();
+                    }
+
+                }
+
                 element
-                    .addClass('mx-picker-autocomplete--touched')
-                    .off('keydown', onKeyDown);
+                    .addClass('mx-picker-autocomplete--touched');
             }
 
             function onFocusOut() {
@@ -46,7 +68,6 @@
             function cleanUp() {
                 element.off();
             }
-
         }
 
     }

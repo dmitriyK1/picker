@@ -80,27 +80,37 @@ mx-picker-new md-autocomplete input:focus {
 /* ================================================================================ */
 /* styles to disable focus in readonly mode */
 /* ================================================================================ */
-mx-picker-new md-autocomplete[readonly] md-input-container label {
-    -webkit-transform: translate3d(0, 28px, 0) scale(1) !important;
-    transform: translate3d(0, 28px, 0) scale(1) !important;
-    transition: -webkit-transform cubic-bezier(0.25, 0.8, 0.25, 1) 0.4s, width cubic-bezier(0.25, 0.8, 0.25, 1) 0.4s !important;
-    transition: transform cubic-bezier(0.25, 0.8, 0.25, 1) 0.4s, width cubic-bezier(0.25, 0.8, 0.25, 1) 0.4s !important;
-    width: auto !important;
-}
-
+/* mx-picker-new md-autocomplete[readonly] md-input-container label { */
+/*     -webkit-transform: translate3d(0, 28px, 0) scale(1) !important; */
+/*     transform: translate3d(0, 28px, 0) scale(1) !important; */
+/*     transition: -webkit-transform cubic-bezier(0.25, 0.8, 0.25, 1) 0.4s, width cubic-bezier(0.25, 0.8, 0.25, 1) 0.4s !important; */
+/*     transition: transform cubic-bezier(0.25, 0.8, 0.25, 1) 0.4s, width cubic-bezier(0.25, 0.8, 0.25, 1) 0.4s !important; */
+/*     width: auto !important; */
+/* } */
+/*  */
+/* mx-picker-new md-autocomplete[readonly] md-input-container input { */
+/*     border-bottom-width: 1px !important; */
+/*     border-color: rgba(0,0,0,0.12) !important; */
+/* } */
+/*  */
+/* mx-picker-new md-autocomplete[readonly] md-input-container label, */
+/* mx-picker-new md-autocomplete[readonly] md-input-container label:after { */
+/*     color: gray !important; */
+/* } */
+/*  */
+/* mx-picker-new md-autocomplete[readonly] md-input-container.md-input-has-value label, */
+/* mx-picker-new md-autocomplete[readonly] md-input-container.md-input-has-value label:after { */
+/*     color: transparent !important; */
+/* } */
 mx-picker-new md-autocomplete[readonly] md-input-container input {
-    border-bottom-width: 1px !important;
-    border-color: rgba(0,0,0,0.12) !important;
-}
+    background-position: bottom -1px left 0;
+    background-size: 4px 1px;
+    background-repeat: repeat-x;
 
-mx-picker-new md-autocomplete[readonly] md-input-container label,
-mx-picker-new md-autocomplete[readonly] md-input-container label:after {
-    color: gray !important;
-}
-
-mx-picker-new md-autocomplete[readonly] md-input-container.md-input-has-value label,
-mx-picker-new md-autocomplete[readonly] md-input-container.md-input-has-value label:after {
-    color: transparent !important;
+    border-bottom-color: transparent;
+    color: rgba(0,0,0,0.38);
+    background-image: linear-gradient(to right, rgba(0,0,0,0.38) 0%, rgba(0,0,0,0.38) 33%, transparent 0%);
+    background-image: -ms-linear-gradient(left, transparent 0%, rgba(0,0,0,0.38) 100%);
 }
 /* ================================================================================ */
 /* clear autocomplete button styles */

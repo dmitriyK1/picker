@@ -33,12 +33,12 @@ mx-picker-new .mx-picker-autocomplete--invalid input {
     color: rgba(0,0,0,0.87) !important;
 }
 
-mx-picker-new .mx-picker-autocomplete--invalid input.ng-touched,
-mx-picker-new .mx-picker-autocomplete--invalid input.ng-touched:focus {
+mx-picker-new.mx-picker-autocomplete--touched .mx-picker-autocomplete--invalid input,
+mx-picker-new.mx-picker-autocomplete--touched .mx-picker-autocomplete--invalid input:focus {
     border-bottom-color: #fb4848 !important;
 }
 
-mx-picker-new .mx-picker-autocomplete--invalid.mx-picker-autocomplete--touched label {
+mx-picker-new.mx-picker-autocomplete--touched .mx-picker-autocomplete--invalid label {
     color: #fb4848 !important;
 }
 

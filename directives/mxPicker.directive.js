@@ -15,7 +15,34 @@
         directive.bindToController.hint = '@';
         directive.bindToController.loadOnTyping = '@';
 
+        var originalLink = directive.link;
+        directive.link = link;
+
         return directive;
+
+        function link(scope, element, attrs, ctrl) {
+            originalLink.apply(this, arguments);
+
+            element
+                .on('focusin', function onFocusIn() {
+                    var input = element.find('input');
+
+                    element.addClass('mx-picker-autocomplete--touched');
+
+                    if (!input.val().trim()) {
+                        input.val('');
+                    }
+            });
+
+            element.on('$destroy', cleanUp);
+            scope.$on('$destroy', cleanUp);
+
+            function cleanUp() {
+                element.off();
+            }
+
+        }
+
     }
 
 })(window);

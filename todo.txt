@@ -1,6 +1,5 @@
-- disabled\readonly визуально не должно отличаться; на readonly можно попасть с помощью tab
 
-- refactor validation into link function ( instead of custom directives - mdFocus mdBlur )
+* disabled\readonly визуально не должно отличаться; на readonly можно попасть с помощью tab
 
 - objectPicker сделать чтобы заработал ( максимально перенести атрибуты из шаблона multipicker'a )
 

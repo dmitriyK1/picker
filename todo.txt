@@ -1,5 +1,5 @@
 
-- transfer changes to PandoraComponents
+* transfer changes to PandoraComponents
 
 - objectPicker сделать чтобы заработал ( максимально перенести атрибуты из шаблона multipicker'a )
 

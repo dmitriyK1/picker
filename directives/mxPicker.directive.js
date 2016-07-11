@@ -37,20 +37,21 @@
                 var isTabPressed = e.keyCode === $mdConstant.KEY_CODE.TAB;
                 var isDeletePressed = e.keyCode === $mdConstant.KEY_CODE.DELETE;
                 var isBackspacePressed = e.keyCode === $mdConstant.KEY_CODE.BACKSPACE;
-                var isArrowKeyPressed = (e.keyCode !== $mdConstant.KEY_CODE.UP_ARROW)
-                    || (e.keyCode !== $mdConstant.KEY_CODE.DOWN_ARROW)
-                    || (e.keyCode !== $mdConstant.KEY_CODE.LEFT_ARROW)
-                    || (e.keyCode !== $mdConstant.KEY_CODE.RIGHT_ARROW);
+                var isMovementKeyPressed = e.keyCode === $mdConstant.KEY_CODE.UP_ARROW
+                    || e.keyCode === $mdConstant.KEY_CODE.DOWN_ARROW
+                    || e.keyCode === $mdConstant.KEY_CODE.LEFT_ARROW
+                    || e.keyCode === $mdConstant.KEY_CODE.RIGHT_ARROW
+                    || e.keyCode === $mdConstant.KEY_CODE.HOME
+                    || e.keyCode === $mdConstant.KEY_CODE.END;
 
                 if (scope.vm.readOnly) {
                     if (isDeletePressed || isBackspacePressed || isXPressed || isVPressed) {
                         e.preventDefault();
                     }
 
-                    if (!isCtrlPressed && !isTabPressed && !isArrowKeyPressed) {
+                    if (!isCtrlPressed && !isTabPressed && !isMovementKeyPressed) {
                         e.preventDefault();
                     }
-
                 }
 
                 element

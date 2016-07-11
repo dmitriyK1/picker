@@ -1,8 +1,7 @@
 
-* transfer changes to PandoraComponents
-
 - objectPicker сделать чтобы заработал ( максимально перенести атрибуты из шаблона multipicker'a )
 
+# baseController - убрать очистку по focus
 
 # run protractor tests
 

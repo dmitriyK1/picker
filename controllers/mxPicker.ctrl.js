@@ -18,7 +18,6 @@
         vm.selectedItemsToValue = selectedItemsToValue;
         vm.setAutoCompleteValue = setAutoCompleteValue;
         vm.dblClick             = onDblClick;
-        vm.notFoundMessage      = 'No matching states were found.';
 
         function onDblClick() {
             var input = $element.find('input')[0];
@@ -28,7 +27,7 @@
 
         function onItemChange(item) {
             if (vm.onChange) {
-                vm.onChange();
+                vm.onChange(item);
             }
 
             vm.autoCompleteSelectedItemChange(item);

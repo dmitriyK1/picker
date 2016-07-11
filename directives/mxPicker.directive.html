@@ -18,10 +18,9 @@
 	md-selected-item-change = "vm.onItemChange(item)"
 	ng-disabled = "vm.disabled"
 	ng-required = "vm.required"
-	ng-class = "{ 'mx-picker-autocomplete--invalid': !vm.selectedItem, 'mx-picker-autocomplete--browsable': vm.browseLookup }"
+	ng-class = "{ 'mx-picker-autocomplete--invalid': !vm.selectedItem, 'mx-picker-autocomplete--browsable': vm.browseLookup, 'mx-picker-autocomplete--readonly': vm.readOnly }"
 	spellcheck = "false"
 >
-<!-- ng&#45;readonly = "vm.readOnly" -->
 
 	<div
 		class = "autocomplete-popover"
